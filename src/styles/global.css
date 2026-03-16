@@ -1,0 +1,178 @@
+/* ============================================
+   TAYSEER LAZ — GLOBAL STYLES
+   Branding: #fbf5ea (cream) / #8c3839 (burgundy)
+   ============================================ */
+
+/* Tan Grandeur */
+@font-face {
+  font-family: 'Tan Grandeur';
+  src: url('/fonts/TAN Grandeur/TANGRANDEUR.otf') format('opentype'),
+       url('/fonts/TAN Grandeur/TANGRANDEUR.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Brand Colors */
+  --cream: #fbf5ea;
+  --burgundy: #8c3839;
+  --burgundy-dark: #6b2a2b;
+  --burgundy-deep: #3d1a1b;
+  --burgundy-light: #b85456;
+  --orange-warm: #c45a2d;
+  --orange-glow: #e8734a;
+
+  /* Surfaces */
+  --bg-dark: #0e0b0b;
+  --bg-card: #1a1414;
+  --bg-card-hover: #221a1a;
+  --border: rgba(140, 56, 57, 0.15);
+  --border-light: rgba(251, 245, 234, 0.08);
+
+  /* Text */
+  --text-primary: #fbf5ea;
+  --text-dim: rgba(251, 245, 234, 0.5);
+  --text-muted: rgba(251, 245, 234, 0.3);
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-name: 'Tan Grandeur', 'Playfair Display', serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-accent: 'Inter', sans-serif;
+
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ===== NAME FONT (Tan Grandeur) ===== */
+.name-styled {
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar { display: none; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; text-decoration: none; cursor: none; }
+button { cursor: none; border: none; background: none; font-family: inherit; color: inherit; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+::selection {
+  background: var(--burgundy);
+  color: var(--cream);
+}
+
+/* ===== MUSIC PLAYER POSITION ===== */
+.hero-player-wrap {
+  position: absolute;
+  top: 5.5rem;
+  left: 3rem;
+  z-index: 3;
+  transform: scale(0.65);
+  transform-origin: top left;
+}
+
+/* ===== CURSOR ===== */
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--cream);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s var(--ease-out-expo), height 0.3s var(--ease-out-expo), background 0.3s ease;
+  mix-blend-mode: difference;
+}
+
+.cursor-follower {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(251, 245, 234, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo), border-color 0.3s ease;
+}
+
+body.cursor-hover .cursor {
+  width: 60px;
+  height: 60px;
+  background: var(--burgundy);
+  mix-blend-mode: normal;
+  opacity: 0.25;
+}
+
+body.cursor-hover .cursor-follower {
+  width: 80px;
+  height: 80px;
+  border-color: var(--burgundy-light);
+}
+
+/* ===== NOISE OVERLAY ===== */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ===== SCROLL PROGRESS ===== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--burgundy), var(--orange-warm), var(--burgundy-light));
+  z-index: 9999;
+}
+
+/* ===== CANVAS ===== */
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* ===== RESPONSIVE CURSOR ===== */
+@media (max-width: 768px) {
+  .cursor, .cursor-follower { display: none; }
+  body, a, button { cursor: auto; }
+  a, button { cursor: pointer; }
+}
