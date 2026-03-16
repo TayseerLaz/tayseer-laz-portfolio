@@ -18,19 +18,19 @@ export default function Hero() {
       const tl = gsap.timeline({ delay: 0.2 })
 
       tl.from('.hero-title-line', {
-        yPercent: 120, rotateX: -40, duration: 0.6, ease: 'expo.out', stagger: 0.06
+        yPercent: 120, rotateX: -40, duration: 0.4, ease: 'expo.out', stagger: 0.04
       })
       .from('.hero-portrait', {
-        opacity: 0, scale: 0.9, duration: 0.7, ease: 'expo.out'
-      }, '-=0.4')
+        opacity: 0, scale: 0.9, duration: 0.4, ease: 'expo.out'
+      }, '-=0.3')
       .from('.hero-right', {
-        opacity: 0, x: 40, duration: 0.45, ease: 'expo.out'
-      }, '-=0.35')
+        opacity: 0, x: 40, duration: 0.25, ease: 'expo.out'
+      }, '-=0.3')
       .from('.music-player', {
-        opacity: 0, y: 30, duration: 0.45, ease: 'expo.out'
+        opacity: 0, y: 30, duration: 0.25, ease: 'expo.out'
       }, '-=0.25')
       .from('.horror-svg', {
-        opacity: 0, scale: 0.8, duration: 1.2, ease: 'power1.inOut', stagger: 0.15
+        opacity: 0, scale: 0.8, duration: 0.2, ease: 'power1.inOut', stagger: 0
       }, '-=0.3')
       .from('.hero-service', {
         opacity: 0, y: 30, duration: 0.35, ease: 'expo.out', stagger: 0.04
