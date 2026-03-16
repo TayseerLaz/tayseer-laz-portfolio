@@ -451,12 +451,16 @@
   animation: horrorFloat 9s ease-in-out infinite 1s;
 }
 
-/* Rorschach blot — mid right */
-.horror-rorschach {
-  width: clamp(140px, 18vw, 260px);
-  top: 55%;
-  right: 2%;
-  animation: horrorBreath 8s ease-in-out infinite, horrorFlicker 12s steps(3) infinite 4s;
+
+
+/* Dead trees — bottom silhouette */
+.horror-trees {
+  width: 100%;
+  height: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  animation: none;
 }
 
 @keyframes horrorDangle {

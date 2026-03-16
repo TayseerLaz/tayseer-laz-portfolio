@@ -81,7 +81,7 @@ export default function MusicPlayer() {
   const sliderRef = useRef(null)
   const rafRef = useRef(null)
 
-  // Create audio on mount and autoplay
+  // Create audio on mount — only plays when user presses play
   useEffect(() => {
     const audio = new Audio(AUDIO_SRC)
     audio.preload = 'auto'
@@ -97,37 +97,9 @@ export default function MusicPlayer() {
       if (!audio.loop) setPlaying(false)
     })
 
-    let started = false
-    const tryPlay = () => {
-      if (started || !audioRef.current) return
-      audioRef.current.play().then(() => {
-        started = true
-        setPlaying(true)
-        cleanup()
-      }).catch(() => {
-        // blocked, will retry on next interaction
-      })
-    }
-
-    const events = ['click', 'touchstart', 'mousemove', 'mousedown', 'keydown', 'scroll', 'pointerdown']
-    const onInteraction = () => tryPlay()
-    const cleanup = () => events.forEach(ev => document.removeEventListener(ev, onInteraction))
-    events.forEach(ev => document.addEventListener(ev, onInteraction))
-
-    // Try immediately
-    tryPlay()
-    // Retry after a short delay (audio may not be loaded yet)
-    const t1 = setTimeout(tryPlay, 500)
-    const t2 = setTimeout(tryPlay, 1500)
-    const t3 = setTimeout(tryPlay, 3000)
-
     return () => {
       audio.pause()
       audio.src = ''
-      cleanup()
-      clearTimeout(t1)
-      clearTimeout(t2)
-      clearTimeout(t3)
       if (rafRef.current) cancelAnimationFrame(rafRef.current)
     }
   }, [])

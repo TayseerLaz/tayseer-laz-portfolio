@@ -397,21 +397,55 @@ export default function Hero() {
           </g>
         </svg>
 
-        {/* Rorschach ink blot — mid left */}
-        <svg className="horror-svg horror-rorschach" viewBox="0 0 200 160" fill="none">
-          <defs>
-            <filter id="glitch12">
-              <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="4" seed="17">
-                <animate attributeName="baseFrequency" values="0.02;0.04;0.02" dur="6s" repeatCount="indefinite"/>
-              </feTurbulence>
-              <feDisplacementMap in="SourceGraphic" scale="5"/>
-            </filter>
-          </defs>
-          <g filter="url(#glitch12)" opacity="0.06">
-            {/* Left half */}
-            <path d="M100 20 C85 30, 70 25, 60 40 C50 55, 55 70, 45 80 C35 90, 25 85, 20 100 C15 115, 30 120, 40 130 C50 140, 65 135, 75 145 C85 150, 95 148, 100 140" fill="white"/>
-            {/* Right half — mirrored */}
-            <path d="M100 20 C115 30, 130 25, 140 40 C150 55, 145 70, 155 80 C165 90, 175 85, 180 100 C185 115, 170 120, 160 130 C150 140, 135 135, 125 145 C115 150, 105 148, 100 140" fill="white"/>
+        {/* Dead trees silhouette — bottom of hero */}
+        <svg className="horror-svg horror-trees" viewBox="0 0 1200 200" fill="none" preserveAspectRatio="xMidYMax slice">
+          <g opacity="0.08">
+            {/* Tree 1 — far left, tall twisted */}
+            <path d="M60 200 L58 140 L55 120 C52 105, 40 95, 30 80 M55 120 C58 108, 68 100, 78 88 M58 140 C50 132, 38 128, 25 118 M58 140 C65 130, 72 125, 85 122" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+            <path d="M30 80 C25 72, 18 68, 10 60 M30 80 C35 70, 40 62, 38 50" stroke="white" strokeWidth="1" strokeLinecap="round"/>
+            <path d="M78 88 C82 78, 90 72, 95 60 M78 88 C72 76, 65 68, 58 55" stroke="white" strokeWidth="1" strokeLinecap="round"/>
+
+            {/* Tree 2 — left */}
+            <path d="M160 200 L158 150 L155 125 C150 108, 135 98, 125 82 M155 125 C160 110, 175 100, 185 85 M158 150 C148 140, 130 135, 115 128 M158 150 C170 138, 180 130, 195 125" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
+            <path d="M125 82 C118 70, 108 62, 100 48 M125 82 C130 68, 138 58, 132 42" stroke="white" strokeWidth="0.8" strokeLinecap="round"/>
+            <path d="M185 85 C192 72, 200 60, 198 45 M185 85 C178 72, 170 58, 165 42" stroke="white" strokeWidth="0.8" strokeLinecap="round"/>
+
+            {/* Tree 3 — center-left, gnarled */}
+            <path d="M320 200 L318 160 L315 130 C308 112, 290 100, 275 80 M315 130 C322 115, 340 105, 355 85 M318 160 C305 148, 285 142, 265 135" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+            <path d="M275 80 C268 65, 255 55, 245 35 M275 80 C282 65, 292 52, 288 32" stroke="white" strokeWidth="0.9" strokeLinecap="round"/>
+            <path d="M355 85 C362 68, 372 55, 380 35 M355 85 C348 70, 338 55, 330 38" stroke="white" strokeWidth="0.9" strokeLinecap="round"/>
+            {/* Extra branches */}
+            <path d="M245 35 L238 22 M245 35 L255 20" stroke="white" strokeWidth="0.5" strokeLinecap="round"/>
+            <path d="M380 35 L390 18 M380 35 L372 15" stroke="white" strokeWidth="0.5" strokeLinecap="round"/>
+
+            {/* Tree 4 — center, tallest */}
+            <path d="M500 200 L498 145 L495 105 C488 82, 465 68, 448 45 M495 105 C502 85, 525 72, 545 48 M498 145 C482 132, 460 125, 440 115 M498 145 C515 130, 535 122, 555 118" stroke="white" strokeWidth="2.2" strokeLinecap="round"/>
+            <path d="M448 45 C440 30, 428 20, 420 5 M448 45 C455 28, 465 15, 460 0" stroke="white" strokeWidth="1" strokeLinecap="round"/>
+            <path d="M545 48 C555 30, 565 18, 575 0 M545 48 C535 32, 525 18, 520 0" stroke="white" strokeWidth="1" strokeLinecap="round"/>
+            <path d="M440 115 C425 105, 408 98, 395 85" stroke="white" strokeWidth="0.7" strokeLinecap="round"/>
+            <path d="M555 118 C570 108, 585 98, 600 88" stroke="white" strokeWidth="0.7" strokeLinecap="round"/>
+
+            {/* Tree 5 — center-right */}
+            <path d="M680 200 L678 155 L675 125 C668 108, 652 98, 640 78 M675 125 C682 108, 698 98, 712 80 M678 155 C665 142, 648 135, 632 128" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
+            <path d="M640 78 C632 60, 620 48, 612 30 M640 78 C648 62, 658 48, 652 28" stroke="white" strokeWidth="0.9" strokeLinecap="round"/>
+            <path d="M712 80 C720 62, 730 48, 738 28 M712 80 C705 65, 695 50, 688 32" stroke="white" strokeWidth="0.9" strokeLinecap="round"/>
+
+            {/* Tree 6 — right */}
+            <path d="M850 200 L848 158 L845 130 C840 115, 828 105, 818 88 M845 130 C850 115, 862 105, 872 90 M848 158 C838 148, 822 142, 808 135" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+            <path d="M818 88 C812 75, 802 65, 795 48 M818 88 C825 72, 832 60, 828 42" stroke="white" strokeWidth="0.8" strokeLinecap="round"/>
+            <path d="M872 90 C880 75, 888 62, 895 42 M872 90 C865 75, 858 60, 852 42" stroke="white" strokeWidth="0.8" strokeLinecap="round"/>
+
+            {/* Tree 7 — far right, leaning */}
+            <path d="M1000 200 L1005 155 L1010 128 C1018 110, 1035 100, 1048 82 M1010 128 C1005 112, 992 102, 980 85 M1005 155 C1020 142, 1038 135, 1055 128" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
+            <path d="M1048 82 C1055 65, 1065 52, 1072 32 M1048 82 C1042 68, 1035 52, 1038 35" stroke="white" strokeWidth="0.8" strokeLinecap="round"/>
+            <path d="M980 85 C972 68, 962 55, 955 35 M980 85 C985 70, 992 55, 990 38" stroke="white" strokeWidth="0.8" strokeLinecap="round"/>
+
+            {/* Tree 8 — far far right */}
+            <path d="M1140 200 L1138 160 L1135 135 C1130 120, 1118 112, 1108 95 M1135 135 C1140 118, 1152 108, 1162 92 M1138 160 C1128 150, 1112 142, 1098 135" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>
+            <path d="M1108 95 C1102 80, 1092 68, 1085 50 M1162 92 C1170 75, 1178 62, 1182 42" stroke="white" strokeWidth="0.7" strokeLinecap="round"/>
+
+            {/* Ground line — rough terrain */}
+            <path d="M0 198 C30 195, 60 200, 100 197 C140 194, 180 200, 240 196 C300 192, 360 200, 420 195 C480 190, 540 200, 600 196 C660 192, 720 200, 780 195 C840 190, 900 200, 960 196 C1020 192, 1080 200, 1140 196 L1200 198" stroke="white" strokeWidth="0.8"/>
           </g>
         </svg>
       </div>
