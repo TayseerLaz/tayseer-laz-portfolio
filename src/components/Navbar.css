@@ -1,8 +1,10 @@
 .nav {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
+  max-width: 1460px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,7 +14,7 @@
   mix-blend-mode: difference;
 }
 
-.nav--hidden { transform: translateY(-100%); }
+.nav--hidden { transform: translateX(-50%) translateY(-100%); }
 
 .nav-logo {
   font-family: var(--font-display);
