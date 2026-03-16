@@ -167,10 +167,31 @@
 }
 
 @media (max-width: 1024px) {
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .about-portrait { max-width: 350px; position: relative; top: auto; }
 }
 
 @media (max-width: 768px) {
-  .section { padding: 5rem 1.5rem; }
+  .section { padding: 4rem 1.5rem; }
+  .section-title { font-size: clamp(2rem, 7vw, 3rem); }
+  .about-portrait { max-width: 280px; }
+  .about-portrait-img { border-radius: 0.75rem; }
+  .about-lead { font-size: 1.1rem; }
+  .about-text { font-size: 0.95rem; }
+  .about-stats { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .stat-num { font-size: clamp(2rem, 6vw, 2.5rem); }
+  .section-header { margin-bottom: 2.5rem; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 3rem 1rem; }
+  .section-title { font-size: 1.8rem; }
+  .about-grid { gap: 2rem; }
+  .about-portrait { max-width: 220px; }
+  .about-lead { font-size: 1rem; }
+  .about-text { font-size: 0.9rem; line-height: 1.7; }
+  .about-stats { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+  .stat-num { font-size: 1.8rem; }
+  .stat-label { font-size: 0.7rem; }
+  .section-header { margin-bottom: 2rem; }
 }

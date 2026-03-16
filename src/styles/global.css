@@ -171,8 +171,15 @@ body.cursor-hover .cursor-follower {
 }
 
 /* ===== RESPONSIVE CURSOR ===== */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .cursor, .cursor-follower { display: none; }
   body, a, button { cursor: auto; }
   a, button { cursor: pointer; }
+  #bg-canvas { opacity: 0.25; }
+  .noise-overlay { opacity: 0.015; }
+}
+
+@media (max-width: 480px) {
+  .hero-player-wrap { top: 4rem; left: 1rem; transform: scale(0.5); }
 }

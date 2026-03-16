@@ -307,19 +307,32 @@
   .hero-content {
     flex-direction: column;
     align-items: flex-start;
-    gap: 2.5rem;
+    gap: 2rem;
   }
   .hero-right { padding-bottom: 0; }
   .hero-services { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-  .hero { padding: 6rem 1.5rem 1.5rem; }
-  .hero-services { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .hero { padding: 5rem 1.5rem 1.5rem; }
+  .hero-title-line { font-size: clamp(2rem, 10vw, 4rem); }
+  .hero-tagline { font-size: 1rem; }
+  .hero-desc { font-size: 0.85rem; }
+  .hero-services { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
   .hero-scroll-hint { right: 1.5rem; }
-  .hero-portrait { width: 70vw; height: 50vh; }
+  .hero-portrait { width: 80vw; height: 45vh; }
+  .hero-player-wrap { top: 4.5rem; left: 1.5rem; transform: scale(0.55); }
 }
 
 @media (max-width: 480px) {
-  .hero-services { grid-template-columns: 1fr 1fr; }
+  .hero { padding: 4.5rem 1rem 1.25rem; }
+  .hero-content { gap: 1.5rem; }
+  .hero-title-line { font-size: clamp(1.8rem, 12vw, 3rem); }
+  .hero-tagline { font-size: 0.9rem; }
+  .hero-services { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .hero-service-num { font-size: 0.7rem; }
+  .hero-service-label { font-size: 0.8rem; }
+  .hero-cta-btn { padding: 0.7rem 1.5rem; font-size: 0.85rem; }
+  .hero-player-wrap { top: 4rem; left: 1rem; transform: scale(0.5); }
+  .hero-scroll-hint { display: none; }
 }

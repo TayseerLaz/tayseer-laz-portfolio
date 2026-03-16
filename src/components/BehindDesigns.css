@@ -1144,15 +1144,28 @@
 @media (max-width: 768px) {
   .bd-col-4, .bd-col-8 { grid-column: span 12; }
   .bd-header { flex-direction: column; align-items: flex-start; }
-  .bd-bounce-card { min-height: 250px; }
+  .bd-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+  .bd-bounce-card { min-height: 220px; padding: 1.5rem; }
+  .bd-card-title { font-size: 1.3rem; }
+  .bd-card-inner { top: 6rem; left: 0.75rem; right: 0.75rem; }
   .bd-expand-inner { padding: 1.5rem; }
   .bd-stages { grid-template-columns: 1fr 1fr; gap: 1.5rem 1rem; }
   .bd-stage-phones { gap: 0.5rem; }
+  .dash { min-height: 220px; }
+  .uf-pipeline { gap: 0.4rem; }
 }
 
 @media (max-width: 480px) {
+  .bd-grid { gap: 0.75rem; }
+  .bd-bounce-card { min-height: 180px; padding: 1.25rem; }
+  .bd-card-title { font-size: 1.1rem; }
+  .bd-card-inner { top: 5rem; padding: 1rem; }
+  .bd-card-desc { font-size: 0.8rem; }
+  .bd-btn { font-size: 0.8rem; padding: 0.6rem 1.2rem; }
   .bd-stages { grid-template-columns: 1fr; }
   .ph { border-radius: 0.6rem; }
   .ai-showcase { grid-template-columns: 1fr; }
   .sys-dashboards { grid-template-columns: 1fr; }
+  .dash { min-height: 180px; }
+  .bd-expand-inner { padding: 1rem; }
 }

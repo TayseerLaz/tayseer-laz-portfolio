@@ -270,13 +270,27 @@
 }
 
 /* Responsive */
+@media (max-width: 768px) {
+  .music-player { max-width: 400px; gap: 1rem; padding: 1rem; }
+  .mp-cover-art { width: 70px; height: 70px; }
+  .mp-mix { font-size: 0.75rem; }
+  .mp-title { font-size: 0.85rem; }
+}
+
 @media (max-width: 480px) {
   .music-player {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    flex-direction: row;
     max-width: 300px;
+    gap: 0.75rem;
+    padding: 0.75rem;
   }
-  .mp-header { justify-content: center; gap: 1rem; }
-  .mp-cover-art { width: 160px; height: 160px; }
+  .mp-cover-art { width: 55px; height: 55px; }
+  .mp-mix { font-size: 0.7rem; }
+  .mp-tracks { font-size: 0.6rem; }
+  .mp-title { font-size: 0.75rem; }
+  .mp-controls { gap: 0; }
+  .mp-btn { padding: 3px; }
+  .mp-btn--play svg { width: 30px; height: 30px; }
+  .mp-btn svg { width: 15px; height: 15px; }
+  .mp-btn--sm svg { width: 13px; height: 13px; }
 }

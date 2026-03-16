@@ -109,7 +109,19 @@ a.contact-detail:hover {
 }
 
 @media (max-width: 768px) {
-  .flip-link {
-    font-size: clamp(2rem, 10vw, 3.5rem);
-  }
+  .contact-text { font-size: 1.1rem; }
+  .contact-email { font-size: clamp(1.2rem, 5vw, 2rem); margin-bottom: 2rem; }
+  .contact-details { gap: 0.6rem; margin-bottom: 2rem; }
+  .contact-detail { font-size: 0.8rem; }
+  .flip-link { font-size: clamp(1.8rem, 10vw, 3rem); }
+  .social-pill { padding: 0.5rem 1rem; font-size: 0.8rem; }
+}
+
+@media (max-width: 480px) {
+  .contact-text { font-size: 0.95rem; }
+  .contact-email { font-size: 1.1rem; margin-bottom: 1.5rem; }
+  .contact-details { flex-direction: column; gap: 0.25rem; }
+  .contact-detail-sep { display: none; }
+  .flip-link { font-size: clamp(1.5rem, 12vw, 2.5rem); }
+  .contact-flip-links { gap: 0.15rem; }
 }
