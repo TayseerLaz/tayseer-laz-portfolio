@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import Cursor from './components/Cursor'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -11,6 +12,25 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ParticleCanvas from './components/ParticleCanvas'
 import ScrollProgress from './components/ScrollProgress'
+import ProjectPage from './components/ProjectPage'
+import OmniSignPage from './components/OmniSignPage'
+
+function HomePage() {
+  return (
+    <>
+      <main>
+        <Hero />
+        <About />
+        <Marquee />
+        <BehindDesigns />
+        <Work />
+        <Skills />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  )
+}
 
 export default function App() {
   useEffect(() => {
@@ -29,16 +49,11 @@ export default function App() {
       <ParticleCanvas />
       <ScrollProgress />
       <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Marquee />
-        <BehindDesigns />
-        <Work />
-        <Skills />
-        <Contact />
-      </main>
-      <Footer />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/work/omnisign" element={<OmniSignPage />} />
+        <Route path="/work/:slug" element={<ProjectPage />} />
+      </Routes>
     </>
   )
 }
