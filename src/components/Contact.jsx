@@ -9,8 +9,8 @@ gsap.registerPlugin(ScrollTrigger)
 const socials = [
   { name: 'LinkedIn', url: 'https://linkedin.com/in/tayseer-laz' },
   { name: 'GitHub', url: '#' },
-  { name: 'Instagram', url: '#' },
-  { name: 'Twitter', url: '#' },
+  { name: 'Email', url: 'mailto:laztayseer@gmail.com' },
+  { name: '+961 81 238 320', url: 'tel:+96181238320' },
 ]
 
 const DURATION = 0.25
@@ -85,18 +85,6 @@ export default function Contact() {
         </div>
 
         <div className="contact-body">
-          <p className="contact-text contact-reveal">
-            Have a project in mind? Let's build something extraordinary together.
-          </p>
-          <a href="mailto:laztayseer@gmail.com" className="contact-email contact-reveal" data-magnetic>
-            laztayseer@gmail.com
-          </a>
-          <div className="contact-details contact-reveal">
-            <span className="contact-detail">Beirut, Lebanon</span>
-            <span className="contact-detail-sep">|</span>
-            <a href="tel:+96181238320" className="contact-detail">+961 81 238 320</a>
-          </div>
-
           <div className="contact-flip-links contact-reveal">
             {socials.map(s => (
               <FlipLink

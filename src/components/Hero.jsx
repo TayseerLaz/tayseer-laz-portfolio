@@ -5,9 +5,9 @@ import './Hero.css'
 
 const services = [
   { num: '#01', label: 'Product Development' },
-  { num: '#02', label: 'Operations' },
+  { num: '#02', label: 'UI/UX' },
   { num: '#03', label: 'Mobile Apps' },
-  { num: '#04', label: 'Systems' },
+  { num: '#04', label: 'Systems Workflow' },
 ]
 
 export default function Hero() {

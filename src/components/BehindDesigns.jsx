@@ -641,7 +641,51 @@ export default function BehindDesigns() {
 
   return (
     <section className="bd section">
-      <div className="section-container">
+      <div className="section-container" style={{ position: 'relative' }}>
+
+        {/* Floating handwritten note */}
+        <motion.div
+          className="bd-note"
+          initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
+          whileInView={{ opacity: 1, scale: 1, rotate: -3 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ delay: 0.8, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <svg className="bd-note-arrow" width="60" height="80" viewBox="0 0 60 80" fill="none">
+            <motion.path
+              d="M50 5 C45 15, 20 20, 15 35 C10 50, 25 55, 20 70"
+              stroke="var(--burgundy-light)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 1.2, duration: 1, ease: 'easeOut' }}
+            />
+            <motion.path
+              d="M14 65 L20 72 L26 64"
+              stroke="var(--burgundy-light)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 2.2, duration: 0.3 }}
+            />
+          </svg>
+          <motion.div
+            className="bd-note-text"
+            animate={{ rotate: [0, 1, -1, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <span className="bd-note-line1">psst... tap a card</span>
+            <span className="bd-note-line2">see the magic</span>
+          </motion.div>
+        </motion.div>
+
         <div className="bd-header">
           <h2 className="bd-title">
             Grow faster with
