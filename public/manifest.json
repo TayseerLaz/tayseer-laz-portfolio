@@ -1,0 +1,16 @@
+{
+  "name": "Tayseer Laz — Product Developer",
+  "short_name": "Tayseer Laz",
+  "description": "Portfolio of Tayseer Laz, Product Developer based in Beirut, Lebanon",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0e0b0b",
+  "theme_color": "#8c3839",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ]
+}

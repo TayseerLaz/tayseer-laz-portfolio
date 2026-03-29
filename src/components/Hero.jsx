@@ -50,6 +50,7 @@ export default function Hero() {
 
       {/* ===== Horror SVG Layer ===== */}
       <div className="horror-layer">
+
         {/* Distorted all-seeing eye */}
         <svg className="horror-svg horror-eye" viewBox="0 0 200 120" fill="none">
           <defs>
@@ -68,54 +69,6 @@ export default function Hero() {
             <circle cx="100" cy="60" r="3" fill="white" opacity="0.2"/>
             <line x1="100" y1="15" x2="100" y2="105" stroke="white" strokeWidth="0.3" opacity="0.06"/>
             <line x1="15" y1="60" x2="185" y2="60" stroke="white" strokeWidth="0.3" opacity="0.06"/>
-          </g>
-        </svg>
-
-        {/* Fragmented skull/face outline */}
-        <svg className="horror-svg horror-skull" viewBox="0 0 160 200" fill="none">
-          <defs>
-            <filter id="glitch2">
-              <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="5">
-                <animate attributeName="seed" values="5;12;5" dur="4s" repeatCount="indefinite"/>
-              </feTurbulence>
-              <feDisplacementMap in="SourceGraphic" scale="3"/>
-            </filter>
-          </defs>
-          <g filter="url(#glitch2)">
-            {/* Cranium fragments */}
-            <path d="M80 15 C40 15, 15 50, 15 90 C15 110, 25 135, 50 145" stroke="white" strokeWidth="0.8" opacity="0.1" strokeDasharray="12 6"/>
-            <path d="M80 15 C120 15, 145 50, 145 90 C145 110, 135 135, 110 145" stroke="white" strokeWidth="0.8" opacity="0.1" strokeDasharray="8 10"/>
-            {/* Eye sockets */}
-            <ellipse cx="55" cy="80" rx="18" ry="15" stroke="white" strokeWidth="0.7" opacity="0.12"/>
-            <ellipse cx="105" cy="80" rx="18" ry="15" stroke="white" strokeWidth="0.7" opacity="0.12"/>
-            <circle cx="55" cy="80" r="4" fill="white" opacity="0.06"/>
-            <circle cx="105" cy="80" r="4" fill="white" opacity="0.06"/>
-            {/* Nose cavity */}
-            <path d="M75 100 L80 115 L85 100" stroke="white" strokeWidth="0.6" opacity="0.08"/>
-            {/* Jaw fragments */}
-            <path d="M50 145 C55 160, 65 170, 80 172 C95 170, 105 160, 110 145" stroke="white" strokeWidth="0.6" opacity="0.07" strokeDasharray="5 8"/>
-            {/* Teeth marks */}
-            <line x1="62" y1="148" x2="62" y2="158" stroke="white" strokeWidth="0.4" opacity="0.06"/>
-            <line x1="72" y1="150" x2="72" y2="162" stroke="white" strokeWidth="0.4" opacity="0.06"/>
-            <line x1="80" y1="151" x2="80" y2="163" stroke="white" strokeWidth="0.4" opacity="0.06"/>
-            <line x1="88" y1="150" x2="88" y2="162" stroke="white" strokeWidth="0.4" opacity="0.06"/>
-            <line x1="98" y1="148" x2="98" y2="158" stroke="white" strokeWidth="0.4" opacity="0.06"/>
-          </g>
-        </svg>
-
-        {/* Spiraling vortex / madness spiral */}
-        <svg className="horror-svg horror-spiral" viewBox="0 0 200 200" fill="none">
-          <defs>
-            <filter id="glitch3">
-              <feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="4" seed="8">
-                <animate attributeName="baseFrequency" values="0.015;0.04;0.015" dur="5s" repeatCount="indefinite"/>
-              </feTurbulence>
-              <feDisplacementMap in="SourceGraphic" scale="5"/>
-            </filter>
-          </defs>
-          <g filter="url(#glitch3)">
-            <path d="M100 100 C100 85, 115 85, 115 100 C115 120, 80 120, 80 100 C80 70, 130 70, 130 100 C130 140, 60 140, 60 100 C60 50, 150 50, 150 100 C150 160, 40 160, 40 100 C40 30, 170 30, 170 100" stroke="white" strokeWidth="0.6" opacity="0.08" fill="none"/>
-            <circle cx="100" cy="100" r="2" fill="white" opacity="0.15"/>
           </g>
         </svg>
 
@@ -173,54 +126,7 @@ export default function Hero() {
           </g>
         </svg>
 
-        {/* Screaming mouth — bottom center */}
-        <svg className="horror-svg horror-mouth" viewBox="0 0 140 180" fill="none">
-          <defs>
-            <filter id="glitch5">
-              <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="7">
-                <animate attributeName="seed" values="7;15;7" dur="2.5s" repeatCount="indefinite"/>
-              </feTurbulence>
-              <feDisplacementMap in="SourceGraphic" scale="3"/>
-            </filter>
-          </defs>
-          <g filter="url(#glitch5)">
-            <ellipse cx="70" cy="70" rx="55" ry="65" stroke="white" strokeWidth="0.8" opacity="0.1"/>
-            <ellipse cx="70" cy="85" rx="35" ry="50" stroke="white" strokeWidth="0.6" opacity="0.08" fill="none"/>
-            <path d="M40 55 Q55 45, 70 55 Q85 45, 100 55" stroke="white" strokeWidth="0.5" opacity="0.1"/>
-            <path d="M42 110 Q56 125, 70 110 Q84 125, 98 110" stroke="white" strokeWidth="0.5" opacity="0.1"/>
-            {/* Teeth top */}
-            <line x1="48" y1="55" x2="48" y2="68" stroke="white" strokeWidth="0.5" opacity="0.08"/>
-            <line x1="58" y1="52" x2="58" y2="70" stroke="white" strokeWidth="0.5" opacity="0.08"/>
-            <line x1="70" y1="50" x2="70" y2="72" stroke="white" strokeWidth="0.6" opacity="0.09"/>
-            <line x1="82" y1="52" x2="82" y2="70" stroke="white" strokeWidth="0.5" opacity="0.08"/>
-            <line x1="92" y1="55" x2="92" y2="68" stroke="white" strokeWidth="0.5" opacity="0.08"/>
-            {/* Teeth bottom */}
-            <line x1="50" y1="108" x2="50" y2="96" stroke="white" strokeWidth="0.4" opacity="0.07"/>
-            <line x1="60" y1="112" x2="60" y2="95" stroke="white" strokeWidth="0.4" opacity="0.07"/>
-            <line x1="70" y1="113" x2="70" y2="93" stroke="white" strokeWidth="0.5" opacity="0.08"/>
-            <line x1="80" y1="112" x2="80" y2="95" stroke="white" strokeWidth="0.4" opacity="0.07"/>
-            <line x1="90" y1="108" x2="90" y2="96" stroke="white" strokeWidth="0.4" opacity="0.07"/>
-          </g>
-        </svg>
 
-        {/* Inverted pentagram / sacred geometry gone wrong */}
-        <svg className="horror-svg horror-pentagram" viewBox="0 0 200 200" fill="none">
-          <defs>
-            <filter id="glitch6">
-              <feTurbulence type="turbulence" baseFrequency="0.025" numOctaves="3" seed="11">
-                <animate attributeName="baseFrequency" values="0.025;0.05;0.025" dur="7s" repeatCount="indefinite"/>
-              </feTurbulence>
-              <feDisplacementMap in="SourceGraphic" scale="4"/>
-            </filter>
-          </defs>
-          <g filter="url(#glitch6)">
-            <circle cx="100" cy="100" r="80" stroke="white" strokeWidth="0.5" opacity="0.06"/>
-            <circle cx="100" cy="100" r="82" stroke="white" strokeWidth="0.3" opacity="0.04" strokeDasharray="2 6"/>
-            {/* Star points — inverted */}
-            <polygon points="100,175 127,65 38,130 162,130 73,65" stroke="white" strokeWidth="0.6" opacity="0.08" fill="none"/>
-            <polygon points="100,170 125,70 42,128 158,128 75,70" stroke="white" strokeWidth="0.3" opacity="0.04" fill="none" strokeDasharray="4 5"/>
-          </g>
-        </svg>
 
         {/* Hands reaching up from below */}
         <svg className="horror-svg horror-hands" viewBox="0 0 300 200" fill="none">
@@ -248,40 +154,7 @@ export default function Hero() {
           </g>
         </svg>
 
-        {/* Glitch text fragments — broken words */}
-        <svg className="horror-svg horror-text" viewBox="0 0 400 100" fill="none">
-          <defs>
-            <filter id="glitch8">
-              <feTurbulence type="turbulence" baseFrequency="0.08" numOctaves="1" seed="2">
-                <animate attributeName="seed" values="2;20;2" dur="0.8s" repeatCount="indefinite"/>
-              </feTurbulence>
-              <feDisplacementMap in="SourceGraphic" scale="6"/>
-            </filter>
-          </defs>
-          <g filter="url(#glitch8)">
-            <text x="30" y="35" fill="white" opacity="0.05" fontSize="14" fontFamily="monospace">CAN YOU SEE ME</text>
-            <text x="180" y="60" fill="white" opacity="0.04" fontSize="10" fontFamily="monospace">LOOK CLOSER</text>
-            <text x="80" y="80" fill="white" opacity="0.03" fontSize="18" fontFamily="monospace" letterSpacing="8">HELLO</text>
-            <text x="250" y="30" fill="white" opacity="0.04" fontSize="8" fontFamily="monospace">DON'T LOOK AWAY</text>
-            <text x="10" y="65" fill="white" opacity="0.03" fontSize="11" fontFamily="monospace">W̸̧H̷̡O̶̧ ̸A̴R̷E̸ ̷Y̴O̸U̷</text>
-          </g>
-        </svg>
 
-        {/* Heartbeat / EKG flatline */}
-        <svg className="horror-svg horror-ekg" viewBox="0 0 400 60" fill="none">
-          <path
-            d="M0 30 L80 30 L90 30 L95 10 L100 50 L105 5 L110 55 L115 25 L120 35 L130 30 L400 30"
-            stroke="white" strokeWidth="0.8" opacity="0.08" fill="none"
-            strokeDasharray="400" strokeDashoffset="400">
-            <animate attributeName="stroke-dashoffset" values="400;0;0;400" dur="4s" repeatCount="indefinite" keyTimes="0;0.3;0.7;1"/>
-          </path>
-          <path
-            d="M0 30 L80 30 L90 30 L95 10 L100 50 L105 5 L110 55 L115 25 L120 35 L130 30 L400 30"
-            stroke="white" strokeWidth="0.3" opacity="0.04" fill="none"
-            strokeDasharray="400" strokeDashoffset="400">
-            <animate attributeName="stroke-dashoffset" values="400;0;0;400" dur="4s" begin="0.1s" repeatCount="indefinite" keyTimes="0;0.3;0.7;1"/>
-          </path>
-        </svg>
 
         {/* Barbed wire / thorns border */}
         <svg className="horror-svg horror-thorns" viewBox="0 0 500 40" fill="none">
@@ -298,31 +171,6 @@ export default function Hero() {
           </g>
         </svg>
 
-        {/* Third eye / forehead eye — top center */}
-        <svg className="horror-svg horror-third-eye" viewBox="0 0 100 60" fill="none">
-          <defs>
-            <filter id="glitch9">
-              <feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="2" seed="6">
-                <animate attributeName="baseFrequency" values="0.04;0.08;0.04" dur="2s" repeatCount="indefinite"/>
-              </feTurbulence>
-              <feDisplacementMap in="SourceGraphic" scale="2"/>
-            </filter>
-          </defs>
-          <g filter="url(#glitch9)">
-            <path d="M5 30 Q50 -5, 95 30 Q50 65, 5 30Z" stroke="white" strokeWidth="0.7" opacity="0.12" fill="none"/>
-            <circle cx="50" cy="30" r="12" stroke="white" strokeWidth="0.6" opacity="0.1"/>
-            <circle cx="50" cy="30" r="5" fill="white" opacity="0.12">
-              <animate attributeName="r" values="5;3;5;7;5" dur="3s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="50" cy="30" r="1.5" fill="white" opacity="0.25"/>
-            {/* Eyelashes / rays */}
-            <line x1="50" y1="2" x2="50" y2="-8" stroke="white" strokeWidth="0.4" opacity="0.08"/>
-            <line x1="35" y1="8" x2="28" y2="0" stroke="white" strokeWidth="0.4" opacity="0.08"/>
-            <line x1="65" y1="8" x2="72" y2="0" stroke="white" strokeWidth="0.4" opacity="0.08"/>
-            <line x1="20" y1="20" x2="10" y2="15" stroke="white" strokeWidth="0.3" opacity="0.06"/>
-            <line x1="80" y1="20" x2="90" y2="15" stroke="white" strokeWidth="0.3" opacity="0.06"/>
-          </g>
-        </svg>
 
         {/* Web / cracks spreading */}
         <svg className="horror-svg horror-cracks" viewBox="0 0 300 300" fill="none">
@@ -457,6 +305,7 @@ export default function Hero() {
       <div className="hero-content">
         <div className="hero-left">
           <h1 className="hero-title">
+            <span className="sr-only">Tayseer Laz — </span>
             <span className="hero-title-overflow">
               <span className="hero-title-line">Product</span>
             </span>

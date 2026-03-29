@@ -17,6 +17,7 @@ const projects = [
       'Built interactive dashboards with real-time analytics',
       'Led UI/UX design from wireframes to final product',
     ],
+    metaDescription: 'Case study: Alinia SaaS platform built at Aligned Tech. Tayseer Laz led product vision, UI/UX design, multi-role panels, and AI chatbot integration.',
     techStack: ['React', 'Node.js', 'Firebase', 'AI/ML', 'Figma'],
   },
   {
@@ -38,6 +39,7 @@ const projects = [
       'Coordinated cross-functional teams across 3 countries',
       'Mentored interns and junior developers',
     ],
+    metaDescription: 'Case study: Dyafa, a multi-vendor event platform for Qatar. Tayseer Laz built mobile apps, POS systems, AI chatbot, and coordinated teams across 3 countries.',
     techStack: ['React Native', 'Firebase', 'Node.js', 'Figma', 'AI Integration'],
   },
   {
@@ -58,6 +60,7 @@ const projects = [
       'Structured business logic and data workflows',
       'Initiated mobile application development',
     ],
+    metaDescription: 'Case study: Real Estate SaaS platform. Tayseer Laz led product vision, UI/UX design, web app development, and multi-role panel architecture.',
     techStack: ['React', 'Node.js', 'MongoDB', 'Figma'],
   },
   {
@@ -69,6 +72,7 @@ const projects = [
     hue: 15,
     company: 'Founder',
     image: '/Untitled design.svg',
+    whiteBg: true,
     role: 'Founder & Product Contributor',
     year: '2024',
     overview: 'OmniSign is an AI-powered sign language platform I co-founded, featuring gesture recognition and real-time translation. The platform aims to bridge communication gaps and improve accessibility for the deaf and hard-of-hearing community.',
@@ -79,6 +83,7 @@ const projects = [
       'Designed user experience focused on accessibility',
       'Built for inclusivity and universal communication',
     ],
+    metaDescription: 'OmniSign is an AI-powered Lebanese Sign Language translation platform co-founded by Tayseer Laz. Features real-time gesture recognition for accessibility.',
     techStack: ['Python', 'TensorFlow', 'React', 'Computer Vision'],
   },
 ]

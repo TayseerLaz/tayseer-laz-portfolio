@@ -3,6 +3,19 @@
    Branding: #fbf5ea (cream) / #8c3839 (burgundy)
    ============================================ */
 
+/* Screen reader only — visually hidden but accessible to crawlers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Tan Grandeur */
 @font-face {
   font-family: 'Tan Grandeur';

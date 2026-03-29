@@ -243,6 +243,7 @@
   font-size: 0.75rem;
   color: var(--text-dim);
   font-style: italic;
+  margin-top: 1rem;
 }
 
 .os-tag--ongoing {
@@ -656,6 +657,16 @@
 
 .os-member:hover {
   border-color: rgba(140, 56, 57, 0.3);
+}
+
+.os-member--link { cursor: pointer; }
+
+.os-member-a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .os-member-avatar {

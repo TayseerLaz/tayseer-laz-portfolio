@@ -46,6 +46,15 @@
   object-fit: cover;
 }
 
+.work-card-image.contain {
+  object-fit: contain;
+  padding: 1.5rem;
+}
+
+.work-card-placeholder.white-bg {
+  background: #fff;
+}
+
 .work-card-placeholder span {
   font-family: var(--font-display);
   font-size: 5rem;

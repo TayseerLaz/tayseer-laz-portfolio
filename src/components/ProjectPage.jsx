@@ -3,6 +3,8 @@ import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import projects from '../data/projects'
+import SEO from './SEO'
+import { ProjectStructuredData } from './StructuredData'
 import './ProjectPage.css'
 
 export default function ProjectPage() {
@@ -41,6 +43,12 @@ export default function ProjectPage() {
 
   return (
     <div className="pp" ref={ref}>
+      <SEO
+        title={`${project.title} | Tayseer Laz`}
+        description={project.metaDescription || project.overview}
+        path={`/work/${project.slug}`}
+      />
+      <ProjectStructuredData project={project} />
       <nav className="pp-nav">
         <button className="pp-back" onClick={() => navigate('/')}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

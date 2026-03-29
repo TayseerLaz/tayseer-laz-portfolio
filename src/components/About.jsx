@@ -42,7 +42,7 @@ export default function About() {
         <div className="about-grid">
           <div className="about-portrait about-reveal">
             <div className="about-portrait-inner">
-              <img src="/IMG_1283.jpg" alt="Young Tayseer Laz" className="about-portrait-img" />
+              <img src="/IMG_1283.jpg" alt="Tayseer Laz, Product Developer based in Beirut, Lebanon" className="about-portrait-img" />
             </div>
             <div className="about-portrait-ring" />
           </div>

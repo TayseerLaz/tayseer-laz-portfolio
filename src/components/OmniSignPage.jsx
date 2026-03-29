@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Iphone16Pro } from './Iphone16Pro'
+import SEO from './SEO'
+import { OmniSignStructuredData } from './StructuredData'
 import './OmniSignPage.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -62,11 +64,11 @@ const faqs = [
 ]
 
 const team = [
-  { name: 'Layth Ayache', role: 'AI & ML Lead', desc: 'Computer vision, model training, data pipeline, dataset cleaning & augmentation, community outreach, event planning' },
+  { name: 'Layth Ayache', role: 'AI & ML Lead', desc: 'Computer vision, model training, data pipeline, dataset cleaning & augmentation, community outreach, event planning', url: 'https://laythayache.com/' },
   { name: 'Tayseer Laz', role: 'Web & PR Lead', desc: 'Website development, model integration into mobile app, data collection, community communications, event coordination' },
   { name: 'Abu Baker Hussein El Khatib', role: 'App Developer', desc: 'Flutter mobile app, web app development, data collection at campus events and community booths' },
   { name: 'Noor El Hariri', role: 'Project Coordinator', desc: 'Flutter app development, academic documentation, project reports, research coordination' },
-  { name: 'Rami Kronbi', role: 'Computer Vision Engineer', desc: 'ML engineering, CV pipeline development, data collection, next-phase technical lead' },
+  { name: 'Rami Kronbi', role: 'Computer Vision Engineer', desc: 'ML engineering, CV pipeline development, data collection, next-phase technical lead', url: 'https://ramikronbi.com/' },
   { name: 'Dr. Oussama Mustapha', role: 'Research Advisor', desc: 'Academic guidance, research methodology, project oversight' },
 ]
 
@@ -245,18 +247,24 @@ export default function OmniSignPage() {
 
   return (
     <div className="os">
+      <SEO
+        title="OmniSign — AI Sign Language Translation | Tayseer Laz"
+        description="OmniSign is an AI-powered Lebanese Sign Language translation platform co-founded by Tayseer Laz. Features real-time gesture recognition and translation for accessibility."
+        path="/work/omnisign"
+      />
+      <OmniSignStructuredData />
 
       {/* Hero */}
       <header className="os-hero">
         <Reveal>
           <div className="os-hero-logo">
-            <img src="/Untitled design (1).svg" alt="OmniSign" className="os-logo-img" />
+            <img src="/Untitled design (1).svg" alt="OmniSign logo — AI sign language translation platform" className="os-logo-img" />
             <span className="os-logo-label name-styled">OmniSign</span>
           </div>
         </Reveal>
         <Reveal delay={0.15}>
           <h1 className="os-hero-title">
-            AI-Powered Lebanese Sign Language Translation
+            OmniSign — AI-Powered Lebanese Sign Language Translation
           </h1>
         </Reveal>
         <Reveal delay={0.25}>
@@ -446,16 +454,29 @@ export default function OmniSignPage() {
       <section className="os-section">
         <Reveal><h2 className="os-section-title">The People Behind OmniSign</h2></Reveal>
         <div className="os-team">
-          {team.map((t, i) => (
-            <Reveal key={i} delay={i * 0.08} className="os-member">
-              <div className="os-member-avatar">
-                {t.name.split(' ').map(n => n[0]).slice(0, 2).join('')}
-              </div>
-              <h4 className="os-member-name">{t.name}</h4>
-              <span className="os-member-role">{t.role}</span>
-              <p className="os-member-desc">{t.desc}</p>
-            </Reveal>
-          ))}
+          {team.map((t, i) => {
+            const content = (
+              <>
+                <div className="os-member-avatar">
+                  {t.name.split(' ').map(n => n[0]).slice(0, 2).join('')}
+                </div>
+                <h4 className="os-member-name">{t.name}</h4>
+                <span className="os-member-role">{t.role}</span>
+                <p className="os-member-desc">{t.desc}</p>
+              </>
+            )
+            return t.url ? (
+              <Reveal key={i} delay={i * 0.08} className="os-member os-member--link">
+                <a href={t.url} target="_blank" rel="noopener noreferrer" className="os-member-a">
+                  {content}
+                </a>
+              </Reveal>
+            ) : (
+              <Reveal key={i} delay={i * 0.08} className="os-member">
+                {content}
+              </Reveal>
+            )
+          })}
         </div>
       </section>
 

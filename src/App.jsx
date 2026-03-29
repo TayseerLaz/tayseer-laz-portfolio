@@ -14,10 +14,18 @@ import ParticleCanvas from './components/ParticleCanvas'
 import ScrollProgress from './components/ScrollProgress'
 import ProjectPage from './components/ProjectPage'
 import OmniSignPage from './components/OmniSignPage'
+import SEO from './components/SEO'
+import { HomeStructuredData } from './components/StructuredData'
 
 function HomePage() {
   return (
     <>
+      <SEO
+        title="Tayseer Laz — Product Developer"
+        description="Tayseer Laz is a Product Developer based in Beirut, Lebanon. Specializing in end-to-end product development, UI/UX design, SaaS platforms, mobile apps, and AI integration."
+        path="/"
+      />
+      <HomeStructuredData />
       <main>
         <Hero />
         <About />

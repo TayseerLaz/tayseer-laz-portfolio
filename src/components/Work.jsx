@@ -57,8 +57,8 @@ export default function Work() {
               style={{ cursor: 'pointer' }}>
               <div className="work-card-img">
                 {p.image ? (
-                  <div className="work-card-placeholder" style={{ '--hue': p.hue }}>
-                    <img src={p.image} alt={p.title} className="work-card-image" />
+                  <div className={`work-card-placeholder${p.whiteBg ? ' white-bg' : ''}`} style={{ '--hue': p.hue }}>
+                    <img src={p.image} alt={p.title} className={`work-card-image${p.whiteBg ? ' contain' : ''}`} />
                   </div>
                 ) : (
                   <div className="work-card-placeholder" style={{ '--hue': p.hue }}>

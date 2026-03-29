@@ -1,0 +1,38 @@
+# Tayseer Laz — Personal Portfolio
+
+## About
+Tayseer Laz is a Product Developer based in Beirut, Lebanon. He holds a Bachelor of Engineering in Computer & Communication Engineering from Rafik Hariri University, Lebanon. He specializes in end-to-end product development, UI/UX design, SaaS platforms, mobile applications, and AI integration. He has 2+ years of experience, has built 4+ products, and worked with 3+ companies.
+
+## Contact
+- Email: laztayseer@gmail.com
+- LinkedIn: https://linkedin.com/in/tayseer-laz
+- Phone: +961 81 238 320
+- Website: https://tayseerlaz.com
+
+## Skills
+Product Strategy, UI/UX Design, Wireframing & Prototyping, Design Systems, User Research, React, Next.js, React Native, Flutter, Node.js, Firebase, HTML/CSS/TypeScript, SharePoint Framework, Figma, Google Play/App Store Publishing, Git/GitHub, Jira/Linear, AI Tools & Chatbots, Computer Vision, TensorFlow
+
+## Projects
+
+### Alinia SaaS Platform (2025 — Present)
+Role: Product Developer at Aligned Tech
+Leading product vision and end-to-end execution including UI/UX design, multi-role agency panels, workflow systems, and AI-powered tools. Built interactive dashboards with real-time analytics. Integrated AI chatbots for automated client support and onboarding.
+Tech: React, Node.js, Firebase, AI/ML, Figma
+
+### Dyafa Event & Hospitality Platform (2024 — 2025)
+Role: Product Developer at IEvents Qatar
+Multi-vendor event platform serving the Qatar market. Built and published mobile apps on Google Play Store and Apple App Store. Developed POS system for on-site event operations. Built AI chatbot for event attendee support. Coordinated cross-functional teams across Qatar, Turkey, and Lebanon. Mentored interns and junior developers.
+Tech: React Native, Firebase, Node.js, Figma, AI Integration
+
+### Real Estate SaaS Platform (2025)
+Role: Product Developer (Freelance)
+Led product vision from concept to launch. Designed complete UI/UX with multi-role user flows. Built web application with property management features. Structured business logic and data workflows. Initiated mobile application development.
+Tech: React, Node.js, MongoDB, Figma
+
+### OmniSign — AI Sign Language Translation (2024 — Present)
+Role: Co-Founder & Product Contributor
+AI-powered sign language platform co-founded by Tayseer Laz, featuring gesture recognition and real-time translation for accessibility. The platform aims to bridge communication gaps for the deaf and hard-of-hearing community. Built the first Lebanese Sign Language dataset. Structured workflows for AI gesture recognition pipeline. Designed user experience focused on accessibility and inclusivity.
+Tech: Python, TensorFlow, React, Computer Vision
+
+## Education
+Bachelor of Engineering in Computer & Communication Engineering — Rafik Hariri University, Lebanon
