@@ -17,6 +17,7 @@ const stats = [
   { value: '80,000+', label: 'Processed Dataset', sub: 'After augmentation and cleaning' },
   { value: '98%', label: 'Accuracy', sub: 'Internal evaluation, controlled conditions' },
   { value: 'Self-funded', label: 'Funding', sub: 'No institutional or grant backing' },
+  { value: '🏆', label: 'Public Choice Award', sub: 'National FYP Demo Day 2025' },
 ]
 
 const regions = ['Beqaa', 'South Lebanon', 'Beirut', 'School A — Beirut', 'School B — Beirut']
@@ -294,6 +295,24 @@ export default function OmniSignPage() {
             <span className="os-stat-sub">{s.sub}</span>
           </Reveal>
         ))}
+      </section>
+
+      {/* Recognition */}
+      <section className="os-section os-recognition">
+        <Reveal>
+          <div className="os-award-banner">
+            <span className="os-award-icon">🏆</span>
+            <div className="os-award-info">
+              <h3 className="os-award-title">Public Choice Award — National FYP Demo Day 2025</h3>
+              <p className="os-award-desc">
+                OmniSign was selected by public vote as the winning project at Lebanon's National Final Year Project Demo Day 2025, competing against university teams from across the country.
+              </p>
+              <a href="https://www.rhu.edu.lb/media-room/news/rhu-team-wins-public-choice-award-at-national-fyp-demo-day-2025" target="_blank" rel="noopener noreferrer" className="os-award-link">
+                Read the full article on RHU.edu.lb ↗
+              </a>
+            </div>
+          </div>
+        </Reveal>
       </section>
 
       {/* How It Started */}

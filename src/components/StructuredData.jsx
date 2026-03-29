@@ -21,7 +21,13 @@ const personSchema = {
   },
   sameAs: [
     'https://linkedin.com/in/tayseer-laz',
+    'https://www.wikidata.org/wiki/Q138822320',
   ],
+  identifier: {
+    '@type': 'PropertyValue',
+    propertyID: 'Wikidata',
+    value: 'Q138822320',
+  },
   email: 'laztayseer@gmail.com',
   telephone: '+96181238320',
   knowsAbout: [

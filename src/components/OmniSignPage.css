@@ -320,6 +320,59 @@
   margin-bottom: 1.5rem;
 }
 
+.os-award-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(140, 56, 57, 0.12), rgba(140, 56, 57, 0.04));
+  border: 1px solid rgba(140, 56, 57, 0.2);
+}
+
+.os-award-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.os-award-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.os-award-desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.os-award-link {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #c47070;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.os-award-link:hover {
+  color: #e09090;
+}
+
+@media (max-width: 600px) {
+  .os-award-banner {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+}
+
 .os-sub-title {
   font-family: var(--font-display);
   font-size: 1.3rem;
