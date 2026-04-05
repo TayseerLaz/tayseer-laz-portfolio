@@ -60,15 +60,21 @@ export default function About() {
 
             <div className="about-stats about-reveal">
               <div className="stat">
-                <span className="stat-num" data-count="4">0</span><span className="stat-plus">+</span>
+                <div className="stat-row">
+                  <span className="stat-num" data-count="10">0</span><span className="stat-plus">+</span>
+                </div>
                 <span className="stat-label">Products Built</span>
               </div>
               <div className="stat">
-                <span className="stat-num" data-count="3">0</span><span className="stat-plus">+</span>
+                <div className="stat-row">
+                  <span className="stat-num" data-count="8">0</span><span className="stat-plus">+</span>
+                </div>
                 <span className="stat-label">Companies</span>
               </div>
               <div className="stat">
-                <span className="stat-num" data-count="2">0</span><span className="stat-plus">+</span>
+                <div className="stat-row">
+                  <span className="stat-num">2.5</span>
+                </div>
                 <span className="stat-label">Years Experience</span>
               </div>
             </div>

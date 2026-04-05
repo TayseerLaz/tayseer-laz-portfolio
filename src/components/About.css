@@ -139,6 +139,7 @@
 }
 
 .stat { display: flex; flex-direction: column; gap: 0.4rem; }
+.stat-row { display: flex; align-items: baseline; }
 
 .stat-num {
   font-family: var(--font-display);

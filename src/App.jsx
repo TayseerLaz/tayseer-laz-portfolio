@@ -6,8 +6,11 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Marquee from './components/Marquee'
 import BehindDesigns from './components/BehindDesigns'
+import TrustedBy from './components/TrustedBy'
+// import RainingLetters from './components/RainingLetters'
 import Work from './components/Work'
 import Skills from './components/Skills'
+import GravitySection from './components/GravitySection'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ParticleCanvas from './components/ParticleCanvas'
@@ -30,9 +33,12 @@ function HomePage() {
         <Hero />
         <About />
         <Marquee />
+        <TrustedBy />
         <BehindDesigns />
+        {/* RainingLetters removed */}
         <Work />
         <Skills />
+        <GravitySection />
         <Contact />
       </main>
       <Footer />

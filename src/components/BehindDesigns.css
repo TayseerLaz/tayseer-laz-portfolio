@@ -1,3 +1,8 @@
+/* Remove top padding */
+.bd.section {
+  padding-top: 0;
+}
+
 /* ===== FLOATING HANDWRITTEN NOTE ===== */
 
 .bd-note {
