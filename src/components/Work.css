@@ -1,161 +1,229 @@
+/* ===== WORK CARDS — editorial, art-directed grid ===== */
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
 }
 
+/* Each card is a vertical poster — image up top, info beneath */
 .work-card {
-  border-radius: 1.25rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
   overflow: hidden;
-  background: var(--bg-card);
+  background:
+    radial-gradient(ellipse 120% 80% at 0% 0%, rgba(140, 56, 57, 0.10), transparent 60%),
+    var(--bg-card);
   border: 1px solid var(--border);
-  transition: all 0.5s var(--ease-out-expo);
+  isolation: isolate;
+  transition: border-color 0.5s var(--ease-out-expo),
+              box-shadow 0.5s var(--ease-out-expo);
+}
+
+.work-card::before {
+  /* faint editorial number watermark */
+  content: attr(data-num);
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  z-index: 4;
+  font-family: var(--font-accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  pointer-events: none;
 }
 
 .work-card:hover {
-  border-color: rgba(140, 56, 57, 0.3);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  border-color: rgba(140, 56, 57, 0.4);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(140, 56, 57, 0.18) inset;
 }
 
+/* ---- Image area ---- */
 .work-card-img {
   position: relative;
   aspect-ratio: 16/10;
   overflow: hidden;
+  margin: 1rem 1rem 0;
+  border-radius: 16px;
 }
 
 .work-card-placeholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg,
-    hsl(var(--hue, 10), 45%, 15%),
-    hsl(var(--hue, 10), 50%, 8%)
-  );
+  background:
+    radial-gradient(ellipse 70% 60% at 30% 20%,
+      hsl(var(--hue, 10), 65%, 28%) 0%,
+      hsl(var(--hue, 10), 55%, 14%) 50%,
+      hsl(var(--hue, 10), 50%, 8%) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.6s var(--ease-out-expo);
+  position: relative;
+  isolation: isolate;
 }
 
-.work-card:hover .work-card-placeholder {
-  transform: scale(1.05);
+/* Subtle SVG grain overlay on the image area */
+.work-card-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.45 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+  pointer-events: none;
 }
 
 .work-card-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
-
 .work-card-image.contain {
   object-fit: contain;
   padding: 1.5rem;
 }
-
+.work-card-image.invert {
+  filter: invert(1) hue-rotate(180deg);
+}
 .work-card-placeholder.white-bg {
   background: #fff;
 }
+.work-card-placeholder.white-bg::after { display: none; }
 
 .work-card-placeholder span {
   font-family: var(--font-display);
-  font-size: 5rem;
+  font-size: 6rem;
   font-weight: 800;
   opacity: 0.12;
-  color: hsl(var(--hue, 10), 60%, 50%);
+  color: hsl(var(--hue, 10), 60%, 60%);
+  letter-spacing: -0.05em;
 }
 
+/* ---- Hover overlay (only the View pill animates in) ---- */
 .work-card-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(14, 11, 11, 0.6);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  backdrop-filter: blur(4px);
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 1rem;
+  pointer-events: none;
 }
-
-.work-card:hover .work-card-overlay { opacity: 1; }
 
 .work-card-view {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 0.75rem 1.5rem;
-  border: 1px solid rgba(251, 245, 234, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.55rem 1rem;
   border-radius: 100px;
+  background: rgba(14, 11, 11, 0.72);
+  border: 1px solid rgba(251, 245, 234, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: var(--cream);
-  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s var(--ease-out-expo),
+              transform 0.4s var(--ease-out-expo);
+}
+.work-card:hover .work-card-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.work-card-view:hover {
-  background: var(--burgundy);
-  border-color: var(--burgundy);
-}
-
-.work-card {
-  display: flex;
-  flex-direction: column;
-}
-
+/* ---- Info block ---- */
 .work-card-info {
-  padding: 1.75rem;
+  padding: 1.5rem 1.75rem 1.75rem;
   display: flex;
   flex-direction: column;
   flex: 1;
+  gap: 0.6rem;
 }
 
+/* Editorial divider line under company */
 .work-card-company {
+  position: relative;
   font-family: var(--font-accent);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--burgundy-light);
-  margin-bottom: 0.4rem;
-  display: block;
-  min-height: 1.1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+}
+.work-card-company::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: var(--burgundy-light);
 }
 
 .work-card-title {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: clamp(1.4rem, 1.8vw, 1.75rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
-  min-height: 1.8em;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--cream);
 }
 
 .work-card-desc {
-  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
   color: var(--text-dim);
-  margin-bottom: 1.25rem;
-  line-height: 1.5;
+  line-height: 1.55;
+  margin: 0;
   flex: 1;
 }
 
+/* Tags as monospace pills */
 .work-card-tags {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.4rem;
   flex-wrap: wrap;
-  margin-top: auto;
+  margin-top: 0.75rem;
 }
 
 .work-card-tags span {
   font-family: var(--font-accent);
-  font-size: 0.75rem;
-  padding: 0.3rem 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  padding: 0.32rem 0.7rem;
   border-radius: 100px;
-  border: 1px solid var(--border);
-  color: var(--text-dim);
-  letter-spacing: 0.03em;
+  background: rgba(140, 56, 57, 0.10);
+  border: 1px solid rgba(140, 56, 57, 0.22);
+  color: var(--burgundy-light);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.work-card:hover .work-card-tags span {
+  background: rgba(140, 56, 57, 0.18);
+  color: var(--cream);
 }
 
+/* ---- Responsive ---- */
 @media (max-width: 1024px) {
-  .work-grid { grid-template-columns: 1fr; }
+  .work-grid { grid-template-columns: 1fr; gap: 2rem; }
 }
 
 @media (max-width: 768px) {
+  .work-card-img { margin: 0.75rem 0.75rem 0; border-radius: 12px; }
   .work-card-info { padding: 1.25rem; }
   .work-card-title { font-size: 1.25rem; }
   .work-card-desc { font-size: 0.85rem; }
@@ -164,10 +232,10 @@
 
 @media (max-width: 480px) {
   .work-grid { gap: 1.5rem; }
-  .work-card { border-radius: 1rem; }
-  .work-card-info { padding: 1rem; }
+  .work-card { border-radius: 18px; }
+  .work-card-info { padding: 1rem 1.1rem 1.25rem; }
   .work-card-title { font-size: 1.1rem; }
-  .work-card-desc { font-size: 0.8rem; margin-bottom: 0.75rem; }
-  .work-card-tags span { font-size: 0.65rem; padding: 0.25rem 0.6rem; }
+  .work-card-desc { font-size: 0.8rem; }
+  .work-card-tags span { font-size: 0.62rem; padding: 0.25rem 0.55rem; }
   .work-card-placeholder span { font-size: 3rem; }
 }

@@ -96,12 +96,6 @@ export default function Contact() {
 
         {/* Content */}
         <div className="contact-card-content">
-          <div className="contact-badge contact-reveal">
-            <span className="contact-badge-dot" />
-            <span className="contact-badge-ping" />
-            Available for Work
-          </div>
-
           <h2 className="contact-card-title contact-reveal">
             Let's build<br />
             <span className="contact-card-title-dim">something together.</span>

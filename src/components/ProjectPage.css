@@ -1,6 +1,448 @@
 .pp {
   min-height: 100vh;
-  padding-top: 2rem;
+  padding-top: 6rem; /* clear the fixed navbar */
+}
+
+/* ===== Store mockups — iPhone & Android phone frames ===== */
+.pp-stores {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+}
+
+.pp-phone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  width: 280px;
+  max-width: 100%;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pp-phone:hover {
+  transform: translateY(-8px);
+}
+
+.pp-phone-body {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  background: #000;
+  border-radius: 38px;
+  padding: 8px;
+  box-shadow:
+    0 0 0 2px rgba(180, 180, 180, 0.3),
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    0 8px 24px rgba(140, 56, 57, 0.25);
+}
+
+.pp-phone-bezel {
+  position: absolute;
+  inset: 4px;
+  border-radius: 34px;
+  background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+  pointer-events: none;
+}
+
+/* iPhone Dynamic Island */
+.pp-phone-island {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92px;
+  height: 28px;
+  background: #000;
+  border-radius: 20px;
+  z-index: 3;
+}
+
+/* Android hole-punch camera */
+.pp-phone-hole {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border-radius: 50%;
+  border: 1px solid #1f1f1f;
+  z-index: 3;
+}
+
+/* Android nav bar at bottom */
+.pp-phone-nav {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  z-index: 3;
+}
+.pp-phone-nav span {
+  width: 14px;
+  height: 14px;
+}
+.pp-phone-nav span:nth-child(1) {
+  background: transparent;
+  border: 1.5px solid #fff;
+  border-radius: 2px;
+}
+.pp-phone-nav span:nth-child(2) {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid #fff;
+}
+.pp-phone-nav span:nth-child(3) {
+  border-top: 1.5px solid #fff;
+  border-right: 1.5px solid #fff;
+  transform: rotate(45deg);
+  width: 9px;
+  height: 9px;
+}
+
+/* The actual screen */
+.pp-phone-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+/* iOS keeps fully white */
+.pp-phone--ios .pp-phone-screen {
+  background: #f7f7f7;
+}
+
+/* Android slightly different bg */
+.pp-phone--android .pp-phone-screen {
+  background: #fff;
+}
+
+/* Status bar */
+.pp-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 22px 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: #000;
+  flex-shrink: 0;
+}
+.pp-phone--ios .pp-status {
+  padding-top: 14px;
+}
+.pp-status-time {
+  font-feature-settings: 'tnum';
+}
+.pp-status-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Store top bar */
+.pp-store-bar {
+  padding: 8px 16px 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.pp-phone--android .pp-store-bar {
+  background: #fff;
+  color: #202124;
+  border-bottom: none;
+  padding: 6px 14px 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.pp-phone--android .pp-store-name::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  vertical-align: -3px;
+  background: linear-gradient(45deg, #00d4ff 0%, #00ff88 50%, #ffeb3b 100%);
+  border-radius: 50%;
+}
+
+/* App row */
+.pp-store-app {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px 12px;
+}
+.pp-store-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+.pp-store-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pp-phone--android .pp-store-icon {
+  border-radius: 50%;
+}
+
+.pp-store-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.pp-store-title {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 2px;
+  line-height: 1.2;
+}
+.pp-store-sub {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: #666;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+.pp-store-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pp-store-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.pp-phone--ios .pp-store-cta {
+  background: #007aff;
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+.pp-phone--android .pp-store-cta {
+  background: #01875f;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  text-transform: none;
+  font-size: 11px;
+}
+.pp-store-share {
+  color: #007aff;
+}
+.pp-phone--android .pp-store-share { color: #01875f; }
+
+/* Rating row */
+.pp-store-rating {
+  display: flex;
+  align-items: stretch;
+  padding: 10px 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  gap: 12px;
+}
+.pp-store-rating-cell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  font-family: var(--font-body);
+  text-align: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  padding-right: 12px;
+}
+.pp-store-rating-cell:last-child { border-right: none; padding-right: 0; }
+.pp-store-rating-cell strong {
+  font-size: 13px;
+  font-weight: 700;
+  color: #555;
+}
+.pp-store-rating-cell span {
+  font-size: 9px;
+  color: #f5a623;
+  letter-spacing: 0.5px;
+}
+.pp-store-rating-cell em {
+  font-size: 9px;
+  font-style: normal;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Screenshot strip — preserves natural aspect ratio inside fixed-height area */
+.pp-store-shots {
+  flex: 1 1 0;
+  min-height: 0; /* critical: lets the flex child shrink below content size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  overflow: hidden;
+  position: relative;
+}
+.pp-store-shots img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  background: #f0f0f0;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Caption under each phone */
+.pp-phone-caption {
+  font-family: var(--font-accent);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .pp-stores {
+    gap: 1.5rem;
+  }
+  .pp-phone {
+    width: 200px;
+  }
+  .pp-store-title { font-size: 13px; }
+  .pp-store-sub { font-size: 10px; }
+  .pp-store-icon { width: 48px; height: 48px; border-radius: 11px; }
+}
+
+/* Screenshots gallery */
+.pp-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.pp-shot {
+  margin: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.4s ease;
+}
+
+.pp-shot:hover {
+  transform: translateY(-4px);
+  border-color: rgba(140, 56, 57, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.pp-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--bg-dark);
+}
+
+.pp-shot figcaption {
+  padding: 0.75rem 1rem 0.85rem;
+  font-family: var(--font-accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .pp-gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .pp-shot figcaption {
+    font-size: 0.7rem;
+    padding: 0.5rem 0.65rem 0.6rem;
+  }
+}
+
+/* App store / Play store link buttons */
+.pp-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.pp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-card);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+
+.pp-link svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--burgundy-light);
+}
+
+.pp-link:hover {
+  border-color: var(--burgundy-light);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
 }
 
 /* Nav */
@@ -10,22 +452,29 @@
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem 3rem;
+  padding: 1rem 3rem 1.5rem;
 }
 
 .pp-back {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   font-family: var(--font-accent);
   font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1;
   color: var(--cream);
   background: none;
   border: 1px solid var(--border);
-  padding: 0.5rem 1rem;
+  padding: 0.55rem 1.1rem;
   border-radius: 100px;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+.pp-back svg {
+  flex-shrink: 0;
+  display: block;
 }
 
 .pp-back:hover {
@@ -55,12 +504,30 @@
   border-radius: 1.25rem;
   overflow: hidden;
   aspect-ratio: 16/10;
+  background: linear-gradient(135deg,
+    hsl(var(--hue, 10), 45%, 15%),
+    hsl(var(--hue, 10), 50%, 8%)
+  );
+}
+
+.pp-hero-img--white {
+  background: #fff;
 }
 
 .pp-hero-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.pp-hero-image--contain {
+  object-fit: contain;
+  padding: 2rem;
+}
+
+.pp-hero-image--invert {
+  filter: invert(1) hue-rotate(180deg);
 }
 
 .pp-hero-placeholder {

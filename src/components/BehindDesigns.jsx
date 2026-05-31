@@ -635,9 +635,25 @@ function SystemsShowcase({ onClose }) {
 /* ================= MAIN COMPONENT ================= */
 
 export default function BehindDesigns() {
-  const [expanded, setExpanded] = useState(null) // 'vision' | 'uiux' | null
+  const [expanded, setExpanded] = useState(null) // 'vision' | 'uiux' | 'systems' | 'ai' | null
+  const expandRefs = useRef({})
 
   const toggle = (key) => setExpanded(expanded === key ? null : key)
+
+  // Scroll the just-opened panel into view once it starts expanding.
+  // Run a few times during the height animation so we follow the growth.
+  useEffect(() => {
+    if (!expanded) return
+    const navOffset = 90 // clear the fixed navbar
+    const tick = (delay) => setTimeout(() => {
+      const el = expandRefs.current[expanded]
+      if (!el) return
+      const y = el.getBoundingClientRect().top + window.scrollY - navOffset
+      window.scrollTo({ top: y, behavior: 'smooth' })
+    }, delay)
+    const timers = [tick(80), tick(280), tick(520)]
+    return () => timers.forEach(clearTimeout)
+  }, [expanded])
 
   return (
     <section className="bd section">
@@ -722,6 +738,7 @@ export default function BehindDesigns() {
           {expanded === 'vision' && (
             <motion.div
               key="vision"
+              ref={(el) => (expandRefs.current.vision = el)}
               className="bd-expand"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
@@ -734,6 +751,7 @@ export default function BehindDesigns() {
           {expanded === 'uiux' && (
             <motion.div
               key="uiux"
+              ref={(el) => (expandRefs.current.uiux = el)}
               className="bd-expand"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
@@ -765,6 +783,7 @@ export default function BehindDesigns() {
           {expanded === 'systems' && (
             <motion.div
               key="systems"
+              ref={(el) => (expandRefs.current.systems = el)}
               className="bd-expand bd-expand--bottom"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
@@ -777,6 +796,7 @@ export default function BehindDesigns() {
           {expanded === 'ai' && (
             <motion.div
               key="ai"
+              ref={(el) => (expandRefs.current.ai = el)}
               className="bd-expand bd-expand--bottom"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}

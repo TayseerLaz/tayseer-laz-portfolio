@@ -14,20 +14,20 @@ Product Strategy, UI/UX Design, Wireframing & Prototyping, Design Systems, User 
 
 ## Projects
 
-### Alinia SaaS Platform (2025 — Present)
-Role: Product Developer at Aligned Tech
-Leading product vision and end-to-end execution including UI/UX design, multi-role agency panels, workflow systems, and AI-powered tools. Built interactive dashboards with real-time analytics. Integrated AI chatbots for automated client support and onboarding.
-Tech: React, Node.js, Firebase, AI/ML, Figma
+### Aligned Tech — Live Website (2025 — Present)
+Role: Lead Designer & Developer at Aligned Tech
+Designed and built the Aligned Tech corporate website end-to-end (live at https://www.aligned-tech.com). A Vite + React marketing site for a Lebanon-based technology consultancy delivering AI automation, cloud, WhatsApp business, cybersecurity, web/mobile development, and IT support. Built a custom blog CMS, implemented dynamic SEO per page (titles, descriptions, JSON-LD, sitemap), tuned Core Web Vitals (sub-1.5s LCP), authored page-specific GSAP motion design, and shipped through Vercel.
+Tech: React, Vite, GSAP, Vercel, CSS Modules, Figma
 
-### Dyafa Event & Hospitality Platform (2024 — 2025)
-Role: Product Developer at IEvents Qatar
-Multi-vendor event platform serving the Qatar market. Built and published mobile apps on Google Play Store and Apple App Store. Developed POS system for on-site event operations. Built AI chatbot for event attendee support. Coordinated cross-functional teams across Qatar, Turkey, and Lebanon. Mentored interns and junior developers.
+### iEvents — All-in-One Event Platform (2024 — 2025)
+Role: Product Developer at iEvents Qatar
+All-in-one event platform serving the Qatar market — connecting attendees, organizers, and vendors. Designed UI/UX, architected the multi-role admin panel, integrated an on-site POS, embedded an AI assistant for attendees, and shipped iOS and Android apps to App Store and Google Play. Coordinated cross-functional teams across Qatar, Turkey, and Lebanon. Mentored interns and junior developers.
 Tech: React Native, Firebase, Node.js, Figma, AI Integration
 
-### Real Estate SaaS Platform (2025)
-Role: Product Developer (Freelance)
-Led product vision from concept to launch. Designed complete UI/UX with multi-role user flows. Built web application with property management features. Structured business logic and data workflows. Initiated mobile application development.
-Tech: React, Node.js, MongoDB, Figma
+### Bsheel — Gamified Real-World Quests (2025)
+Role: Founder & Product Developer
+A gamified quest app where users complete real-world challenges, submit photo or video proof, earn XP, level up through a class progression (Scout → Warrior → Mage → Champion → Legend), and compete on a global leaderboard. AI generates quests across five categories. Includes an Instagram-style social feed, push notifications, badges, and a Flutter Web admin dashboard for moderation. Built as a Flutter monorepo with Supabase backend and Cloudflare R2 storage. Localized for English and Lebanese Arabizi.
+Tech: Flutter, Supabase, Riverpod, GoRouter, Firebase, Cloudflare R2, Postgres
 
 ### OmniSign — AI Sign Language Translation (2024 — Present)
 Role: Co-Founder & Product Contributor

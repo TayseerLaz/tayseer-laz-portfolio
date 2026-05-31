@@ -1,4 +1,38 @@
+# https://tayseerlaz.com/robots.txt
+# Tayseer Laz — Product Developer Portfolio
+
 User-agent: *
 Allow: /
+Disallow:
 
+# Major search engines — explicit allow
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Allow AI crawlers (helps appearance in AI-generated answers)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Sitemap
 Sitemap: https://tayseerlaz.com/sitemap.xml

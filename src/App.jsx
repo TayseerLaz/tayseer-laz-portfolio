@@ -10,7 +10,8 @@ import TrustedBy from './components/TrustedBy'
 // import RainingLetters from './components/RainingLetters'
 import Work from './components/Work'
 import Skills from './components/Skills'
-import GravitySection from './components/GravitySection'
+import BrandStatement from './components/BrandStatement'
+import ArrowField from './components/ArrowField'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ParticleCanvas from './components/ParticleCanvas'
@@ -38,7 +39,8 @@ function HomePage() {
         {/* RainingLetters removed */}
         <Work />
         <Skills />
-        <GravitySection />
+        <ArrowField />
+        <BrandStatement />
         <Contact />
       </main>
       <Footer />

@@ -26,20 +26,6 @@ export default function Work() {
     return () => ctx.revert()
   }, [])
 
-  const handleTilt = (e, card) => {
-    const rect = card.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-    const rx = (y - rect.height / 2) / rect.height * -5
-    const ry = (x - rect.width / 2) / rect.width * 5
-    card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-8px)`
-    card.style.transition = 'none'
-  }
-
-  const resetTilt = (card) => {
-    card.style.transform = ''
-    card.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)'
-  }
 
   return (
     <section className="section work" id="work" ref={ref}>
@@ -51,14 +37,13 @@ export default function Work() {
         <div className="work-grid">
           {projects.map((p, i) => (
             <article key={i} className="work-card"
-              onMouseMove={(e) => handleTilt(e, e.currentTarget)}
-              onMouseLeave={(e) => resetTilt(e.currentTarget)}
+              data-num={`${p.num} / ${String(projects.length).padStart(2, '0')}`}
               onClick={() => navigate(`/work/${p.slug}`)}
               style={{ cursor: 'pointer' }}>
               <div className="work-card-img">
                 {p.image ? (
                   <div className={`work-card-placeholder${p.whiteBg ? ' white-bg' : ''}`} style={{ '--hue': p.hue }}>
-                    <img src={p.image} alt={p.title} className={`work-card-image${p.whiteBg ? ' contain' : ''}`} />
+                    <img src={p.image} alt={p.title} className={`work-card-image${p.whiteBg ? ' contain' : ''}${p.invertLogo ? ' invert' : ''}`} />
                   </div>
                 ) : (
                   <div className="work-card-placeholder" style={{ '--hue': p.hue }}>

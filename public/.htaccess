@@ -10,13 +10,24 @@
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-  # SPA fallback
+  # Project slug renames (preserve any prior indexing)
+  RewriteRule ^work/dyafa/?$ /work/ievents/ [R=301,L]
+  RewriteRule ^work/real-estate/?$ /work/bsheel/ [R=301,L]
+  RewriteRule ^work/alinia/?$ /work/aligned-tech/ [R=301,L]
+
+  # If a directory exists with an index.html (e.g. /work/omnisign/), serve it
+  # This makes the prerendered project pages take precedence over the SPA fallback
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^(.*[^/])$ /$1/ [R=301,L]
+
+  # SPA fallback — only if no real file or directory matched
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
 </IfModule>
 
+# Cache headers — long for assets, no-cache for HTML so updates ship fast
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType image/svg+xml "access plus 1 year"
@@ -29,8 +40,21 @@
   ExpiresByType font/woff "access plus 1 year"
   ExpiresByType font/opentype "access plus 1 year"
   ExpiresByType audio/mpeg "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Don't cache HTML — so SEO updates take effect immediately
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # Security
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
 </IfModule>
 
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml application/xml
 </IfModule>
