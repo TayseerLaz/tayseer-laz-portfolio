@@ -7,8 +7,8 @@ import './SlaBridge.css'
 
 const S = site.sla
 const CH = [
-  { id: 'intro', k: '01 · Product' }, { id: 'role', k: '02 · My role' }, { id: 'modules', k: '03 · Modules' },
-  { id: 'integrations', k: '04 · Integrations' }, { id: 'jobs', k: '05 · Automation' }, { id: 'stack', k: '06 · Stack' },
+  { id: 'intro', k: '01 · Product' }, { id: 'app', k: '02 · The app' }, { id: 'role', k: '03 · My role' }, { id: 'modules', k: '04 · Modules' },
+  { id: 'integrations', k: '05 · Integrations' }, { id: 'jobs', k: '06 · Automation' }, { id: 'stack', k: '07 · Stack' },
 ]
 
 export default function SlaBridge({ onClose, standalone = false, related }: { onClose: () => void; standalone?: boolean; related?: ReactNode }) {
@@ -59,9 +59,9 @@ export default function SlaBridge({ onClose, standalone = false, related }: { on
 
       <main className="cs__main">
         <section className="cs-ch os-hero" id="sb-intro">
-          <div className="cs-ch__inner sb-hero">
-            <div className="sb-hero__copy">
-              <img className="sb-logo" src="/sla/logo-white.png" alt="Aligned" width={1235} height={204} />
+          <div className="cs-ch__inner os-hero__grid">
+            <div className="os-hero__copy">
+              <img className="sb-logo" src="/images/logos/aligned-white.webp" alt="Aligned" width={1235} height={204} />
               <h3 className="cs-ch__title hd-title">One system the company runs on.</h3>
               <p className="cs-ch__body">{S.subtitle}</p>
               <p className="os-tags">{S.tags.join(' · ')}</p>
@@ -69,8 +69,15 @@ export default function SlaBridge({ onClose, standalone = false, related }: { on
                 {S.stats.map((s) => <li key={s.label}><strong>{s.num}</strong><span>{s.label}</span></li>)}
               </ul>
             </div>
+          </div>
+        </section>
+
+        <section className="cs-ch sb-app" id="sb-app">
+          <div className="cs-ch__inner">
+            <h3 className="cs-ch__title">Behind the login</h3>
+            <p className="cs-ch__body">Aligned ERP lives at bridge.aligned-tech.com, one sign-in for the whole company.</p>
             <figure className="hd-shot sb-hero__shot">
-              <img src="/sla/login.jpg" alt="Aligned ERP sign-in at bridge.aligned-tech.com" width={1440} height={900} />
+              <img src="/images/work/sla/login.webp" alt="Aligned ERP sign-in at bridge.aligned-tech.com" width={1440} height={900} loading="lazy" />
               <figcaption>bridge.aligned-tech.com. The app sits behind this login, so the screens past it hold client data and are not shown.</figcaption>
             </figure>
           </div>
@@ -136,7 +143,7 @@ export default function SlaBridge({ onClose, standalone = false, related }: { on
 
       {related}
       <footer className="cs__footer os-footer">
-        <img src="/sla-footer.jpg" alt="" width={1920} height={1072} loading="lazy" />
+        <img src="/images/footers/sla.webp" alt="" width={1920} height={1072} loading="lazy" />
         <div className="cs__footer-line">
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <nav aria-label="Project footer"><a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a><a href={S.site} target="_blank" rel="noreferrer">bridge.aligned-tech.com</a></nav>

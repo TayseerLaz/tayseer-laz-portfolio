@@ -40,7 +40,7 @@ export default function WorkDetail({ item, onClose }: { item: Item; onClose: () 
       <div className="wd__grid">
         {/* 1 image */}
         <article className="wdt wdt--img wdt--p1">
-          <img src="/hero-bg.jpg" alt="" />
+          <img src="/images/site/hero-bg.webp" alt="" />
           <p className="wdt__cap">Screens from {item.name}. Placeholder image.</p>
         </article>
 
@@ -65,7 +65,7 @@ export default function WorkDetail({ item, onClose }: { item: Item; onClose: () 
 
         {/* 5 tall image */}
         <article className="wdt wdt--img wdt--p5">
-          <img src="/about-photo.jpg" alt="" />
+          <img src="/images/site/about-photo.webp" alt="" />
           <p className="wdt__cap">Sometimes the work starts on paper. Placeholder image.</p>
         </article>
 

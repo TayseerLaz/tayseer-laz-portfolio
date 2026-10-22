@@ -4,6 +4,8 @@
 .sb-hero .os-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .sb-hero__shot { background: var(--pine); border-color: rgba(241,233,214,0.15); }
 .sb-hero__shot figcaption { background: var(--pine); color: rgba(241,233,214,0.8); border-top-color: rgba(241,233,214,0.15); }
+.sb-app { background: var(--cream); }
+.sb-app .sb-hero__shot { margin-top: 1rem; max-width: 1100px; }
 .sb-jobs { background: var(--peach); }
 .sb-clock { list-style: none; padding: 0; margin-top: 1.4rem; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.9rem; }
 .sb-clock li { display: grid; gap: 0.35rem; padding: 1.1rem 1.1rem 1.2rem; border-radius: 14px; background: rgba(255,255,255,0.6); border: 1px solid rgba(11,47,38,0.12); }

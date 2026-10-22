@@ -60,7 +60,7 @@ export default function CaseStudy({ onClose, standalone = false, related }: { on
 
       {related}
       <footer className="cs__footer">
-        <img src="/wms/footer.jpg" alt="Pixel-art hills and clouds under a pale sky" width={1920} height={1072} loading="lazy" />
+        <img src="/images/footers/wms.webp" alt="Pixel-art hills and clouds under a pale sky" width={1920} height={1072} loading="lazy" />
         <div className="cs__footer-line">
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <nav aria-label="Case study footer">
@@ -164,7 +164,7 @@ function Section({ c }: { c: Chapter }) {
           <>
             <ul className="shots" aria-label="Screens">
               {c.shots.map((s) => (
-                <li key={s}><img src={`/wms/${s}.jpg`} alt={s.slice(3).replace(/_/g, ' ')} width={416} height={900} loading="lazy" /></li>
+                <li key={s}><img src={`/images/work/wms/${s}.webp`} alt={s.slice(3).replace(/_/g, ' ')} width={416} height={900} loading="lazy" /></li>
               ))}
             </ul>
           </>

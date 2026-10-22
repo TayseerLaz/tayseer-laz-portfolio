@@ -49,7 +49,7 @@ export function structuredData(pathname: string) {
   const person = {
     '@type': 'Person', '@id': `${origin}/#person`, name: site.name,
     url: `${origin}/`, jobTitle: 'Product Developer', description: profile.description,
-    image: `${origin}/about-photo.jpg`, email: `mailto:${site.email}`,
+    image: `${origin}/images/site/about-photo.webp`, email: `mailto:${site.email}`,
     address: { '@type': 'PostalAddress', addressLocality: 'Beirut', addressCountry: 'LB' },
     sameAs: [profile.linkedin, profile.github],
   }

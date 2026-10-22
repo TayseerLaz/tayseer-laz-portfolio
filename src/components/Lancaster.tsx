@@ -60,7 +60,7 @@ export default function Lancaster({ onClose, standalone = false, related }: { on
       <main className="cs__main">
         <section className="cs-ch os-hero" id="lc-intro">
           <div className="cs-ch__inner">
-            <img className="os-logo hd-logo lc-logo" src="/lancaster-mark.png" alt="" width={512} height={512} />
+            <img className="os-logo hd-logo lc-logo" src="/images/logos/lancaster.webp" alt="" width={512} height={512} />
             <h3 className="cs-ch__title hd-title">Twenty-one hotels, one codebase.</h3>
             <p className="cs-ch__body">{L.subtitle}</p>
             <p className="os-tags">{L.tags.join(' · ')}</p>
@@ -161,7 +161,7 @@ export default function Lancaster({ onClose, standalone = false, related }: { on
               {L.sites.map((s) => (
                 <li key={s.shot} className="lc-site">
                   <a className="lc-site__link" href={s.url} target="_blank" rel="noreferrer" aria-label={`Open ${s.name}`}>
-                    <figure className="hd-shot"><img src={`/lancaster/${s.shot}.jpg`} alt={`${s.name} home page`} width={1440} height={900} loading="lazy" /></figure>
+                    <figure className="hd-shot"><img src={`/images/work/lancaster/${s.shot}.webp`} alt={`${s.name} home page`} width={1440} height={900} loading="lazy" /></figure>
                     <strong>{s.name} <span aria-hidden="true">↗</span></strong>
                   </a>
                   <em>{s.place}</em>
@@ -179,7 +179,7 @@ export default function Lancaster({ onClose, standalone = false, related }: { on
             <ol className="hd-feats">
               {L.features.map((f, i) => (
                 <li key={f.t} className="hd-feat">
-                  <figure className="hd-shot"><img src={`/lancaster/${f.shot}.jpg`} alt={f.t} width={1440} height={900} loading="lazy" /></figure>
+                  <figure className="hd-shot"><img src={`/images/work/lancaster/${f.shot}.webp`} alt={f.t} width={1440} height={900} loading="lazy" /></figure>
                   <div className="hd-feat__text">
                     <span className="hd-feat__num">{String(i + 1).padStart(2, '0')}</span>
                     <h4>{f.t}</h4>
@@ -214,7 +214,7 @@ export default function Lancaster({ onClose, standalone = false, related }: { on
 
       {related}
       <footer className="cs__footer os-footer">
-        <img src="/lancaster-footer.jpg" alt="" width={1920} height={1072} loading="lazy" />
+        <img src="/images/footers/lancaster.webp" alt="" width={1920} height={1072} loading="lazy" />
         <div className="cs__footer-line">
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <nav aria-label="Project footer"><a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a><a href={L.site} target="_blank" rel="noreferrer">lancaster.world</a></nav>

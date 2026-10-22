@@ -74,7 +74,7 @@ function MapCard() {
 function Photo() {
   return (
     <article className="bc bc--photo">
-      <img src="/about-photo.jpg" alt={P.photo.alt} width={812} height={1398} loading="lazy" />
+      <img src="/images/site/about-photo.webp" alt={P.photo.alt} width={812} height={1398} loading="lazy" />
     </article>
   )
 }

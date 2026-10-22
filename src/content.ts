@@ -469,8 +469,8 @@ export const site = {
     dataset: {
       title: 'What the data looks like',
       intro: 'Every sign is recorded as hand and pose landmarks through MediaPipe, then stored as JSON per signer and per sign. The alphabet set below is one signer, one frame per letter, from the raw campaign images before augmentation.',
-      sheet: { src: '/omnisign/dataset-alphabet.jpg', alt: 'Twenty-eight Arabic letters, each shown as a hand sign photographed against a white wall with the letter and its name beneath', caption: 'The Arabic alphabet in Lebanese Sign Language, one signer, raw frames' },
-      archi: { src: '/omnisign/model-architecture.jpg', alt: 'Diagram of the pipeline: data loading from features per signer and sign, a TinyTCN model with two Conv1d layers and adaptive pooling, and training with 5-fold cross-validation', caption: 'Pipeline from the 2sign-model repo: load landmarks, TinyTCN, 5-fold training' },
+      sheet: { src: '/images/work/omnisign/dataset-alphabet.webp', alt: 'Twenty-eight Arabic letters, each shown as a hand sign photographed against a white wall with the letter and its name beneath', caption: 'The Arabic alphabet in Lebanese Sign Language, one signer, raw frames' },
+      archi: { src: '/images/work/omnisign/model-architecture.webp', alt: 'Diagram of the pipeline: data loading from features per signer and sign, a TinyTCN model with two Conv1d layers and adaptive pooling, and training with 5-fold cross-validation', caption: 'Pipeline from the 2sign-model repo: load landmarks, TinyTCN, 5-fold training' },
       facts: [
         { k: 'Input', v: 'MediaPipe Holistic landmarks per frame, with joint angles' },
         { k: 'Storage', v: 'features/{signer}/{sign}/*.json' },
@@ -531,13 +531,13 @@ export const site = {
       ],
     },
     apps: [
-      { name: 'iEvents', sub: 'For attendees and planners', icon: '/ievents-icon.png', shots: [
+      { name: 'iEvents', sub: 'For attendees and planners', icon: '/images/logos/ievents.webp', shots: [
         { src: 'user-1', cap: 'Home: Plan like a pro banner, categories, nearby shops and popular vendors' },
         { src: 'user-2', cap: 'A vendor page with services and shop tabs' },
         { src: 'user-3', cap: 'Pick a location on the map, with Qatar and Doha in view' },
         { src: 'user-4', cap: 'Categories: catering, hospitality, event setup, flowers, chocolate, shopping, souvenir, cakes' },
       ] },
-      { name: 'iEvents Vendor', sub: 'For vendors and service providers', icon: '/ievents/vendor-icon.jpg', shots: [
+      { name: 'iEvents Vendor', sub: 'For vendors and service providers', icon: '/images/logos/ievents-vendor.webp', shots: [
         { src: 'vendor-1', cap: 'Vendor sign in, only for vendor owners' },
         { src: 'vendor-2', cap: 'Publish an announcement to customers' },
         { src: 'vendor-3', cap: 'The vendor menu: services, add-ons, campaigns, ads, coupons, reviews, reports, business plan, conversations' },
@@ -579,7 +579,7 @@ export const site = {
       title: 'aligned-tech.com',
       subtitle: 'The website of Aligned Tech, an IT and AI consultancy in Lebanon: services, in-house products, careers and a blog fed by the company\'s own back office, an AI assistant you can type or talk to, and SEO built in from the first commit.',
       headline: 'Aligning innovation with your business.',
-      icon: '/more/at-icon.png',
+      icon: '/images/logos/aligned-tech.webp',
       tags: ['live', 'Company site', 'React', 'Vite', 'AI assistant', 'SEO'],
       links: [{ k: 'aligned-tech.com', u: 'https://www.aligned-tech.com' }],
       stats: [
@@ -600,12 +600,12 @@ export const site = {
       gallery: {
         title: 'The site', intro: 'Screens from the current build.', kind: 'wide',
         shots: [
-          { src: '/more/at-services.jpg', cap: 'Services: seven ways we align technology with your business' },
-          { src: '/more/at-service-ai.jpg', cap: 'A service page: AI and automation, with capabilities and FAQs' },
-          { src: '/more/at-hader.jpg', cap: 'Products: the Hader deck, every unanswered WhatsApp message is a lost customer' },
-          { src: '/more/at-aligndesk.jpg', cap: 'Products: AlignDesk, every conversation on one screen' },
-          { src: '/more/at-roadmap.jpg', cap: 'Roadmap from 2012 to today, and the CEO\'s note' },
-          { src: '/more/at-contact.jpg', cap: 'Contact: general enquiry or career application' },
+          { src: '/images/work/alignedtech/at-services.webp', cap: 'Services: seven ways we align technology with your business' },
+          { src: '/images/work/alignedtech/at-service-ai.webp', cap: 'A service page: AI and automation, with capabilities and FAQs' },
+          { src: '/images/work/alignedtech/at-hader.webp', cap: 'Products: the Hader deck, every unanswered WhatsApp message is a lost customer' },
+          { src: '/images/work/alignedtech/at-aligndesk.webp', cap: 'Products: AlignDesk, every conversation on one screen' },
+          { src: '/images/work/alignedtech/at-roadmap.webp', cap: 'Roadmap from 2012 to today, and the CEO\'s note' },
+          { src: '/images/work/alignedtech/at-contact.webp', cap: 'Contact: general enquiry or career application' },
         ],
       },
       features: [
@@ -634,13 +634,13 @@ export const site = {
         { k: 'Build', v: 'Puppeteer prerender, Vitest and Testing Library, ESLint.' },
         { k: 'Hosting', v: 'cPanel, fed by GitHub Actions through a deploy repository.' },
       ],
-      footer: '/sla-footer.jpg',
+      footer: '/images/footers/sla.webp',
     },
     emsherif: {
       title: 'Em Sherif Deli',
       subtitle: 'The menu website for Em Sherif Deli in downtown Beirut: Lebanese comfort food, man\'oushe at dawn, shawarma past noon, every item and price on one page, with a brand drawn from Lebanese azulejo tiles.',
       headline: 'Lebanese comfort, the Em Sherif way.',
-      icon: '/more/em-mark.png',
+      icon: '/images/logos/em-sherif.webp',
       tags: ['live', 'Restaurant', 'React', 'Vite', 'Beirut'],
       links: [],
       stats: [
@@ -649,7 +649,7 @@ export const site = {
         { num: '3', label: 'Typefaces, Latin and Arabic' },
         { num: '0', label: 'Image files for the tile band' },
       ],
-      hero: { src: '/more/em-1.jpg', cap: 'emsherifdeli.com, the home section. Click to open.', href: 'https://emsherifdeli.com' },
+      hero: { src: '/images/work/emsherif/em-1.webp', cap: 'emsherifdeli.com, the home section. Click to open.', href: 'https://emsherifdeli.com' },
       role: {
         title: 'Design and build, end to end',
         body: 'I designed the site\'s visual system and built it as a React app the team can update without touching a component: change a price in one data file and the menu, the ticker and the navigation follow.',
@@ -658,10 +658,10 @@ export const site = {
       gallery: {
         title: 'The site and the brand', intro: 'Screens from the production build, then the merch the same brand dresses.', kind: 'wide',
         shots: [
-          { src: '/more/em-2.jpg', cap: 'Sandwiches, wrapped to order, with the tile band above' },
-          { src: '/more/em-3.jpg', cap: 'Drinks: cold pressed, from the fridge' },
-          { src: '/more/em-4.jpg', cap: 'Visit: Starco Building, downtown Beirut, open daily' },
-          { src: '/more/em-merch-1.jpg', cap: 'Shawarma tees for the team' },
+          { src: '/images/work/emsherif/em-2.webp', cap: 'Sandwiches, wrapped to order, with the tile band above' },
+          { src: '/images/work/emsherif/em-3.webp', cap: 'Drinks: cold pressed, from the fridge' },
+          { src: '/images/work/emsherif/em-4.webp', cap: 'Visit: Starco Building, downtown Beirut, open daily' },
+          { src: '/images/work/emsherif/em-merch-1.webp', cap: 'Shawarma tees for the team' },
         ],
       },
       features: [
@@ -682,13 +682,13 @@ export const site = {
         { k: 'Type', v: 'Michroma, Chakra Petch and Aref Ruqaa from Google Fonts.' },
         { k: 'Hosting', v: 'Static build, live at emsherifdeli.com.' },
       ],
-      footer: '/footer-field.jpg',
+      footer: '/images/footers/field.webp',
     },
     lazpress: {
       title: 'LAZ Press',
       subtitle: 'The production website for LAZ Press, an offset and digital print house: services, a five-step process, an editorial gallery of printed work and instant quotes, deployed on Cloudflare at laz-press.com.',
       headline: 'Print that behaves on the page.',
-      icon: '/more/laz-logo.png',
+      icon: '/images/logos/laz-press.webp',
       tags: ['live', 'Print house', 'Next.js 15', 'Cloudflare'],
       links: [{ k: 'laz-press.com', u: 'https://laz-press.com' }],
       stats: [
@@ -697,7 +697,7 @@ export const site = {
         { num: '5', label: 'Steps in the CMYK timeline' },
         { num: '0', label: 'CSS frameworks' },
       ],
-      hero: { src: '/more/laz-1.jpg', cap: 'The LAZ Press home page. Click to open laz-press.com.', href: 'https://laz-press.com' },
+      hero: { src: '/images/work/lazpress/laz-1.webp', cap: 'The LAZ Press home page. Click to open laz-press.com.', href: 'https://laz-press.com' },
       role: {
         title: 'Design and build',
         body: 'I rebuilt the LAZ Press website as a production Next.js site that feels like the print it sells: CMYK colour bars, a stack of printed sheets in the hero, and a process told in five ink colours.',
@@ -706,10 +706,10 @@ export const site = {
       gallery: {
         title: 'The site and the work', intro: 'Sections of the site, then two of the printed jobs it shows.', kind: 'wide',
         shots: [
-          { src: '/more/laz-2.jpg', cap: 'Five steps, zero surprises: brief, files, proof, print, deliver' },
-          { src: '/more/laz-3.jpg', cap: 'A client quote on colour matching' },
-          { src: '/more/laz-work-cti.jpg', cap: 'Printed work: a company profile' },
-          { src: '/more/laz-work-marvel.jpg', cap: 'Printed work: roll-up banners' },
+          { src: '/images/work/lazpress/laz-2.webp', cap: 'Five steps, zero surprises: brief, files, proof, print, deliver' },
+          { src: '/images/work/lazpress/laz-3.webp', cap: 'A client quote on colour matching' },
+          { src: '/images/work/lazpress/laz-work-cti.webp', cap: 'Printed work: a company profile' },
+          { src: '/images/work/lazpress/laz-work-marvel.webp', cap: 'Printed work: roll-up banners' },
         ],
       },
       features: [
@@ -729,13 +729,13 @@ export const site = {
         { k: 'Hosting', v: 'Cloudflare Workers through OpenNext and Wrangler.' },
         { k: 'Domain', v: 'laz-press.com.' },
       ],
-      footer: '/omnisign-footer.jpg',
+      footer: '/images/footers/omnisign.webp',
     },
     cocos: {
       title: 'COCOS Health Club & Spa',
       subtitle: 'A multi-country wellness brand site with its own CMS, five country variants, three languages with right-to-left Arabic, an AI skin analysis and an AI chat, all on one self-hosted box.',
       headline: 'Relax. Refresh. Renew.',
-      icon: '/more/cocos-logo.png',
+      icon: '/images/logos/cocos.webp',
       tags: ['live', 'Wellness', 'CMS', 'AI skin analysis', 'React', 'Fastify'],
       links: [{ k: 'Live site', u: 'https://cocos.34-70-222-235.nip.io' }],
       stats: [
@@ -744,7 +744,7 @@ export const site = {
         { num: '6', label: 'Admin panels' },
         { num: 'Mar → Aug 2026', label: 'Built in' },
       ],
-      hero: { src: '/more/cocos-1.jpg', cap: 'The COCOS home page, with the skin analysis in the nav. Click to open.', href: 'https://cocos.34-70-222-235.nip.io' },
+      hero: { src: '/images/work/cocos/cocos-1.webp', cap: 'The COCOS home page, with the skin analysis in the nav. Click to open.', href: 'https://cocos.34-70-222-235.nip.io' },
       role: {
         title: 'Full-stack developer',
         body: 'I built the site, the CMS behind it, the AI features and the deploy pipeline. One brand, five countries: every text and image key resolves through a country-aware fallback chain, so a country only overrides what is different.',
@@ -757,7 +757,7 @@ export const site = {
       gallery: {
         title: 'The site', intro: 'A section further down the home page.', kind: 'wide',
         shots: [
-          { src: '/more/cocos-2.jpg', cap: 'A holistic approach to well-being: philosophy, rooms, wellness and team' },
+          { src: '/images/work/cocos/cocos-2.webp', cap: 'A holistic approach to well-being: philosophy, rooms, wellness and team' },
         ],
       },
       features: [
@@ -783,13 +783,13 @@ export const site = {
         { k: 'Media', v: 'sharp, local disk or Cloudflare R2 behind one storage adapter.' },
         { k: 'Hosting', v: 'nginx, systemd and Let\'s Encrypt on one box, deployed by GitHub Actions.' },
       ],
-      footer: '/bsheel-footer.jpg',
+      footer: '/images/footers/bsheel.webp',
     },
     gym180: {
       title: '180° Fitness & Spa',
       subtitle: 'The website and CMS for 180° Fitness & Spa in Jnah, Beirut: four levels of fitness, wellness, sport and spa, every section editable by the club\'s own team.',
       headline: 'Train. Relax. Rejuvenate.',
-      icon: '/more/gym-logo.png',
+      icon: '/images/logos/180.webp',
       tags: ['live', 'Fitness', 'Next.js 16', 'CMS'],
       links: [
         { k: 'Live site', u: 'https://180gym.34-70-222-235.nip.io' },
@@ -800,7 +800,7 @@ export const site = {
         { num: '1', label: 'Admin CMS for the team' },
         { num: 'May → Sep 2026', label: 'Built in' },
       ],
-      hero: { src: '/more/gym-1.jpg', cap: 'The 180° home page. Click to open.', href: 'https://180gym.34-70-222-235.nip.io' },
+      hero: { src: '/images/work/gym180/gym-1.webp', cap: 'The 180° home page. Click to open.', href: 'https://180gym.34-70-222-235.nip.io' },
       role: {
         title: 'Product developer, website and CMS',
         body: 'I built the gym\'s new website with its own admin. The site runs on a staging domain while the client\'s old site stays live, so the cutover is a decision, not an accident.',
@@ -809,8 +809,8 @@ export const site = {
       gallery: {
         title: 'The site', intro: 'Two more sections of the live site.', kind: 'wide',
         shots: [
-          { src: '/more/gym-2.jpg', cap: 'The club: spa, pool, functional, community, coaching, group classes and recovery' },
-          { src: '/more/gym-3.jpg', cap: 'Who we are: where positive change begins' },
+          { src: '/images/work/gym180/gym-2.webp', cap: 'The club: spa, pool, functional, community, coaching, group classes and recovery' },
+          { src: '/images/work/gym180/gym-3.webp', cap: 'Who we are: where positive change begins' },
         ],
       },
       features: [
@@ -828,7 +828,7 @@ export const site = {
         { k: 'Site', v: 'Next.js 16, Drizzle ORM, SQLite through libsql, bcryptjs, sharp.' },
         { k: 'Hosting', v: 'nginx and systemd on a shared box, deployed by GitHub Actions.' },
       ],
-      footer: '/ievents-footer.jpg',
+      footer: '/images/footers/ievents.webp',
     },
     epos: {
       title: 'ePOS: QR point of sale',
@@ -842,7 +842,7 @@ export const site = {
         { num: '30 s', label: 'Background sync interval' },
         { num: '5', label: 'Retries per sale, with backoff' },
       ],
-      hero: { src: '/more/epos-qr.jpg', cap: 'A printed QR sheet: one code per item, each holding only the item ID' },
+      hero: { src: '/images/work/epos/epos-qr.webp', cap: 'A printed QR sheet: one code per item, each holding only the item ID' },
       role: {
         title: 'Product developer',
         body: 'Built for stalls selling plush toys at events, where the Wi-Fi is the first thing to fail. The phone records every sale locally first and the server is made so a retry can never count a sale twice.',
@@ -869,13 +869,13 @@ export const site = {
         { k: 'Data', v: 'PostgreSQL with Prisma; IndexedDB on the phone.' },
         { k: 'QR', v: 'qrcode on the server, zbar-wasm in the browser.' },
       ],
-      footer: '/sla-footer.jpg',
+      footer: '/images/footers/sla.webp',
     },
     lima: {
       title: 'LIMA Rent A Car',
       subtitle: 'The website for LIMA Rent A Car in Beirut: a fleet you can filter, a page per vehicle, offers, pricing and reservations, with an API behind it and a brand set in Fraunces and Inter Tight.',
       headline: 'Pick a car. Pick a road.',
-      icon: '/more/lima-logo.png',
+      icon: '/images/logos/lima.webp',
       tags: ['live', 'Car rental', 'React', 'Express'],
       links: [{ k: 'Live site', u: 'https://lima.34-70-222-235.nip.io' }],
       stats: [
@@ -884,7 +884,7 @@ export const site = {
         { num: '3', label: 'API routes: fleet, reservations, contact' },
         { num: '50', label: 'Vehicles in the fleet' },
       ],
-      hero: { src: '/more/lima-1.jpg', cap: 'LIMA, rent a car across Lebanon, with booking in the hero. Click to open.', href: 'https://lima.34-70-222-235.nip.io' },
+      hero: { src: '/images/work/lima/lima-1.webp', cap: 'LIMA, rent a car across Lebanon, with booking in the hero. Click to open.', href: 'https://lima.34-70-222-235.nip.io' },
       role: {
         title: 'Design and build',
         body: 'I took LIMA from a set of static pages to a production React site with its own API, and designed the social offers in the same brand.',
@@ -893,8 +893,8 @@ export const site = {
       gallery: {
         title: 'The site', intro: 'The fleet and the current offer, from the live site.', kind: 'wide',
         shots: [
-          { src: '/more/lima-2.jpg', cap: 'The fleet, filtered by compact, sedan, SUV, luxury and seven-seat' },
-          { src: '/more/lima-3.jpg', cap: 'Best offer: Mercedes C-Class' },
+          { src: '/images/work/lima/lima-2.webp', cap: 'The fleet, filtered by compact, sedan, SUV, luxury and seven-seat' },
+          { src: '/images/work/lima/lima-3.webp', cap: 'Best offer: Mercedes C-Class' },
         ],
       },
       features: [
@@ -914,7 +914,7 @@ export const site = {
         { k: 'Backend', v: 'Node.js and Express.' },
         { k: 'Hosting', v: 'Live on a self-hosted box.' },
       ],
-      footer: '/lancaster-footer.jpg',
+      footer: '/images/footers/lancaster.webp',
     },
     bikey: {
       title: 'Moto 961',
@@ -940,14 +940,14 @@ export const site = {
       gallery: {
         title: 'The screens', intro: 'From the design handoff.', kind: 'phone',
         shots: [
-          { src: '/more/bikey-1.jpg', cap: 'Home' },
-          { src: '/more/bikey-04-garage-bike-profile.jpg', cap: 'Garage: the bike profile' },
-          { src: '/more/bikey-2.jpg', cap: 'Live ride tracking' },
-          { src: '/more/bikey-06-ride-summary.jpg', cap: 'Ride summary' },
-          { src: '/more/bikey-3.jpg', cap: 'Maintenance, due by distance' },
-          { src: '/more/bikey-4.jpg', cap: 'Marketplace: parts and shops' },
-          { src: '/more/bikey-11-road-alerts.jpg', cap: 'Road alerts: potholes, closures, flooding' },
-          { src: '/more/bikey-13-group-rides.jpg', cap: 'Group rides' },
+          { src: '/images/work/bikey/bikey-1.webp', cap: 'Home' },
+          { src: '/images/work/bikey/bikey-04-garage-bike-profile.webp', cap: 'Garage: the bike profile' },
+          { src: '/images/work/bikey/bikey-2.webp', cap: 'Live ride tracking' },
+          { src: '/images/work/bikey/bikey-06-ride-summary.webp', cap: 'Ride summary' },
+          { src: '/images/work/bikey/bikey-3.webp', cap: 'Maintenance, due by distance' },
+          { src: '/images/work/bikey/bikey-4.webp', cap: 'Marketplace: parts and shops' },
+          { src: '/images/work/bikey/bikey-11-road-alerts.webp', cap: 'Road alerts: potholes, closures, flooding' },
+          { src: '/images/work/bikey/bikey-13-group-rides.webp', cap: 'Group rides' },
         ],
       },
       features: [
@@ -968,7 +968,7 @@ export const site = {
         { k: 'Map', v: 'Mapbox with a custom Studio style.' },
         { k: 'Storage', v: 'Local on the device, backend planned.' },
       ],
-      footer: '/wms/footer.jpg',
+      footer: '/images/footers/wms.webp',
     },
     stores: {
       title: 'Store accounts and release pipelines',
@@ -999,9 +999,9 @@ export const site = {
       gallery: {
         title: 'The apps', intro: 'Store screenshots from the apps these pipelines ship.', kind: 'phone',
         shots: [
-          { src: '/bsheel/01_cover.jpg', cap: 'Bsheel, App Store and Google Play' },
-          { src: '/ievents/user-1.jpg', cap: 'iEvents, App Store and Google Play' },
-          { src: '/ievents/vendor-4.jpg', cap: 'iEvents Vendor, App Store and Google Play' },
+          { src: '/images/work/bsheel/01_cover.webp', cap: 'Bsheel, App Store and Google Play' },
+          { src: '/images/work/ievents/user-1.webp', cap: 'iEvents, App Store and Google Play' },
+          { src: '/images/work/ievents/vendor-4.webp', cap: 'iEvents Vendor, App Store and Google Play' },
         ],
       },
       features: [
@@ -1024,13 +1024,13 @@ export const site = {
         { k: 'Stores', v: 'App Store Connect API, TestFlight, Google Play Console API.' },
         { k: 'Apps', v: 'Flutter, built for iOS and Android.' },
       ],
-      footer: '/bsheel-footer.jpg',
+      footer: '/images/footers/bsheel.webp',
     },
     datasets: {
       title: 'Datasets: collect, clean, normalise, train',
       subtitle: 'Two datasets built from nothing: a Lebanese Sign Language dataset recorded across Lebanon for OmniSign, and a training corpus distilled from real WhatsApp conversations for the Hader offline model.',
       headline: 'Most of AI is the data nobody wants to clean.',
-      icon: '/omnisign-logo.png',
+      icon: '/images/logos/omnisign.webp',
       tags: ['Data collection', 'Cleaning', 'Normalisation', 'Training'],
       links: [{ k: 'OmniSign dataset story', u: 'https://laythayache.com/writing/building-in-a-country-with-no-infrastructure/' }],
       stats: [
@@ -1051,8 +1051,8 @@ export const site = {
       gallery: {
         title: 'OmniSign data', intro: 'Raw campaign frames, and the model pipeline they feed.', kind: 'wide',
         shots: [
-          { src: '/omnisign/dataset-alphabet.jpg', cap: 'The Arabic alphabet in Lebanese Sign Language, one signer, raw frames' },
-          { src: '/omnisign/model-architecture.jpg', cap: 'Load landmarks, a TinyTCN model, 5-fold training' },
+          { src: '/images/work/omnisign/dataset-alphabet.webp', cap: 'The Arabic alphabet in Lebanese Sign Language, one signer, raw frames' },
+          { src: '/images/work/omnisign/model-architecture.webp', cap: 'Load landmarks, a TinyTCN model, 5-fold training' },
         ],
       },
       features: [
@@ -1074,13 +1074,13 @@ export const site = {
         { k: 'Corpus', v: 'Python scripts over Postgres, PII scrubber, 46-assertion test suite.' },
         { k: 'Formats', v: 'JSON landmarks per sign; JSONL chat examples.' },
       ],
-      footer: '/omnisign-footer.jpg',
+      footer: '/images/footers/omnisign.webp',
     },
     llm: {
       title: 'A local LLM on a GPU server',
       subtitle: 'A self-hosted, retrieval-grounded chat model built as the fallback brain for Hader: Qwen2.5 fine-tuned with QLoRA on real conversations, served by vLLM on a GPU box behind an OpenAI-compatible endpoint.',
       headline: 'When the AI APIs go down, the bot keeps answering.',
-      icon: '/hader-icon.png',
+      icon: '/images/logos/hader.webp',
       tags: ['Qwen2.5', 'QLoRA', 'vLLM', 'GPU', 'RAG'],
       links: [],
       stats: [
@@ -1117,7 +1117,7 @@ export const site = {
         { k: 'Serving', v: 'vLLM, OpenAI-compatible, Docker Compose.' },
         { k: 'Evals', v: 'Python harness, baseline scorecards, test suite.' },
       ],
-      footer: '/sla-footer.jpg',
+      footer: '/images/footers/sla.webp',
     },
     firebase: {
       title: 'Firebase: push, crashes and analytics',
@@ -1158,13 +1158,13 @@ export const site = {
         { k: 'Auth', v: 'Firebase Auth with Google, Facebook and Apple.' },
         { k: 'Analytics', v: 'Google Analytics, custom usage logs.' },
       ],
-      footer: '/ievents-footer.jpg',
+      footer: '/images/footers/ievents.webp',
     },
     seo: {
       title: 'SEO, GEO and AEO',
       subtitle: 'A search-discovery plan for 21 Lancaster hotel sites: crawlable content, consistent property information, language targeting and evidence that search and answer engines can retrieve.',
       headline: 'Visible to Google, readable by AI.',
-      icon: '/lancaster-mark.png',
+      icon: '/images/logos/lancaster.webp',
       tags: ['SEO', 'GEO', 'AEO', 'JSON-LD', 'llms.txt'],
       links: [{ k: 'lancaster.world', u: 'https://lancaster.world' }],
       stats: [
@@ -1173,7 +1173,7 @@ export const site = {
         { num: '9', label: 'Countries in the market matrix' },
         { num: '1', label: 'Template, forked 20 times' },
       ],
-      hero: { src: '/lancaster/hub-hotels.jpg', cap: 'The Lancaster chain hub, the root of the entity graph' },
+      hero: { src: '/images/work/lancaster/hub-hotels.webp', cap: 'The Lancaster chain hub, the root of the entity graph' },
       role: {
         title: 'Strategy and implementation',
         body: 'The plan prioritizes the initial HTML of the React sites, then metadata, property identity, languages and supporting evidence. Rendering capabilities vary by crawler. Making content accessible supports discovery, but does not guarantee indexing, rankings or AI citations. The plan describes intended work; results require separate measurement.',
@@ -1202,7 +1202,7 @@ export const site = {
         { k: 'Edge', v: 'Caddy with a bot-UA prerender.' },
         { k: 'Docs', v: 'SEO master plan, GEO playbook, prerender runbook, per-site strategy.' },
       ],
-      footer: '/lancaster-footer.jpg',
+      footer: '/images/footers/lancaster.webp',
     },
     voxelect: {
       title: 'VoxElect: election operations',
@@ -1243,7 +1243,7 @@ export const site = {
         { k: 'Testing', v: 'Jest, Playwright, Stryker.' },
         { k: 'Docs', v: 'Scope, roles, permissions, flows, screens, data dictionary, QA acceptance.' },
       ],
-      footer: '/footer-field.jpg',
+      footer: '/images/footers/field.webp',
     },
   },
   workDetail: {
@@ -1422,7 +1422,7 @@ class ThemeProvider with ChangeNotifier {
       { org: 'Freelance', role: 'Design and build', year: '2020' },
       { org: 'First product', role: 'Shipped', year: '2016' },
     ],
-    listening: { label: 'Most played', title: 'Hotel California', artist: 'Eagles', album: 'Hotel California · 1976', length: '6:30', at: '2:14', cover: '/hotel-california.jpg', link: 'https://open.spotify.com/track/40riOy7x9W7GXjyGp4pjAv' },
+    listening: { label: 'Most played', title: 'Hotel California', artist: 'Eagles', album: 'Hotel California · 1976', length: '6:30', at: '2:14', cover: '/images/site/hotel-california.webp', link: 'https://open.spotify.com/track/40riOy7x9W7GXjyGp4pjAv' },
     map: { city: 'Beirut', area: 'Lebanon' },
     photo: { caption: 'I love building things', alt: 'Tayseer as a boy in a LAZ t-shirt' },
     how: [

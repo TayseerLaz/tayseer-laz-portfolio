@@ -5,14 +5,14 @@ import './Hero.css'
 export default function Hero() {
   return (
     <section className="hero" id="top">
-      <img className="hero__bg" src="/hero-bg.jpg" alt="" width={1672} height={941} fetchPriority="high" />
+      <img className="hero__bg" src="/images/site/hero-bg.webp" alt="" width={1672} height={941} fetchPriority="high" />
       <div className="hero__letters" aria-hidden="true">
         <span className="hero__row hero__row--1">“tay</span>
         <span className="hero__row hero__row--2">seer”</span>
       </div>
 
       <div className="hero__card">
-        <img className="hero__avatar" src="/about-photo.jpg" alt="" width={56} height={56} />
+        <img className="hero__avatar" src="/images/site/about-photo.webp" alt="" width={56} height={56} />
         <div className="hero__cardbody">
           <h1 className="hero__name">{site.name}</h1>
           <p className="hero__stars" aria-label="Five stars">★★★★★</p>

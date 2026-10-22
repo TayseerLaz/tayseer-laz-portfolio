@@ -110,7 +110,7 @@ export default function OmniSign({ onClose, standalone = false, related }: { onC
         <section className="cs-ch os-hero" id="os-demo">
           <div className="cs-ch__inner os-hero__grid">
             <div className="os-hero__copy">
-              <img className="os-logo" src="/omnisign-logo.png" alt="" width={192} height={192} />
+              <img className="os-logo" src="/images/logos/omnisign.webp" alt="" width={192} height={192} />
               <h3 className="cs-ch__title">{O.title}</h3>
               <p className="cs-ch__body">{O.subtitle}</p>
               <p className="os-tags">{O.tags.join(' · ')}</p>
@@ -269,7 +269,7 @@ export default function OmniSign({ onClose, standalone = false, related }: { onC
 
       {related}
       <footer className="cs__footer os-footer">
-        <img src="/omnisign-footer.jpg" alt="Painted hills and trees under a bright sky" width={1920} height={1072} loading="lazy" />
+        <img src="/images/footers/omnisign.webp" alt="Painted hills and trees under a bright sky" width={1920} height={1072} loading="lazy" />
         <div className="cs__footer-line">
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <nav aria-label="Project footer"><a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a></nav>

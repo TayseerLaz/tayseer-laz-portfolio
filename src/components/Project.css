@@ -14,4 +14,4 @@
   .pj .os-links { justify-content: flex-start; }
 }
 .pj-grid--wide li:only-child { grid-column: 1 / -1; }
-.pj-icon[src$="at-icon.png"] { padding: 0; background: #050A1A; }
+.pj-icon[src$="aligned-tech.webp"] { padding: 0; background: #050A1A; }
