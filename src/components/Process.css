@@ -11,11 +11,16 @@
   scrollbar-width: none; -webkit-overflow-scrolling: touch;
 }
 .carousel__track::-webkit-scrollbar { display: none; }
-.feat { scroll-snap-align: start; display: grid; grid-template-rows: auto auto 1fr; gap: 0.5rem; align-content: start; }
-.feat__frame { aspect-ratio: 16 / 10.5; border-radius: 14px; padding: 12px; display: grid; }
-.feat__screen { width: 100%; height: 100%; border-radius: 8px; box-shadow: 0 10px 30px -14px rgba(14,34,14,0.5); }
-.feat__title { margin-top: 0.4rem; font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; }
-.feat__body { font-size: 0.9rem; line-height: 1.45; color: var(--ink-soft); max-width: 40ch; }
+/* text cards: a solid colour, a number, the title and the text, all inside the card */
+.feat {
+  scroll-snap-align: start; display: grid; grid-template-rows: auto auto auto; gap: 0.9rem; align-content: space-between;
+  min-height: 300px; padding: 1.5rem 1.5rem 1.6rem; border-radius: 20px; color: var(--ink);
+  box-shadow: 0 1px 2px rgba(11,47,38,0.08), 0 18px 34px -24px rgba(11,47,38,0.55);
+}
+.feat--dark { color: var(--cream); }
+.feat__num { font-family: var(--font-display); font-weight: 800; font-size: 0.95rem; letter-spacing: 0.08em; opacity: 0.7; }
+.feat__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.75rem, 2.4vw, 2.15rem); line-height: 1.05; letter-spacing: -0.025em; max-width: 14ch; }
+.feat__body { font-size: 1.05rem; line-height: 1.5; max-width: 34ch; opacity: 0.9; }
 
 .carousel__nav { display: flex; justify-content: flex-end; gap: 8px; width: min(100% - 2 * var(--gutter), var(--max)); margin: 1rem auto 0; }
 .carousel__nav button { width: 40px; height: 40px; border: 1.5px solid var(--ink); border-radius: 50%; background: transparent; color: var(--ink); display: grid; place-items: center; }
@@ -25,4 +30,7 @@
 @media (max-width: 52rem) {
   .proc { padding-block: 3rem 2.5rem; }
   .carousel__track { grid-auto-columns: 78vw; gap: 14px; }
+  .feat { min-height: 260px; padding: 1.3rem 1.2rem 1.4rem; gap: 0.7rem; }
+  .feat__title { font-size: 1.6rem; }
+  .feat__body { font-size: 0.98rem; }
 }
