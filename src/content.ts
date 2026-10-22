@@ -588,7 +588,6 @@ export const site = {
         { num: '6', label: 'Serverless API routes' },
         { num: '2025 → 2026', label: 'Built, then redesigned' },
       ],
-      hero: { src: '/more/at-home.jpg', cap: 'The home page after the August 2026 redesign. Click to open aligned-tech.com.', href: 'https://www.aligned-tech.com' },
       role: {
         title: 'Lead designer and developer',
         body: 'I designed and built the site end to end and wrote most of its code, with Ahmad Sharara and Layth Ayache contributing. It started as a marketing site and grew into the public face of the company\'s whole system: the blog, case studies, careers and every contact message flow through the same back office that runs Aligned Tech.',
