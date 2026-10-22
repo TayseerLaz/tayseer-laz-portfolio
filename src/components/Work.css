@@ -55,11 +55,8 @@
   .wt--lg .wt__link { min-height: 300px; }
 }
 
-/* show more + carousel of the remaining projects */
-.work__more { display: flex; justify-content: center; margin-top: 1.6rem; }
-.work__more-btn { color: var(--ink); border-color: var(--ink); }
-.work__more-btn:hover { background: var(--ink); color: var(--cream); }
-.work__carousel { margin-top: 1.4rem; }
-.work__track { padding-inline: 0; grid-auto-columns: min(78vw, 320px); gap: 14px; scroll-padding-inline: 0; }
-.work__track .wt__link { min-height: 260px; }
-.work__carousel .carousel__nav { width: auto; margin-top: 0.8rem; }
+/* the remaining projects, always shown, three to a row */
+.work__grid { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.work__grid .wt__link { min-height: 260px; }
+@media (max-width: 52rem) { .work__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
+@media (max-width: 40rem) { .work__grid { grid-template-columns: 1fr; } }

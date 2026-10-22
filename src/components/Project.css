@@ -13,3 +13,4 @@
   .pj-grid--wide { grid-template-columns: 1fr; }
   .pj .os-links { justify-content: flex-start; }
 }
+.pj-grid--wide li:only-child { grid-column: 1 / -1; }

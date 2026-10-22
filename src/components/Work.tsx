@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Scribble, type Texture } from '../illustrations/Scribbles'
 import WorkDetail from './WorkDetail'
 import CopyDialog from './CopyDialog'
@@ -31,8 +31,6 @@ export default function Work() {
     window.addEventListener('hashchange', onPop)
     return () => { window.removeEventListener('popstate', onPop); window.removeEventListener('hashchange', onPop) }
   }, [])
-  const [more, setMore] = useState(false)
-  const track = useRef<HTMLUListElement>(null)
   const [moreOpen, setMoreOpen] = useState<number | null>(null)
   const [moreLoading, setMoreLoading] = useState<number | null>(null)
   return (
@@ -75,15 +73,7 @@ export default function Work() {
           ))}
         </ul>
 
-        <div className="work__more">
-          <button type="button" className="btn btn--line work__more-btn" onClick={() => setMore(!more)} aria-expanded={more} aria-controls="work-more">
-            {more ? 'Show less' : `Show more (${site.more.length})`}
-          </button>
-        </div>
-
-        {more && (
-          <div className="carousel work__carousel" id="work-more">
-            <ul className="carousel__track work__track" ref={track} aria-label="More projects">
+        <ul className="work__grid" id="work-more" aria-label="More projects">
               {site.more.map((p, i) => (
                 <li key={p.name + i} className={`wt wt--${p.tone} wt--sm`}>
                   <button type="button" className="wt__link" onClick={() => setMoreLoading(i)} aria-haspopup="dialog">
@@ -100,13 +90,7 @@ export default function Work() {
                   </button>
                 </li>
               ))}
-            </ul>
-            <div className="carousel__nav">
-              <button type="button" onClick={() => track.current?.scrollBy({ left: -340, behavior: 'smooth' })} aria-label="Previous projects"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></button>
-              <button type="button" onClick={() => track.current?.scrollBy({ left: 340, behavior: 'smooth' })} aria-label="Next projects"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></button>
-            </div>
-          </div>
-        )}
+        </ul>
       </div>
       {loading !== null && (
         <CopyDialog

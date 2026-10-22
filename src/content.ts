@@ -372,7 +372,7 @@ export const site = {
     { name: 'OmniSign', year: '2025', tag: 'AI sign language', line: 'Lebanese Sign Language translation, built from scratch for a language technology forgot.', tone: 'dark', texture: 'arcs', status: 'Ongoing', caseStudy: 'omnisign' },
     { name: 'aligned-tech.com', year: '2026', tag: 'Company site', line: 'Marketing site and knowledge base. Placeholder line.', tone: 'mid', texture: 'streaks', status: 'Live' },
     { name: 'COCOS', year: '2026', tag: 'Spa site, CMS and AI', line: 'Five countries, three languages, a country-aware CMS and an AI skin analysis.', tone: 'sage', texture: 'loops', status: 'Live', caseStudy: 'cocos' },
-    { name: '180° Fitness & Spa', year: '2026', tag: 'Gym site and app', line: 'A Next.js site with its own CMS, and the members\' app on the App Store.', tone: 'teal', texture: 'dashes', status: 'Live', caseStudy: 'gym180' },
+    { name: '180° Fitness & Spa', year: '2026', tag: 'Gym website and CMS', line: 'A Next.js site for four levels of fitness and spa, with its own CMS.', tone: 'teal', texture: 'dashes', status: 'Live', caseStudy: 'gym180' },
     { name: 'Em Sherif Deli', year: '2026', tag: 'Restaurant website', line: 'The deli\'s full menu on one page, in a brand drawn from azulejo tiles.', tone: 'dark', texture: 'streaks', status: 'Live', caseStudy: 'emsherif' },
     { name: 'LAZ Press', year: '2026', tag: 'Print house website', line: 'Offset and digital print, told in CMYK, on Cloudflare at laz-press.com.', tone: 'mid', texture: 'arcs', status: 'Live', caseStudy: 'lazpress' },
     { name: 'LIMA Rent A Car', year: '2026', tag: 'Car rental website', line: 'A fleet you can filter, offers and reservations, with an API behind it.', tone: 'sage', texture: 'streaks', status: 'Live', caseStudy: 'lima' },
@@ -694,10 +694,9 @@ export const site = {
         steps: ['Upload a face photo', 'Vision model reads the skin', 'Conditions and severity', 'Skin type and a score', 'Three care tips', 'Matching treatments', 'Logged for the admin'],
       },
       gallery: {
-        title: 'The site', intro: 'The home page and a section further down.', kind: 'wide',
+        title: 'The site', intro: 'A section further down the home page.', kind: 'wide',
         shots: [
           { src: '/more/cocos-2.jpg', cap: 'A holistic approach to well-being: philosophy, rooms, wellness and team' },
-          { src: '/more/cocos-skin.jpg', cap: 'Imagery for the skin and spa sections' },
         ],
       },
       features: [
@@ -727,33 +726,30 @@ export const site = {
     },
     gym180: {
       title: '180° Fitness & Spa',
-      subtitle: 'The website and CMS for 180° Fitness & Spa in Jnah, Beirut, four levels of fitness, wellness, sport and spa, plus the members\' app on the App Store for classes, bookings and a QR gate pass.',
+      subtitle: 'The website and CMS for 180° Fitness & Spa in Jnah, Beirut: four levels of fitness, wellness, sport and spa, every section editable by the club\'s own team.',
       headline: 'Train. Relax. Rejuvenate.',
       icon: '/more/gym-logo.png',
-      tags: ['live', 'Fitness', 'Next.js 16', 'CMS', 'iOS app'],
+      tags: ['live', 'Fitness', 'Next.js 16', 'CMS'],
       links: [
         { k: 'Live site', u: 'https://180gym.34-70-222-235.nip.io' },
-        { k: 'App Store', u: 'https://apps.apple.com/app/180-degree-fitness-gym/id6745175462' },
       ],
       stats: [
         { num: '13', label: 'Public sections' },
-        { num: '1', label: 'Members\' app on the App Store' },
         { num: '4', label: 'Levels in the building' },
-        { num: '2025 → 2026', label: 'App, then the site' },
+        { num: '1', label: 'Admin CMS for the team' },
+        { num: 'May → Sep 2026', label: 'Built in' },
       ],
       hero: { src: '/more/gym-1.jpg', cap: 'The 180° home page. Click to open.', href: 'https://180gym.34-70-222-235.nip.io' },
       role: {
-        title: 'Product developer, site and app',
-        body: 'I built the gym\'s new website with its own admin, and the members\' app that went to the App Store in June 2025. The site runs on a staging domain while the client\'s old site stays live, so the cutover is a decision, not an accident.',
-        me: ['Next.js 16 site: fitness, classes, kids, events, spa, memberships, trainers, news, journal, locations, BMI, booking, contact', 'Admin CMS with media uploads for every section', 'Members\' app: class timetable, bookings, QR gate pass, push notifications', 'Push-to-deploy to its own service, port and backups on a shared box'],
+        title: 'Product developer, website and CMS',
+        body: 'I built the gym\'s new website with its own admin. The site runs on a staging domain while the client\'s old site stays live, so the cutover is a decision, not an accident.',
+        me: ['Next.js 16 site: fitness, classes, kids, events, spa, memberships, trainers, news, journal, locations, BMI, booking, contact', 'Admin CMS with media uploads for every section', 'Push-to-deploy to its own service, port and backups on a shared box'],
       },
       gallery: {
-        title: 'The members\' app', intro: 'Screens from the App Store listing.', kind: 'phone',
+        title: 'The site', intro: 'Two more sections of the live site.', kind: 'wide',
         shots: [
-          { src: '/more/gym-app-2.jpg', cap: 'Class timetable: pick a day, a class and a coach' },
-          { src: '/more/gym-app-3.jpg', cap: 'Booking confirmation' },
-          { src: '/more/gym-app-4.jpg', cap: 'More from the members\' app' },
-          { src: '/more/gym-app-1.jpg', cap: 'The 180° launch screen' },
+          { src: '/more/gym-2.jpg', cap: 'The club: spa, pool, functional, community, coaching, group classes and recovery' },
+          { src: '/more/gym-3.jpg', cap: 'Who we are: where positive change begins' },
         ],
       },
       features: [
@@ -761,7 +757,6 @@ export const site = {
         { t: 'Book a tour', d: 'Booking and contact forms handled by server actions.' },
         { t: 'BMI calculator', d: 'A small tool on the site for members and visitors.' },
         { t: 'CMS for the team', d: 'An admin panel for news, trainers, gallery, classes and spa, with an image library.' },
-        { t: 'Members\' app', d: 'Class timetable, instructor search, availability and reservations, upcoming bookings with cancel, a QR gate pass at the door, and push for offers and renewals.' },
       ],
       built: [
         { t: 'Next.js 16 with SQLite', how: 'Drizzle ORM over a local SQLite file, bcrypt for admin passwords and sharp for images. The data never touches the Postgres that other sites on the same box share.' },
@@ -770,7 +765,6 @@ export const site = {
       ],
       stack: [
         { k: 'Site', v: 'Next.js 16, Drizzle ORM, SQLite through libsql, bcryptjs, sharp.' },
-        { k: 'App', v: 'Mobile members\' app, live on the App Store since June 2025.' },
         { k: 'Hosting', v: 'nginx and systemd on a shared box, deployed by GitHub Actions.' },
       ],
       footer: '/ievents-footer.jpg',
@@ -917,18 +911,17 @@ export const site = {
     },
     stores: {
       title: 'Store accounts and release pipelines',
-      subtitle: 'Apple Developer and Google Play Console accounts set up for clients, and push-button release pipelines for the apps that ship through them: five apps live on the App Store and Google Play.',
+      subtitle: 'Apple Developer and Google Play Console accounts set up for clients, and push-button release pipelines for the apps that ship through them: four apps live on the App Store and Google Play.',
       headline: 'From an empty developer account to the store, on a button.',
       tags: ['App Store', 'Google Play', 'GitHub Actions', 'fastlane'],
       links: [
         { k: 'Bsheel', u: 'https://apps.apple.com/app/bsheel/id6761139416' },
         { k: 'iEvents', u: 'https://apps.apple.com/app/ievents/id6751114719' },
         { k: 'iEvents Vendor', u: 'https://apps.apple.com/app/ievents-vendor/id6751649812' },
-        { k: '180° app', u: 'https://apps.apple.com/app/180-degree-fitness-gym/id6745175462' },
         { k: 'Hader', u: 'https://play.google.com/store/apps/details?id=ai.hader.hader_app' },
       ],
       stats: [
-        { num: '5', label: 'Apps live in the stores' },
+        { num: '4', label: 'Apps live in the stores' },
         { num: '2', label: 'Stores per pipeline' },
         { num: '0', label: 'Signing files in any repo' },
         { num: '1', label: 'Human button before live' },
@@ -936,19 +929,18 @@ export const site = {
       role: {
         title: 'Accounts, signing and pipelines',
         body: 'I set up the developer accounts in the clients\' names, then made shipping boring: a push to a release branch builds, signs and uploads, and the last step to go live is always a person.',
-        me: ['Apple Developer and Google Play Console organisation accounts for clients', 'App Store Connect records, store listings, screenshots and review submissions', 'Signing with API keys, provisioning created on demand', 'GitHub Actions pipelines for TestFlight, App Store, Play internal and Play production', 'Shipped: Bsheel, iEvents, iEvents Vendor, the 180° members\' app and Hader'],
+        me: ['Apple Developer and Google Play Console organisation accounts for clients', 'App Store Connect records, store listings, screenshots and review submissions', 'Signing with API keys, provisioning created on demand', 'GitHub Actions pipelines for TestFlight, App Store, Play internal and Play production', 'Shipped: Bsheel, iEvents, iEvents Vendor and Hader'],
       },
       flow: {
         title: 'One release', intro: 'Two branches, both stores at once. Nothing on main ever publishes.',
         steps: ['Merge into deploy/test or deploy/live', 'Check who pushed', 'Check signing secrets', 'Refuse a version Apple would reject', 'Build number from the run', 'Build, sign, upload', 'TestFlight and Play internal, or review and a 20% draft', 'A person presses release'],
       },
       gallery: {
-        title: 'Five apps', intro: 'Store screenshots from the apps these pipelines ship.', kind: 'phone',
+        title: 'The apps', intro: 'Store screenshots from the apps these pipelines ship.', kind: 'phone',
         shots: [
           { src: '/bsheel/01_cover.jpg', cap: 'Bsheel, App Store and Google Play' },
           { src: '/ievents/user-1.jpg', cap: 'iEvents, App Store and Google Play' },
           { src: '/ievents/vendor-4.jpg', cap: 'iEvents Vendor, App Store and Google Play' },
-          { src: '/more/gym-app-2.jpg', cap: '180° members\' app, App Store' },
         ],
       },
       features: [
@@ -1287,7 +1279,7 @@ class ThemeProvider with ChangeNotifier {
     title: 'Slow down.\nDon\'t miss this.',
     lede: 'How a project moves from the first call to something people use, without the detours.',
     steps: [
-      { title: 'Ship to both stores', body: 'Apple and Google developer accounts set up for clients, and push-button release pipelines that ship five apps to the App Store and Google Play.', art: 'stores' },
+      { title: 'Ship to both stores', body: 'Apple and Google developer accounts set up for clients, and push-button release pipelines that ship four apps to the App Store and Google Play.', art: 'stores' },
       { title: 'Datasets, start to finish', body: 'Collecting, cleaning, normalising and training on real data: the OmniSign sign language dataset and the Hader conversation corpus.', art: 'datasets' },
       { title: 'A local LLM on a GPU', body: 'Qwen2.5 fine-tuned with QLoRA and served by vLLM on a GPU server, an OpenAI-compatible fallback brain for Hader.', art: 'llm' },
       { title: 'WhatsApp and Meta', body: 'Hader on the WhatsApp Cloud API: Meta Business setup, coexistence on an existing number, templates, verified webhooks and broadcasts.', art: 'whatsapp' },
