@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { site } from '../content'
 import './CaseStudy.css'
 import './OmniSign.css'
@@ -11,19 +11,21 @@ const CH = [
   { id: 'integrations', k: '04 · Integrations' }, { id: 'jobs', k: '05 · Automation' }, { id: 'stack', k: '06 · Stack' },
 ]
 
-export default function SlaBridge({ onClose }: { onClose: () => void }) {
+export default function SlaBridge({ onClose, standalone = false, related }: { onClose: () => void; standalone?: boolean; related?: ReactNode }) {
+  const Title = standalone ? 'h1' : 'h2'
   const closeRef = useRef<HTMLButtonElement>(null)
   const scroller = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState('intro')
 
   useEffect(() => {
+    if (standalone) return
     const prev = document.activeElement as HTMLElement | null
     closeRef.current?.focus()
     document.body.style.overflow = 'hidden'
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', onKey)
     return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = ''; prev?.focus() }
-  }, [onClose])
+  }, [onClose, standalone])
 
   useEffect(() => {
     const root = scroller.current
@@ -31,20 +33,20 @@ export default function SlaBridge({ onClose }: { onClose: () => void }) {
     const io = new IntersectionObserver((entries) => {
       const vis = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)
       if (vis[0]) setActive((vis[0].target as HTMLElement).id.replace('sb-', ''))
-    }, { root, rootMargin: '-35% 0px -55% 0px', threshold: [0, 0.2, 0.5] })
+    }, { root: standalone ? null : root, rootMargin: '-35% 0px -55% 0px', threshold: [0, 0.2, 0.5] })
     root.querySelectorAll('.cs-ch').forEach((el) => io.observe(el))
     return () => io.disconnect()
-  }, [])
+  }, [standalone])
   const go = (id: string) => scroller.current?.querySelector(`#sb-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
   return (
-    <div className="cs os hd sb" role="dialog" aria-modal="true" aria-labelledby="sb-title" ref={scroller}>
+    <div className="cs os hd sb" role={standalone ? undefined : "dialog"} aria-modal={standalone ? undefined : true} aria-labelledby="sb-title" ref={scroller}>
       <header className="cs__bar">
-        <button ref={closeRef} className="cs__close" onClick={onClose} aria-label="Close project">
+        {standalone ? <a className="cs__close" href="/#work" aria-label="Back to portfolio">←</a> : (<button ref={closeRef} className="cs__close" onClick={onClose} aria-label="Close project">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
-        </button>
+        </button>)}
         <div className="cs__head">
-          <h2 id="sb-title" className="cs__title">{S.title}</h2>
+          <Title id="sb-title" className="cs__title">{S.title}</Title>
           <p className="cs__sub">{S.subtitle}</p>
         </div>
         <div className="os-links">
@@ -52,7 +54,7 @@ export default function SlaBridge({ onClose }: { onClose: () => void }) {
         </div>
       </header>
       <nav className="cs__rail" aria-label="Chapters">
-        {CH.map((c) => <button key={c.id} className={active === c.id ? 'is-on' : ''} onClick={() => go(c.id)}>{c.k}</button>)}
+        {CH.map((c) => <a key={c.id} href={`#sb-${c.id}`} className={active === c.id ? 'is-on' : ''} onClick={(event) => { event.preventDefault(); go(c.id) }}>{c.k}</a>)}
       </nav>
 
       <main className="cs__main">
@@ -132,11 +134,12 @@ export default function SlaBridge({ onClose }: { onClose: () => void }) {
         </section>
       </main>
 
+      {related}
       <footer className="cs__footer os-footer">
         <img src="/sla-footer.jpg" alt="" width={1920} height={1072} loading="lazy" />
         <div className="cs__footer-line">
           <a href={`mailto:${site.email}`}>{site.email}</a>
-          <nav aria-label="Project footer"><a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a><a href={S.site} target="_blank" rel="noreferrer">bridge.aligned-tech.com</a></nav>
+          <nav aria-label="Project footer"><a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a><a href={S.site} target="_blank" rel="noreferrer">bridge.aligned-tech.com</a></nav>
           <span>© {new Date().getFullYear()} {site.name}</span>
         </div>
       </footer>

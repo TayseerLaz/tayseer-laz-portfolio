@@ -9,6 +9,7 @@ export default function About() {
       <div className="wrap about__grid">
         <div className="about__copy">
           <h2 className="h2">{a.title}</h2>
+          <p className="about__bio">{a.body}</p>
           <div className="about__actions">
             <a className="btn btn--green" href="#contact">Get in touch</a>
             <a className="btn btn--line" href="#work">See the work</a>

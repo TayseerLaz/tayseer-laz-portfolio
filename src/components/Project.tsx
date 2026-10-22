@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { site } from '../content'
 import type { ProjectData } from '../projectTypes'
 import './CaseStudy.css'
@@ -12,8 +12,9 @@ const PROJECTS = site.projects as Record<string, ProjectData>
 export const hasProject = (slug: string) => slug in PROJECTS
 
 /** One data-driven case study page. Chapters appear only when the content has them. */
-export default function Project({ slug, onClose }: { slug: string; onClose: () => void }) {
+export default function Project({ slug, onClose, standalone = false, related }: { slug: string; onClose: () => void; standalone?: boolean; related?: ReactNode }) {
   const P = PROJECTS[slug]
+  const Title = standalone ? 'h1' : 'h2'
   const closeRef = useRef<HTMLButtonElement>(null)
   const scroller = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState('intro')
@@ -29,13 +30,14 @@ export default function Project({ slug, onClose }: { slug: string; onClose: () =
   ].map((c, i) => ({ ...c, k: `${String(i + 1).padStart(2, '0')} · ${c.k}` }))
 
   useEffect(() => {
+    if (standalone) return
     const prev = document.activeElement as HTMLElement | null
     closeRef.current?.focus()
     document.body.style.overflow = 'hidden'
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', onKey)
     return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = ''; prev?.focus() }
-  }, [onClose])
+  }, [onClose, standalone])
 
   useEffect(() => {
     const root = scroller.current
@@ -45,22 +47,22 @@ export default function Project({ slug, onClose }: { slug: string; onClose: () =
     const io = new IntersectionObserver((entries) => {
       const vis = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)
       if (vis[0]) setActive((vis[0].target as HTMLElement).id.replace('pj-', ''))
-    }, { root, rootMargin: '-35% 0px -55% 0px', threshold: [0, 0.2, 0.5] })
+    }, { root: standalone ? null : root, rootMargin: '-35% 0px -55% 0px', threshold: [0, 0.2, 0.5] })
     root.querySelectorAll('.cs-ch').forEach((el) => io.observe(el))
     return () => io.disconnect()
-  }, [slug])
+  }, [slug, standalone])
   const go = (id: string) => scroller.current?.querySelector(`#pj-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
   if (!P) return null
 
   return (
-    <div className="cs os hd bs pj" role="dialog" aria-modal="true" aria-labelledby="pj-title" ref={scroller}>
+    <div className="cs os hd bs pj" role={standalone ? undefined : "dialog"} aria-modal={standalone ? undefined : true} aria-labelledby="pj-title" ref={scroller}>
       <header className="cs__bar">
-        <button ref={closeRef} className="cs__close" onClick={onClose} aria-label="Close project">
+        {standalone ? <a className="cs__close" href="/#work" aria-label="Back to portfolio">←</a> : (<button ref={closeRef} className="cs__close" onClick={onClose} aria-label="Close project">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
-        </button>
+        </button>)}
         <div className="cs__head">
-          <h2 id="pj-title" className="cs__title">{P.title}</h2>
+          <Title id="pj-title" className="cs__title">{P.title}</Title>
           <p className="cs__sub">{P.subtitle}</p>
         </div>
         {P.links.length > 0 && (
@@ -70,7 +72,7 @@ export default function Project({ slug, onClose }: { slug: string; onClose: () =
         )}
       </header>
       <nav className="cs__rail" aria-label="Chapters">
-        {chapters.map((c) => <button key={c.id} className={active === c.id ? 'is-on' : ''} onClick={() => go(c.id)}>{c.k}</button>)}
+        {chapters.map((c) => <a key={c.id} href={`#pj-${c.id}`} className={active === c.id ? 'is-on' : ''} onClick={(event) => { event.preventDefault(); go(c.id) }}>{c.k}</a>)}
       </nav>
 
       <main className="cs__main">
@@ -165,12 +167,13 @@ export default function Project({ slug, onClose }: { slug: string; onClose: () =
         </section>
       </main>
 
+      {related}
       <footer className="cs__footer pj-footer">
         <img src={P.footer} alt="" width={1920} height={1072} loading="lazy" />
         <div className="cs__footer-line">
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <nav aria-label="Project footer">
-            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a>
             <a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a>
             {P.links[0] && <a href={P.links[0].u} target="_blank" rel="noreferrer">{P.links[0].k}</a>}
           </nav>

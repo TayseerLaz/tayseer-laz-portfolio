@@ -21,14 +21,18 @@ Allow: /
 User-agent: Slurp
 Allow: /
 
-# Allow AI crawlers (helps appearance in AI-generated answers)
+# Search retrieval. Access alone does not establish indexing or citation.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Existing training-related permissions are preserved separately from search.
 User-agent: GPTBot
 Allow: /
 
 User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
 Allow: /
 
 User-agent: Google-Extended

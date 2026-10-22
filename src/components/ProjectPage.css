@@ -1,0 +1,13 @@
+.project-page__breadcrumbs { padding: 0.75rem var(--gutter); background: var(--pine); color: var(--cream); font-size: 0.85rem; }
+.project-page__breadcrumbs a { text-decoration: underline; text-underline-offset: 3px; }
+.project-page > .cs { position: relative; inset: auto; z-index: auto; overflow: visible; animation: none; }
+.project-page .cs__bar { position: relative; }
+.project-page .cs__rail { top: 0; }
+.project-page .cs__sub { white-space: normal; }
+.project-page__related { display: grid; gap: 1.5rem; padding-block: 3rem 1rem; background: #FFFFFF; box-shadow: 0 0 0 100vmax #FFFFFF; clip-path: inset(0 -100vmax); }
+.project-page__related ul { display: flex; flex-wrap: wrap; gap: 1rem 2rem; list-style: none; padding: 0; }
+.project-page__related li a { text-decoration: underline; text-underline-offset: 4px; }
+.project-page__related > .btn { justify-self: start; }
+.cs__rail a { flex: 0 0 auto; padding: 0.45rem 0.85rem; border: 1.5px solid transparent; border-radius: 999px; background: transparent; color: rgba(241,233,214,0.8); font: inherit; font-size: 0.8rem; font-weight: 700; }
+.cs__rail a:hover { color: var(--cream); }
+.cs__rail a.is-on { background: var(--cream); color: var(--pine); }

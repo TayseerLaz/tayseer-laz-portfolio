@@ -65,9 +65,12 @@
 
 @media (max-width: 64rem) {
   .bento { grid-auto-rows: 220px; }
-  .bc--photo { grid-column: span 6; grid-row: span 2; }
-  .bc--music, .bc--map { grid-column: span 6; }
-  .bc--exp, .bc--how { grid-column: span 12; }
+  /* tablet: timeline across the top, portrait on the left with music and map stacked beside it */
+  .bc--exp   { grid-column: 1 / -1; grid-row: 1; }
+  .bc--photo { grid-column: 1 / span 6; grid-row: 2 / span 2; }
+  .bc--music { grid-column: 7 / span 6; grid-row: 2; }
+  .bc--map   { grid-column: 7 / span 6; grid-row: 3; }
+  .bc--how   { grid-column: 1 / -1; grid-row: 4; }
 }
 @media (max-width: 36rem) {
   .bento { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 12px; }

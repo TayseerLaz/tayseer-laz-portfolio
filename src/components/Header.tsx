@@ -31,9 +31,10 @@ function Icon({ d, size = 16 }: { d: keyof typeof I; size?: number }) {
 
 function useHashPath() {
   const read = () => window.location.hash.replace(/^#/, '')
-  const [path, setPath] = useState(read)
+  const [path, setPath] = useState('')
   useEffect(() => {
     const on = () => setPath(read())
+    on()
     window.addEventListener('hashchange', on); window.addEventListener('popstate', on)
     return () => { window.removeEventListener('hashchange', on); window.removeEventListener('popstate', on) }
   }, [])
@@ -107,7 +108,7 @@ export default function Header() {
       {/* Bookmarks bar */}
       <nav className="chrome__bookmarks" aria-label="Bookmarks">
         <a href={`mailto:${site.email}`}><span className="bm__fav bm__fav--green" aria-hidden="true" />Email</a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer"><span className="bm__fav bm__fav--blue" aria-hidden="true" />LinkedIn</a>
+        <a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer"><span className="bm__fav bm__fav--blue" aria-hidden="true" />LinkedIn</a>
         <a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer"><span className="bm__fav bm__fav--dark" aria-hidden="true" />GitHub</a>
       </nav>
     </header>

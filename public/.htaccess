@@ -9,14 +9,21 @@ RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://tayseerlaz.com%{REQUEST_URI} [R=301,L]
 
-# The previous site had path routes that Google indexed. Case studies now open on hash routes.
-RewriteRule ^work/(omnisign|bsheel|ievents)/?$ /#work/$1 [R=301,NE,L]
-RewriteRule ^work/dyafa/?$ /#work/ievents [R=301,NE,L]
-RewriteRule ^work/real-estate/?$ /#work/bsheel [R=301,NE,L]
-RewriteRule ^work(/.*)?$ /#work [R=301,NE,L]
+# Keep old project names pointing to the corresponding public page.
+RewriteRule ^work/dyafa/?$ /work/ievents/ [R=301,L]
+RewriteRule ^work/real-estate/?$ /work/bsheel/ [R=301,L]
+RewriteRule ^work/(alinia|aligned-tech)/?$ https://aligned-tech.com/ [R=301,L]
+RewriteRule ^work/?$ /#work [R=301,NE,L]
 
-# Unknown paths render the site but keep a real 404 status.
-ErrorDocument 404 /index.html
+# Explicit index.html URLs resolve to the same canonical page as their directory.
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
+
+# Apache serves the generated /work/<slug>/index.html directly.
+# Unknown work slugs fall through to a genuine 404 rather than redirecting home.
+
+# Missing paths use a dedicated error page and keep a real 404 status.
+ErrorDocument 404 /404.html
 
 <IfModule mod_headers.c>
   # Always revalidate the page so a redeploy shows up immediately.

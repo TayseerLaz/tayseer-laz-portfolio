@@ -119,7 +119,7 @@ export default function Contact() {
         </form>
 
         <p className="contact__alt">
-          Or find me on <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a> and <a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a>.
+          Or find me on <a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a> and <a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a>.
         </p>
       </div>
     </section>

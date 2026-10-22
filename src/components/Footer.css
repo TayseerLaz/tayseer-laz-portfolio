@@ -1,17 +1,19 @@
-.ftr { position: relative; background: #FFFFFF; min-height: 0; display: block; }
+.ftr { position: relative; background: #485F3F; min-height: 0; display: block; padding-bottom: env(safe-area-inset-bottom, 0px); }
 .ftr__img { display: block; width: 100%; height: clamp(300px, 46vh, 460px); object-fit: cover; object-position: 50% 62%; }
 /* Guarantee the sky still dissolves into the white section above after the crop. */
 .ftr::before { content: ""; position: absolute; inset: 0 0 auto; height: 70px; background: linear-gradient(#FFFFFF, rgba(255,255,255,0)); pointer-events: none; }
 .ftr__line {
-  position: absolute; left: 0; right: 0; bottom: 0;
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
   display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-  padding: 1rem var(--gutter); font-size: 0.8rem; font-weight: 600; color: var(--cream);
+  padding: 1rem var(--gutter) calc(1rem + env(safe-area-inset-bottom, 0px)); font-size: 0.8rem; font-weight: 600; color: var(--cream);
   background: linear-gradient(to top, rgba(11,47,38,0.55), transparent);
 }
 .ftr__line nav { display: flex; gap: 1.2rem; }
 .ftr__line a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
 .ftr__mail { font-weight: 700; }
 @media (max-width: 52rem) {
-  .ftr__img { height: 46svh; object-position: 50% 55%; }
+  .ftr__img { height: max(46svh, 300px); object-position: 50% 100%; }
+  /* the last few pixels melt into the grass colour behind, so the bottom edge never reads as a cut */
+  .ftr::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: calc(28px + env(safe-area-inset-bottom, 0px)); background: linear-gradient(rgba(72,95,63,0), #485F3F); pointer-events: none; }
   .ftr__line { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 }

@@ -9,8 +9,12 @@ import Contact from './components/Contact'
 import MacContact from './components/MacContact'
 import About from './components/About'
 import Footer from './components/Footer'
+import ProjectPage from './components/ProjectPage'
+import { projectFromPath } from './seo'
 
-export default function App() {
+export default function App({ pathname = '/' }: { pathname?: string }) {
+  const slug = projectFromPath(pathname)
+  if (slug) return <ProjectPage slug={slug} />
   return (
     <>
       <Header />

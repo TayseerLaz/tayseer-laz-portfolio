@@ -21,7 +21,7 @@
   --font:         var(--font-hero);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --radius: 22px;
-  --gutter: clamp(1rem, 4vw, 3.5rem);
+  --gutter: max(clamp(1rem, 4vw, 3.5rem), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
   --max: 1240px;
   color-scheme: light;
 }
@@ -32,6 +32,8 @@ html {
   background: linear-gradient(var(--forest) 50%, #FFFFFF 50%) fixed;
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* pages that end on the field footer: the overscroll and the area behind a phone's home bar are grass, not white */
+html:has(.ftr) { background: linear-gradient(var(--forest) 50%, #485F3F 50%) fixed; }
 body {
   margin: 0;
   overscroll-behavior: none;
@@ -80,4 +82,14 @@ button { font: inherit; cursor: pointer; }
   opacity: 0.14; mix-blend-mode: soft-light;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   background-size: 200px 200px;
+}
+
+/* large monitors: a wider column and slightly larger type, so 1920px+ screens are not a narrow strip */
+@media (min-width: 1800px) {
+  :root { --max: 1440px; }
+  html { font-size: 106.25%; }
+}
+@media (min-width: 2400px) {
+  :root { --max: 1600px; }
+  html { font-size: 112.5%; }
 }

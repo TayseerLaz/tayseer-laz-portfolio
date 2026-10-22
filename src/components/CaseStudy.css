@@ -93,7 +93,7 @@
   .cs__repo { display: none; }
   .cs__sub { white-space: normal; }
   .cs__rail { top: 86px; }
-  .cs-ch { padding: 3rem 1rem; min-height: 0; scroll-margin-top: 136px; }
+  .cs-ch { padding: 3rem var(--gutter); min-height: 0; scroll-margin-top: 136px; }
   .adr__row { grid-template-columns: 1fr; gap: 0.2rem; }
   .page { padding: 1.6rem 1.2rem 1.6rem 2.6rem; }
   .page__q { font-size: 1.05rem; }

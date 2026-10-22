@@ -2,7 +2,7 @@
 export const site = {
   name: 'Tayseer Laz',
   role: 'Product developer',
-  location: 'Lebanon',
+  location: 'Beirut, Lebanon',
   email: 'laztayseer@gmail.com',
   nav: [
     { label: 'About', href: '#about' },
@@ -370,7 +370,7 @@ export const site = {
   },
   more: [
     { name: 'OmniSign', year: '2025', tag: 'AI sign language', line: 'Lebanese Sign Language translation, built from scratch for a language technology forgot.', tone: 'dark', texture: 'arcs', status: 'Ongoing', caseStudy: 'omnisign' },
-    { name: 'aligned-tech.com', year: '2026', tag: 'Company site', line: 'Marketing site and knowledge base. Placeholder line.', tone: 'mid', texture: 'streaks', status: 'Live' },
+    { name: 'aligned-tech.com', year: '2026', tag: 'Company site', line: 'The Aligned Tech marketing site and knowledge base.', tone: 'mid', texture: 'streaks', status: 'Live', href: 'https://aligned-tech.com' },
     { name: 'COCOS', year: '2026', tag: 'Spa site, CMS and AI', line: 'Five countries, three languages, a country-aware CMS and an AI skin analysis.', tone: 'sage', texture: 'loops', status: 'Live', caseStudy: 'cocos' },
     { name: '180° Fitness & Spa', year: '2026', tag: 'Gym website and CMS', line: 'A Next.js site for four levels of fitness and spa, with its own CMS.', tone: 'teal', texture: 'dashes', status: 'Live', caseStudy: 'gym180' },
     { name: 'Em Sherif Deli', year: '2026', tag: 'Restaurant website', line: 'The deli\'s full menu on one page, in a brand drawn from azulejo tiles.', tone: 'dark', texture: 'streaks', status: 'Live', caseStudy: 'emsherif' },
@@ -1101,7 +1101,7 @@ export const site = {
     },
     seo: {
       title: 'SEO, GEO and AEO',
-      subtitle: 'Search for people and for AI: the fleet-wide plan for 21 Lancaster hotel sites, so Google ranks them and ChatGPT, Claude and Perplexity can read them, cite them and answer from them.',
+      subtitle: 'A search-discovery plan for 21 Lancaster hotel sites: crawlable content, consistent property information, language targeting and evidence that search and answer engines can retrieve.',
       headline: 'Visible to Google, readable by AI.',
       icon: '/lancaster-mark.png',
       tags: ['SEO', 'GEO', 'AEO', 'JSON-LD', 'llms.txt'],
@@ -1115,17 +1115,17 @@ export const site = {
       hero: { src: '/lancaster/hub-hotels.jpg', cap: 'The Lancaster chain hub, the root of the entity graph' },
       role: {
         title: 'Strategy and implementation',
-        body: 'Every Lancaster site is a React app that hands crawlers an empty shell. Google renders it eventually; almost no AI crawler runs JavaScript at all. The plan fixes that first, then makes each hotel the obvious answer in its market.',
+        body: 'The plan prioritizes the initial HTML of the React sites, then metadata, property identity, languages and supporting evidence. Rendering capabilities vary by crawler. Making content accessible supports discovery, but does not guarantee indexing, rankings or AI citations. The plan describes intended work; results require separate measurement.',
         me: ['SEO master plan with a per-market matrix: languages, keywords, schema, competitors', 'GEO playbook: AI-crawler allowlist, llms.txt, JSON-LD entity graph', 'AEO: FAQ schema and answer-shaped copy for answer engines', 'Prerender for non-JS crawlers behind Caddy'],
       },
       flow: {
-        title: 'The levers', intro: 'Three that make the sites readable, then the ones that make them the answer.',
+        title: 'The levers', intro: 'Make the content accessible, explain each property clearly, then measure discovery and answer accuracy.',
         steps: ['Let the AI crawlers in', 'Serve real HTML to bots', 'JSON-LD on every page', 'llms.txt index and content', 'hreflang and sitemaps', 'FAQ answers', 'Off-site knowledge graph'],
       },
       features: [
         { t: 'SEO', d: 'Head tags per route, a CMS-driven sitemap with lastmod and hreflang alternates, reciprocal hreflang with x-default and RTL checks for Arabic, per market from Beirut to Milan.' },
-        { t: 'GEO', d: 'Generative engine optimisation: a robots.txt allowlist for GPTBot, ClaudeBot, PerplexityBot and the rest, a static llms.txt index and an llms-full.txt content dump.' },
-        { t: 'AEO', d: 'Answer engine optimisation: FAQPage schema on the pages where guests ask questions, so assistants can lift a direct answer with the hotel named in it.' },
+        { t: 'GEO', d: 'Generative engine optimisation: accessible canonical pages and accurate property facts. Search crawlers and model-training controls are separate choices. An llms.txt index is optional and does not establish citation or inclusion.' },
+        { t: 'AEO', d: 'Answer engine optimisation: visible answers to real guest questions, with the property named and supporting details linked. Structured data must match the page; FAQ markup does not guarantee a search feature or an assistant citation.' },
         { t: 'Entity graph', d: 'Hotel, LodgingBusiness, Restaurant, HotelRoom with Offer, Event and BreadcrumbList per page, tied to an Organization and HotelChain at the hub, so engines resolve which Lancaster.' },
         { t: 'Prerender', d: 'The chosen fix is a bot user-agent prerender behind Caddy: crawlers get full HTML, people keep the fast app, and CMS edits reach bots with no rebuild.' },
         { t: 'Per-market strategy', d: 'Each property has its own keyword, languages and competitor set, written up in its own strategy doc.' },
@@ -1331,7 +1331,7 @@ class ThemeProvider with ChangeNotifier {
   about: {
     eyebrow: 'About',
     title: 'Three years of taking ideas from sketch to shipped.',
-    body: 'I am Tayseer Laz, a product developer in Lebanon. I work with founders and small teams who need one person who can see the whole road: the strategy, the design, the code and the operations after launch. Placeholder paragraph, replace with your own words.',
+    body: 'I am Tayseer Laz, a product developer based in Beirut, Lebanon. I work with founders and small teams on SaaS platforms, mobile apps and websites, from product strategy and UI/UX design to development and operations after launch.',
     stats: [
       { num: '3', label: 'years building' },
       { num: '12', label: 'products shipped' },
@@ -1339,7 +1339,7 @@ class ThemeProvider with ChangeNotifier {
     ],
   },
   notes: [
-    { id: 'p1', title: 'RHU: team Omnisign wins First Prize in the Public Choice category at National FYP Demo Day 2025', date: '2025-05-26', tone: 'deep', pinned: true, source: 'rhu.edu.lb', href: 'https://www.rhu.edu.lb/media-room/news/rhu-team-wins-public-choice-award-at-national-fyp-demo-day-2025' },
+    { id: 'p1', title: 'RHU: team Omnisign wins First Prize in the Public Choice category at National FYP Demo Day 2025', date: '2025-06-02', tone: 'deep', pinned: true, source: 'rhu.edu.lb', href: 'https://www.rhu.edu.lb/media-room/news/rhu-team-wins-public-choice-award-at-national-fyp-demo-day-2025' },
     { id: 'p2', title: 'Building in a Country With No Infrastructure: how OmniSign was built, and who built it', date: '2026-09-23', tone: 'mid', pinned: false, source: 'By Layth Ayache', href: 'https://laythayache.com/writing/building-in-a-country-with-no-infrastructure/' },
     { id: 'l1', title: 'When AI Agents Act: Designing Boundaries for Autonomous Systems', date: '2026-09-30', tone: 'sage', pinned: false, source: 'By Layth Ayache', href: 'https://laythayache.com/writing/when-ai-agents-act/' },
     { id: 'l2', title: 'Designing AI Systems for Unstable Networks', date: '2026-09-22', tone: 'teal', pinned: false, source: 'By Layth Ayache', href: 'https://laythayache.com/writing/designing-ai-for-unstable-networks/' },

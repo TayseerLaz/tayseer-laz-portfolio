@@ -10,3 +10,4 @@
 .about__stats strong { font-family: var(--font-display); font-size: clamp(1.4rem, 2.4vw, 2rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1; color: var(--forest); }
 .about__stats span { font-size: 0.85rem; color: var(--ink-soft); }
 @media (max-width: 52rem) { .about__grid { grid-template-columns: 1fr; } }
+.about__bio { max-width: 58ch; margin-top: 1.25rem; color: var(--ink-soft); font-size: 1.05rem; line-height: 1.6; }

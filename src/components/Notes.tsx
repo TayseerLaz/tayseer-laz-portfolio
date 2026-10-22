@@ -35,14 +35,22 @@ function fmt(d: string) {
 }
 
 export default function Notes() {
-  const [notes, setNotes] = useState<Note[]>(load)
+  const [notes, setNotes] = useState<Note[]>(STARTER)
+  const [loaded, setLoaded] = useState(false)
   const [q, setQ] = useState('')
   const [editing, setEditing] = useState<string | null>(null)
   const titleRefs = useRef<Record<string, HTMLHeadingElement | null>>({})
 
   useEffect(() => {
-    try { localStorage.setItem(KEY, JSON.stringify(notes)) } catch { /* ignore */ }
-  }, [notes])
+    setNotes(load())
+    setLoaded(true)
+  }, [])
+
+  useEffect(() => {
+    if (loaded) {
+      try { localStorage.setItem(KEY, JSON.stringify(notes)) } catch { /* ignore */ }
+    }
+  }, [notes, loaded])
 
   useEffect(() => {
     if (editing) {
