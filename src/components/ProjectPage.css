@@ -1,5 +1,3 @@
-.project-page__breadcrumbs { padding: 0.75rem var(--gutter); background: var(--pine); color: var(--cream); font-size: 0.85rem; }
-.project-page__breadcrumbs a { text-decoration: underline; text-underline-offset: 3px; }
 .project-page > .cs { position: relative; inset: auto; z-index: auto; overflow: visible; animation: none; }
 .project-page .cs__bar { position: relative; }
 .project-page .cs__rail { top: 0; }

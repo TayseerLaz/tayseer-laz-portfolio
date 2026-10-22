@@ -6,7 +6,7 @@ import Bsheel from './Bsheel'
 import IEvents from './IEvents'
 import OmniSign from './OmniSign'
 import Project from './Project'
-import { projects, projectPath, type ProjectSlug } from '../seo'
+import { projectPath, type ProjectSlug } from '../seo'
 import { site } from '../content'
 import './ProjectPage.css'
 
@@ -29,10 +29,6 @@ export default function ProjectPage({ slug }: { slug: ProjectSlug }) {
   )
   return (
     <div className="project-page">
-      <nav className="project-page__breadcrumbs" aria-label="Breadcrumb">
-        <a href="/">{site.name}</a><span aria-hidden="true"> / </span>
-        <span aria-current="page">{projects[slug].title}</span>
-      </nav>
       {Component ? <Component standalone onClose={close} related={related} /> : <Project slug={slug} standalone onClose={close} related={related} />}
     </div>
   )
