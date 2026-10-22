@@ -38,11 +38,3 @@
 .feat__btn:hover .feat__frame--study img { translate: 0 -4px; }
 .feat__frame--study img { transition: translate 300ms var(--ease); }
 
-/* capability cards */
-.feat__frame--icons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); place-items: center; gap: 10px; padding: 18px 22px; }
-.feat__frame--icons img { width: min(100%, 78px); height: auto; aspect-ratio: 1; border-radius: 22%; background: #fff; object-fit: contain; box-shadow: 0 10px 24px -12px rgba(0,0,0,0.55); }
-.feat__frame--cover { padding: 12px; overflow: hidden; }
-.feat__frame--cover img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; border-radius: 8px; box-shadow: 0 10px 30px -14px rgba(14,34,14,0.5); }
-.feat__frame--plain img { filter: none; }
-.feat__btn:hover .feat__frame--cover img, .feat__btn:hover .feat__frame--icons img { translate: 0 -3px; }
-.feat__frame--cover img, .feat__frame--icons img { transition: translate 220ms ease; }
