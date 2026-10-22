@@ -1,0 +1,15 @@
+.pj-icon { background: #fff; object-fit: contain; padding: 18px; }
+.pj .os-hero__grid { grid-template-columns: 1fr; }
+.pj-hero { display: block; margin: 1rem 0 0; max-width: 1100px; }
+.pj-me { columns: 2; column-gap: 2.5rem; max-width: 70rem; }
+.pj-me li { break-inside: avoid; }
+.pj-grid--wide { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pj-grid--wide img { aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 0; }
+.pj-grid--phone img { background: #fff; }
+.pj .os-links { flex-wrap: wrap; justify-content: flex-end; }
+.pj-footer img { object-position: 50% 100%; }
+@media (max-width: 52rem) {
+  .pj-me { columns: 1; }
+  .pj-grid--wide { grid-template-columns: 1fr; }
+  .pj .os-links { justify-content: flex-start; }
+}

@@ -1,60 +1,37 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
+# tayseerlaz.com on HostGator (Apache). Static Vite build, copied into public_html as-is.
+Options -Indexes
+DirectoryIndex index.html
 
-  # Force HTTPS
-  RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+RewriteEngine On
 
-  # Force non-www
-  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+# One canonical origin: https, no www.
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://tayseerlaz.com%{REQUEST_URI} [R=301,L]
 
-  # Project slug renames (preserve any prior indexing)
-  RewriteRule ^work/dyafa/?$ /work/ievents/ [R=301,L]
-  RewriteRule ^work/real-estate/?$ /work/bsheel/ [R=301,L]
-  RewriteRule ^work/alinia/?$ /work/aligned-tech/ [R=301,L]
+# The previous site had path routes that Google indexed. Case studies now open on hash routes.
+RewriteRule ^work/(omnisign|bsheel|ievents)/?$ /#work/$1 [R=301,NE,L]
+RewriteRule ^work/dyafa/?$ /#work/ievents [R=301,NE,L]
+RewriteRule ^work/real-estate/?$ /#work/bsheel [R=301,NE,L]
+RewriteRule ^work(/.*)?$ /#work [R=301,NE,L]
 
-  # If a directory exists with an index.html (e.g. /work/omnisign/), serve it
-  # This makes the prerendered project pages take precedence over the SPA fallback
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^(.*[^/])$ /$1/ [R=301,L]
-
-  # SPA fallback — only if no real file or directory matched
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
-</IfModule>
-
-# Cache headers — long for assets, no-cache for HTML so updates ship fast
-<IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresByType image/svg+xml "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/webp "access plus 1 year"
-  ExpiresByType application/javascript "access plus 1 year"
-  ExpiresByType text/css "access plus 1 year"
-  ExpiresByType font/woff2 "access plus 1 year"
-  ExpiresByType font/woff "access plus 1 year"
-  ExpiresByType font/opentype "access plus 1 year"
-  ExpiresByType audio/mpeg "access plus 1 month"
-  ExpiresByType text/html "access plus 0 seconds"
-</IfModule>
+# Unknown paths render the site but keep a real 404 status.
+ErrorDocument 404 /index.html
 
 <IfModule mod_headers.c>
-  # Don't cache HTML — so SEO updates take effect immediately
-  <FilesMatch "\.(html)$">
-    Header set Cache-Control "no-cache, must-revalidate"
+  # Always revalidate the page so a redeploy shows up immediately.
+  <FilesMatch "\.(html|xml|txt|json|webmanifest)$">
+    Header set Cache-Control "no-cache"
   </FilesMatch>
-
-  # Security
+  # Hashed bundles never change under the same name.
+  <If "%{REQUEST_URI} =~ m#^/assets/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set X-Frame-Options "SAMEORIGIN"
 </IfModule>
 
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml application/xml
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json application/xml image/svg+xml
 </IfModule>

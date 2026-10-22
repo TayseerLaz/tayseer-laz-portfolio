@@ -3,72 +3,16 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://tayseerlaz.com/</loc>
-    <lastmod>2026-05-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
     <image:image>
       <image:loc>https://tayseerlaz.com/og-image.png</image:loc>
       <image:title>Tayseer Laz — Product Developer Portfolio</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://tayseerlaz.com/IMG_1283.jpg</image:loc>
+      <image:loc>https://tayseerlaz.com/about-photo.jpg</image:loc>
       <image:title>Tayseer Laz</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://tayseerlaz.com/work/aligned-tech</loc>
-    <lastmod>2026-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://tayseerlaz.com/aligned-logo.webp</image:loc>
-      <image:title>Aligned Tech — Live Website — case study screenshot</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://tayseerlaz.com/og-image.png</image:loc>
-      <image:title>Aligned Tech — Live Website</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://tayseerlaz.com/work/ievents</loc>
-    <lastmod>2026-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://tayseerlaz.com/ievents.png</image:loc>
-      <image:title>iEvents, All-in-One Event Platform — case study screenshot</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://tayseerlaz.com/og-image.png</image:loc>
-      <image:title>iEvents, All-in-One Event Platform</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://tayseerlaz.com/work/bsheel</loc>
-    <lastmod>2026-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://tayseerlaz.com/icon_512_cream_square.PNG</image:loc>
-      <image:title>Bsheel — Gamified Real-World Quests — case study screenshot</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://tayseerlaz.com/og-image.png</image:loc>
-      <image:title>Bsheel — Gamified Real-World Quests</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://tayseerlaz.com/work/omnisign</loc>
-    <lastmod>2026-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://tayseerlaz.com/Untitled design.svg</image:loc>
-      <image:title>OmniSign, AI Sign Language — case study screenshot</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://tayseerlaz.com/og-image.png</image:loc>
-      <image:title>OmniSign, AI Sign Language</image:title>
     </image:image>
   </url>
 </urlset>

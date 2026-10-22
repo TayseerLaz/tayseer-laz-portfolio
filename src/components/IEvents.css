@@ -1,0 +1,12 @@
+.ie-icon { background: #fff; }
+.ie-app { margin-top: 2rem; }
+.ie-app__head { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.4rem; }
+.ie-app__head img { width: 56px; height: 56px; border-radius: 14px; border: 1px solid rgba(11,47,38,0.12); object-fit: cover; }
+.ie-app__head div { display: grid; }
+.ie-app__head strong { font-size: 1.15rem; font-weight: 800; color: var(--ink); }
+.ie-app__head span { font-size: 0.85rem; color: var(--ink-soft); }
+.ie-grid { margin-top: 1rem; }
+.ie-grid img { background: #fff; }
+.ie .os-links { flex-wrap: wrap; justify-content: flex-end; }
+@media (max-width: 52rem) { .ie .os-links { justify-content: flex-start; } }
+.ie-footer img { object-position: 50% 100%; }

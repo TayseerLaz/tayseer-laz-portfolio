@@ -1,0 +1,37 @@
+.lc-logo { padding: 0; background: #fff; object-fit: cover; }
+.lc-sites { background: #FFFFFF; }
+.lc-grid { list-style: none; padding: 0; margin-top: 1.6rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 1.4rem; }
+.lc-site { display: grid; gap: 0.2rem; }
+.lc-site__link { display: grid; gap: 0.2rem; color: inherit; }
+.lc-site__link .hd-shot { transition: transform 300ms var(--ease), box-shadow 300ms var(--ease); }
+.lc-site__link:hover .hd-shot { transform: translateY(-4px); box-shadow: 0 30px 50px -26px rgba(0,0,0,0.55); }
+.lc-site__link:hover strong { text-decoration: underline; text-underline-offset: 0.2em; }
+.lc-site strong { margin-top: 0.6rem; font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; letter-spacing: -0.015em; }
+.lc-site strong span { font-size: 0.85em; color: var(--green); }
+.lc-site em { font-style: normal; font-size: 0.8rem; font-weight: 700; color: var(--green); }
+.lc-site p { font-size: 0.9rem; line-height: 1.45; color: var(--ink-soft); }
+.lc-more { margin-top: 2rem; font-size: 0.95rem; line-height: 1.55; color: var(--ink-soft); max-width: 70ch; }
+.lc-stack { background: #FFFFFF; }
+@media (max-width: 52rem) { .lc-grid { grid-template-columns: 1fr; } }
+
+/* structure, design, layout */
+.lc-plan { background: var(--cream); }
+.lc-plan .cs-ch__body { max-width: 72ch; }
+.lc-plan .os-h4 { margin-top: 2.2rem; }
+.lc-map { margin-top: 0.9rem; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.8rem; }
+.lc-map__group { background: #fff; border: 1px solid rgba(11,47,38,0.12); border-radius: 14px; padding: 0.9rem 1rem; }
+.lc-map__group strong { display: block; font-family: var(--font-display); font-weight: 800; font-size: 1rem; margin-bottom: 0.4rem; }
+.lc-map__group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.2rem; font-size: 0.85rem; color: var(--ink-soft); }
+.lc-map__group li::before { content: "·"; margin-right: 0.4rem; color: var(--green); font-weight: 800; }
+.lc-swatches { list-style: none; padding: 0; margin: 0.9rem 0 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.8rem; }
+.lc-swatches li { display: grid; gap: 0.2rem; }
+.lc-swatches span { display: block; aspect-ratio: 4 / 3; border-radius: 10px; border: 1px solid rgba(11,47,38,0.12); }
+.lc-swatches strong { font-size: 0.85rem; font-weight: 800; }
+.lc-swatches em { font-style: normal; font-size: 0.72rem; color: var(--ink-mute); font-family: ui-monospace, Menlo, monospace; }
+.lc-type { margin-top: 1rem; }
+.lc-layout { margin-top: 0.9rem; display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 2rem; align-items: start; }
+.lc-wire { width: 100%; height: auto; }
+.lc-parts { margin: 0; }
+.lc .hd-features { background: #FFFFFF; }
+@media (max-width: 64rem) { .lc-map { grid-template-columns: repeat(3, minmax(0, 1fr)); } .lc-swatches { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 52rem) { .lc-map { grid-template-columns: 1fr 1fr; } .lc-layout { grid-template-columns: 1fr; } .lc-wire { max-width: 260px; } }

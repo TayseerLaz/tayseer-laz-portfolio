@@ -1,0 +1,83 @@
+
+:root {
+  /* Forest palette from the references */
+  --forest:  #063B2A;   /* deep ground */
+  --pine:    #0B2F26;   /* footer, darkest */
+  --green:   #0F7A43;   /* mid green */
+  --grass:   #1E9A58;
+  --sage:    #5E9B7B;
+  --mint:    #A8DBC1;
+  --lime:    #9CC43A;
+  --cream:   #F1E9D6;
+  --peach:   #F6E1CD;
+  --ink:     #0B2F26;
+  --ink-soft:#3E5A50;
+  --rule:    rgba(11, 47, 38, 0.14);
+
+  /* One face for the whole site. To use real Gilroy, add @font-face rules for files in public/fonts. */
+  --font-hero:    "Gilroy", "Urbanist", "Avenir Next", sans-serif;
+  --font-display: var(--font-hero);
+  --font-serif:   var(--font-hero);
+  --font:         var(--font-hero);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --radius: 22px;
+  --gutter: clamp(1rem, 4vw, 3.5rem);
+  --max: 1240px;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+  background: linear-gradient(var(--forest) 50%, #FFFFFF 50%) fixed;
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  overscroll-behavior: none;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, p, ul, figure, blockquote { margin: 0; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+
+.wrap { width: min(100% - 2 * var(--gutter), var(--max)); margin-inline: auto; }
+/* Every section is at least one screen tall, content centred. */
+.screen { min-height: 100svh; display: grid; grid-template-columns: minmax(0, 1fr); align-content: center; }
+.screen > * { min-width: 0; }
+.eyebrow { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--green); }
+.h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.4vw, 2.9rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.0; }
+.lede { font-size: 1.05rem; font-weight: 500; color: var(--ink-soft); max-width: 44ch; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 1.3rem; border-radius: 999px; border: 1.5px solid transparent;
+  font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; line-height: 1;
+  transition: background 200ms var(--ease), color 200ms var(--ease), transform 200ms var(--ease);
+}
+.btn:active { transform: translateY(1px); }
+.btn--cream { background: var(--cream); color: var(--forest); }
+.btn--cream:hover { background: var(--mint); }
+.btn--green { background: var(--green); color: var(--cream); }
+.btn--green:hover { background: var(--forest); }
+.btn--line { background: transparent; color: currentColor; border-color: currentColor; }
+.btn--line:hover { background: rgba(11,47,38,0.06); }
+.btn svg { width: 12px; height: 12px; }
+
+/* Paper grain for the dark grounds */
+.grain { position: relative; }
+.grain::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  opacity: 0.14; mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 200px 200px;
+}

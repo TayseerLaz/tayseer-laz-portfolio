@@ -1,0 +1,16 @@
+.sb-logo { width: min(100%, 260px); height: auto; margin-bottom: 1.2rem; }
+.sb-hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 3rem; align-items: center; }
+.sb-hero__copy { display: grid; gap: 1rem; }
+.sb-hero .os-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sb-hero__shot { background: var(--pine); border-color: rgba(241,233,214,0.15); }
+.sb-hero__shot figcaption { background: var(--pine); color: rgba(241,233,214,0.8); border-top-color: rgba(241,233,214,0.15); }
+.sb-jobs { background: var(--peach); }
+.sb-clock { list-style: none; padding: 0; margin-top: 1.4rem; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.9rem; }
+.sb-clock li { display: grid; gap: 0.35rem; padding: 1.1rem 1.1rem 1.2rem; border-radius: 14px; background: rgba(255,255,255,0.6); border: 1px solid rgba(11,47,38,0.12); }
+.sb-clock strong { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; color: var(--green); }
+.sb-clock p { font-size: 0.9rem; line-height: 1.45; color: var(--ink-soft); }
+.sb-stack { background: #FFFFFF; }
+@media (max-width: 64rem) { .sb-clock { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 52rem) { .sb-hero { grid-template-columns: 1fr; gap: 2rem; } .sb-clock { grid-template-columns: 1fr; } }
+/* footer: the seaside photo has a tall sky; crop from above so the sea and grass show */
+.sb .cs__footer img { object-position: 50% 100%; }

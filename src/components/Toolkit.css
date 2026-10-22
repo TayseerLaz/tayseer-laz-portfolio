@@ -1,0 +1,16 @@
+.kit { background: var(--cream); padding-block: 4rem 3rem; }
+.kit__title { margin-bottom: 1.2rem; }
+.kit__grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.tile {
+  position: relative; overflow: hidden; min-height: 260px; padding: 1.1rem 1.1rem 1.2rem; border-radius: 8px;
+  background: var(--green); color: var(--cream);
+  display: grid; align-content: start; gap: 0.6rem;
+  transition: transform 300ms var(--ease);
+}
+.tile:hover { transform: scale(1.02) rotate(-0.6deg); }
+.tile__shape { position: absolute; right: -14%; bottom: -16%; width: 62%; height: auto; color: var(--cream); opacity: 0.18; pointer-events: none; }
+.tile__name { position: relative; font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; letter-spacing: -0.015em; line-height: 1.1; }
+.tile__items { position: relative; list-style: none; margin: 0; padding: 0; display: grid; gap: 0.2rem; font-size: 0.88rem; font-weight: 500; line-height: 1.35; }
+.tile__items li::before { content: "·"; margin-right: 0.45rem; font-weight: 800; color: var(--mint); }
+@media (max-width: 64rem) { .kit__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 36rem) { .kit__grid { grid-template-columns: 1fr; gap: 8px; } .tile { min-height: 0; } }
