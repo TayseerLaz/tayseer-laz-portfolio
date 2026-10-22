@@ -26,15 +26,3 @@
   .proc { padding-block: 3rem 2.5rem; }
   .carousel__track { grid-auto-columns: 78vw; gap: 14px; }
 }
-
-/* case-study card */
-.feat__btn { display: grid; gap: 0.5rem; width: 100%; padding: 0; border: 0; background: transparent; color: inherit; text-align: left; font: inherit; cursor: pointer; }
-.feat__frame--study { position: relative; overflow: hidden; display: flex; align-items: flex-start; justify-content: center; gap: 10px; padding: 14px 14px 0; }
-.feat__frame--study img { width: 31%; height: auto; border-radius: 8px 8px 0 0; box-shadow: 0 10px 30px -14px rgba(0,0,0,0.6); filter: hue-rotate(-64deg) saturate(0.8) brightness(0.98); }
-.feat__frame--study img:nth-child(2) { margin-top: 18px; }
-.feat__open { display: none; }
-.feat__btn .feat__title { display: block; }
-.feat__btn .feat__body { display: block; }
-.feat__btn:hover .feat__frame--study img { translate: 0 -4px; }
-.feat__frame--study img { transition: translate 300ms var(--ease); }
-

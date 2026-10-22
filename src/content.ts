@@ -581,7 +581,7 @@ export const site = {
       headline: 'Lebanese comfort, the Em Sherif way.',
       icon: '/more/em-mark.png',
       tags: ['live', 'Restaurant', 'React', 'Vite', 'Beirut'],
-      links: [{ k: 'emsherifdeli.com', u: 'https://emsherifdeli.com' }],
+      links: [],
       stats: [
         { num: '2026', label: 'Designed and built' },
         { num: '1 file', label: 'Holds the whole menu' },
@@ -836,12 +836,10 @@ export const site = {
         me: ['Full LIMA brand system: Fraunces and Inter Tight, sunset and midnight', 'React and Vite front end with nine pages', 'Express API for the fleet, reservations and contact', 'Motion: Framer Motion, smooth scroll, animated route changes, a custom cursor', 'Offer posters for social'],
       },
       gallery: {
-        title: 'The site and the offers', intro: 'The fleet and an offer on the site, then the posters made for social.', kind: 'wide',
+        title: 'The site', intro: 'The fleet and the current offer, from the live site.', kind: 'wide',
         shots: [
           { src: '/more/lima-2.jpg', cap: 'The fleet, filtered by compact, sedan, SUV, luxury and seven-seat' },
           { src: '/more/lima-3.jpg', cap: 'Best offer: Mercedes C-Class' },
-          { src: '/more/lima-offer-1.jpg', cap: 'Eid al-Adha offer poster' },
-          { src: '/more/lima-offer-2.jpg', cap: 'MG5 offer, Arabic and English' },
         ],
       },
       features: [
