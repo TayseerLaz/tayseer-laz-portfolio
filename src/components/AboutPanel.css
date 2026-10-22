@@ -23,9 +23,13 @@
 }
 .tl::before { content: ""; position: absolute; left: 4px; right: 4px; top: 8px; height: 1.5px; background: var(--ink); }
 .tl li { position: relative; display: grid; gap: 2px; padding-right: 6px; }
+/* desktop and tablet: company, role and dates each share one row across all stops, whatever wraps */
+.tl { grid-template-rows: repeat(3, auto); row-gap: 3px; }
+.tl li { grid-row: 1 / span 3; grid-template-rows: subgrid; align-content: start; row-gap: 3px; }
 .tl li::before { content: ""; position: absolute; left: 0; top: -18px; width: 9px; height: 9px; border-radius: 50%; background: var(--ink); box-shadow: 0 0 0 3px var(--cream); }
 .tl__org { font-size: 13px; font-weight: 700; line-height: 1.2; }
 .tl__meta { font-size: 11px; color: var(--ink-soft); line-height: 1.3; }
+.tl__date { font-size: 11px; font-weight: 700; color: var(--green); line-height: 1.3; white-space: nowrap; }
 
 /* music: a spinning vinyl with the track under it */
 .bc--music { background: var(--pine); border-color: var(--pine); color: var(--cream); padding: 14px; align-content: stretch; grid-template-rows: 1fr; }
@@ -76,7 +80,8 @@
   .bento { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 12px; }
   .bc { grid-column: auto !important; grid-row: auto !important; min-height: 200px; }
   .bc--photo { min-height: 380px; }
-  .tl { grid-auto-flow: row; padding: 0 0 0 16px; gap: 12px; }
+  .tl { grid-auto-flow: row; grid-template-rows: none; padding: 0 0 0 16px; gap: 12px; }
+  .tl li { grid-row: auto; grid-template-rows: none; row-gap: 2px; }
   .tl::before { left: 4px; right: auto; top: 4px; bottom: 4px; width: 1.5px; height: auto; }
   .tl li::before { left: -16px; top: 4px; }
   .how__tabs { grid-auto-flow: row; grid-template-columns: repeat(2, 1fr); border-radius: 14px; }

@@ -1416,11 +1416,11 @@ class ThemeProvider with ChangeNotifier {
   ],
   panel: {
     experience: [
-      { org: 'Aligned Tech', role: 'Founder, product developer', year: '2026' },
-      { org: 'Hader AI', role: 'Product manager & tech lead', year: '2025' },
-      { org: 'Lancaster Hotels', role: 'Lead developer, 21 sites', year: '2026' },
-      { org: 'Freelance', role: 'Design and build', year: '2020' },
-      { org: 'First product', role: 'Shipped', year: '2016' },
+      { org: 'Aligned Tech', role: 'Product developer', year: 'Nov 2025 – Present' },
+      { org: 'iEvents Qatar', role: 'Full stack developer', year: 'Dec 2024 – Dec 2025' },
+      { org: 'LAZ Press', role: 'Customer support & PR', year: 'May – Dec 2024' },
+      { org: 'ISS Software Hive', role: 'Software engineer intern', year: 'May – Jul 2024' },
+      { org: 'La Levantine Shipping', role: 'Technical support, 6 months', year: '2023 – 2024' },
     ],
     listening: { label: 'Most played', title: 'Hotel California', artist: 'Eagles', album: 'Hotel California · 1976', length: '6:30', at: '2:14', cover: '/images/site/hotel-california.webp', link: 'https://open.spotify.com/track/40riOy7x9W7GXjyGp4pjAv' },
     map: { city: 'Beirut', area: 'Lebanon' },

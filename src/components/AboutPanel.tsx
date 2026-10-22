@@ -11,7 +11,8 @@ function Experience() {
         {[...P.experience].reverse().map((e) => (
           <li key={e.year + e.org}>
             <span className="tl__org">{e.org}</span>
-            <span className="tl__meta">{e.role} · {e.year}</span>
+            <span className="tl__meta">{e.role}</span>
+            <span className="tl__date">{e.year}</span>
           </li>
         ))}
       </ol>
