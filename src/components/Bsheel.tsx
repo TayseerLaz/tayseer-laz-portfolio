@@ -5,6 +5,7 @@ import './OmniSign.css'
 import './HaderAI.css'
 import './Lancaster.css'
 import './Bsheel.css'
+import { img, SIZES, footerAlt } from '../img'
 
 const B = site.bsheel
 const CH = [
@@ -64,7 +65,7 @@ export default function Bsheel({ onClose, standalone = false, related }: { onClo
         <section className="cs-ch os-hero" id="bs-intro">
           <div className="cs-ch__inner os-hero__grid">
             <div className="os-hero__copy">
-              <img className="os-logo hd-logo bs-icon" src="/images/logos/bsheel.webp" alt="" width={512} height={512} />
+              <img className="os-logo hd-logo bs-icon" {...img('/images/logos/bsheel.webp', SIZES.logo)} alt="Bsheel app icon" />
               <h3 className="cs-ch__title hd-title">Do the damn thing.</h3>
               <p className="cs-ch__body">{B.subtitle}</p>
               <p className="os-tags">{B.tags.join(' · ')}</p>
@@ -80,7 +81,7 @@ export default function Bsheel({ onClose, standalone = false, related }: { onClo
             <h3 className="cs-ch__title">The site</h3>
             <p className="cs-ch__body">bsheel.app: the quest of the day, highlights, the live leaderboard, how it works and the manifesto.</p>
             <a className="hd-shot bs-site" href={B.site} target="_blank" rel="noreferrer">
-              <img src="/images/work/bsheel/site.webp" alt="bsheel.app home page: Do the damn thing, with the quest of the day on a phone" width={1440} height={900} loading="lazy" />
+              <img {...img('/images/work/bsheel/site.webp', SIZES.hero)} alt="bsheel.app home page: Do the damn thing, with the quest of the day on a phone" loading="lazy" />
               <span className="bs-site__cap">bsheel.app, live. Click to open.</span>
             </a>
           </div>
@@ -139,7 +140,7 @@ export default function Bsheel({ onClose, standalone = false, related }: { onClo
             <ul className="bs-grid">
               {B.screens.map((s) => (
                 <li key={s.src}>
-                  <figure><img src={`/images/work/bsheel/${s.src}.webp`} alt={s.cap} width={960} height={1200} loading="lazy" /><figcaption>{s.cap}</figcaption></figure>
+                  <figure><img {...img(`/images/work/bsheel/${s.src}.webp`, SIZES.phone)} alt={s.cap} loading="lazy" /><figcaption>{s.cap}</figcaption></figure>
                 </li>
               ))}
             </ul>
@@ -178,7 +179,7 @@ export default function Bsheel({ onClose, standalone = false, related }: { onClo
 
       {related}
       <footer className="cs__footer bs-footer">
-        <img src="/images/footers/bsheel.webp" alt="" width={2752} height={1536} loading="lazy" />
+        <img {...img('/images/footers/bsheel.webp', SIZES.footer)} alt={footerAlt['/images/footers/bsheel.webp']} loading="lazy" />
         <div className="cs__footer-line">
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <nav aria-label="Project footer"><a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a><a href={B.site} target="_blank" rel="noreferrer">bsheel.app</a></nav>

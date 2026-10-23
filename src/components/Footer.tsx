@@ -1,11 +1,12 @@
 import { site } from '../content'
 import './Footer.css'
+import { img, SIZES, footerAlt } from '../img'
 
 /** The footer is the pasture photograph; its white sky runs on from the white section above. */
 export default function Footer() {
   return (
     <footer className="ftr" id="footer">
-      <img className="ftr__img" src="/images/footers/field.webp" alt="Cows grazing on a green hill under a bright sky" width={1920} height={1071} loading="lazy" />
+      <img className="ftr__img" {...img('/images/footers/field.webp', SIZES.footer)} alt={footerAlt['/images/footers/field.webp']} loading="lazy" />
       <div className="ftr__line">
         <a className="ftr__mail" href={`mailto:${site.email}`}>{site.email}</a>
         <nav aria-label="Footer">

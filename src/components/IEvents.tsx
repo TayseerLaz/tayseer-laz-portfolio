@@ -6,6 +6,7 @@ import './HaderAI.css'
 import './Lancaster.css'
 import './Bsheel.css'
 import './IEvents.css'
+import { img, SIZES, footerAlt } from '../img'
 
 const E = site.ievents
 const CH = [
@@ -63,7 +64,7 @@ export default function IEvents({ onClose, standalone = false, related }: { onCl
         <section className="cs-ch os-hero" id="ie-intro">
           <div className="cs-ch__inner os-hero__grid">
             <div className="os-hero__copy">
-              <img className="os-logo hd-logo bs-icon ie-icon" src="/images/logos/ievents.webp" alt="" width={512} height={512} />
+              <img className="os-logo hd-logo bs-icon ie-icon" {...img('/images/logos/ievents.webp', SIZES.logo)} alt="iEvents app icon" />
               <h3 className="cs-ch__title hd-title">Every event in Qatar, one platform.</h3>
               <p className="cs-ch__body">{E.subtitle}</p>
               <p className="os-tags">{E.tags.join(' · ')}</p>
@@ -97,13 +98,13 @@ export default function IEvents({ onClose, standalone = false, related }: { onCl
             {E.apps.map((app) => (
               <div key={app.name} className="ie-app">
                 <header className="ie-app__head">
-                  <img src={app.icon} alt="" width={64} height={64} loading="lazy" />
+                  <img {...img(app.icon, '64px')} alt={`${app.name} app icon`} loading="lazy" />
                   <div><strong>{app.name}</strong><span>{app.sub}</span></div>
                 </header>
                 <ul className="bs-grid ie-grid">
                   {app.shots.map((s) => (
                     <li key={s.src}>
-                      <figure><img src={`/images/work/ievents/${s.src}.webp`} alt={s.cap} width={552} height={1200} loading="lazy" /><figcaption>{s.cap}</figcaption></figure>
+                      <figure><img {...img(`/images/work/ievents/${s.src}.webp`, SIZES.phone)} alt={s.cap} loading="lazy" /><figcaption>{s.cap}</figcaption></figure>
                     </li>
                   ))}
                 </ul>
@@ -144,7 +145,7 @@ export default function IEvents({ onClose, standalone = false, related }: { onCl
 
       {related}
       <footer className="cs__footer ie-footer">
-        <img src="/images/footers/ievents.webp" alt="" width={2752} height={1536} loading="lazy" />
+        <img {...img('/images/footers/ievents.webp', SIZES.footer)} alt={footerAlt['/images/footers/ievents.webp']} loading="lazy" />
         <div className="cs__footer-line">
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <nav aria-label="Project footer"><a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a><a href={E.links[0].u} target="_blank" rel="noreferrer">App Store</a></nav>

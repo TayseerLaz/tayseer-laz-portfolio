@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { site } from '../content'
 import './CaseStudy.css'
 import './OmniSign.css'
+import { img, SIZES, footerAlt } from '../img'
 
 const O = site.omnisign
 const CH = [
@@ -110,7 +111,7 @@ export default function OmniSign({ onClose, standalone = false, related }: { onC
         <section className="cs-ch os-hero" id="os-demo">
           <div className="cs-ch__inner os-hero__grid">
             <div className="os-hero__copy">
-              <img className="os-logo" src="/images/logos/omnisign.webp" alt="" width={192} height={192} />
+              <img className="os-logo" {...img('/images/logos/omnisign.webp', SIZES.logo)} alt="OmniSign logo" />
               <h3 className="cs-ch__title">{O.title}</h3>
               <p className="cs-ch__body">{O.subtitle}</p>
               <p className="os-tags">{O.tags.join(' · ')}</p>
@@ -176,12 +177,12 @@ export default function OmniSign({ onClose, standalone = false, related }: { onC
             <h3 className="cs-ch__title">{O.dataset.title}</h3>
             <p className="cs-ch__body">{O.dataset.intro}</p>
             <figure className="os-fig">
-              <img src={O.dataset.sheet.src} alt={O.dataset.sheet.alt} width={1600} height={1306} loading="lazy" />
+              <img {...img(O.dataset.sheet.src, SIZES.wide)} alt={O.dataset.sheet.alt} loading="lazy" />
               <figcaption>{O.dataset.sheet.caption}</figcaption>
             </figure>
             <div className="os-data__row">
               <figure className="os-fig os-fig--archi">
-                <img src={O.dataset.archi.src} alt={O.dataset.archi.alt} width={1400} height={933} loading="lazy" />
+                <img {...img(O.dataset.archi.src, SIZES.shot)} alt={O.dataset.archi.alt} loading="lazy" />
                 <figcaption>{O.dataset.archi.caption}</figcaption>
               </figure>
               <dl className="os-facts">
@@ -269,7 +270,7 @@ export default function OmniSign({ onClose, standalone = false, related }: { onC
 
       {related}
       <footer className="cs__footer os-footer">
-        <img src="/images/footers/omnisign.webp" alt="Painted hills and trees under a bright sky" width={1920} height={1072} loading="lazy" />
+        <img {...img('/images/footers/omnisign.webp', SIZES.footer)} alt={footerAlt['/images/footers/omnisign.webp']} loading="lazy" />
         <div className="cs__footer-line">
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <nav aria-label="Project footer"><a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a></nav>

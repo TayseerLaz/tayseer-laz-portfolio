@@ -3,6 +3,7 @@ import { site } from '../content'
 import './CaseStudy.css'
 import './OmniSign.css'
 import './HaderAI.css'
+import { img, SIZES, footerAlt } from '../img'
 
 const H = site.hader
 const CH = [
@@ -60,7 +61,7 @@ export default function HaderAI({ onClose, standalone = false, related }: { onCl
         {/* 01 product */}
         <section className="cs-ch os-hero" id="hd-intro">
           <div className="cs-ch__inner">
-            <img className="os-logo hd-logo" src="/images/logos/hader.webp" alt="" width={512} height={512} />
+            <img className="os-logo hd-logo" {...img('/images/logos/hader.webp', SIZES.logo)} alt="Hader AI logo" />
             <h3 className="cs-ch__title hd-title">Every WhatsApp, answered.</h3>
             <p className="cs-ch__body">{H.subtitle}</p>
             <p className="os-tags">{H.tags.join(' · ')}</p>
@@ -96,7 +97,7 @@ export default function HaderAI({ onClose, standalone = false, related }: { onCl
               {H.product.features.map((f, i) => (
                 <li key={f.t} className="hd-feat">
                   <figure className="hd-shot">
-                    <img src={`/images/work/hader/${f.shot}.webp`} alt={`${f.t} section of hader.ai`} loading="lazy" />
+                    <img {...img(`/images/work/hader/${f.shot}.webp`, SIZES.shot)} alt={`${f.t} section of hader.ai`} loading="lazy" />
                   </figure>
                   <div className="hd-feat__text">
                     <span className="hd-feat__num">{String(i + 1).padStart(2, '0')}</span>
@@ -164,7 +165,7 @@ export default function HaderAI({ onClose, standalone = false, related }: { onCl
 
       {related}
       <footer className="cs__footer os-footer">
-        <img src="/images/footers/omnisign.webp" alt="" width={1920} height={1072} loading="lazy" />
+        <img {...img('/images/footers/omnisign.webp', SIZES.footer)} alt={footerAlt['/images/footers/omnisign.webp']} loading="lazy" />
         <div className="cs__footer-line">
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <nav aria-label="Project footer"><a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a><a href={H.site} target="_blank" rel="noreferrer">hader.ai</a></nav>

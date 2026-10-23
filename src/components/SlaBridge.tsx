@@ -4,6 +4,7 @@ import './CaseStudy.css'
 import './OmniSign.css'
 import './HaderAI.css'
 import './SlaBridge.css'
+import { img, SIZES, footerAlt } from '../img'
 
 const S = site.sla
 const CH = [
@@ -61,7 +62,7 @@ export default function SlaBridge({ onClose, standalone = false, related }: { on
         <section className="cs-ch os-hero" id="sb-intro">
           <div className="cs-ch__inner os-hero__grid">
             <div className="os-hero__copy">
-              <img className="sb-logo" src="/images/logos/aligned-white.webp" alt="Aligned" width={1235} height={204} />
+              <img className="sb-logo" {...img('/images/logos/aligned-white.webp', '260px')} alt="Aligned" />
               <h3 className="cs-ch__title hd-title">One system the company runs on.</h3>
               <p className="cs-ch__body">{S.subtitle}</p>
               <p className="os-tags">{S.tags.join(' · ')}</p>
@@ -77,7 +78,7 @@ export default function SlaBridge({ onClose, standalone = false, related }: { on
             <h3 className="cs-ch__title">Behind the login</h3>
             <p className="cs-ch__body">Aligned ERP lives at bridge.aligned-tech.com, one sign-in for the whole company.</p>
             <figure className="hd-shot sb-hero__shot">
-              <img src="/images/work/sla/login.webp" alt="Aligned ERP sign-in at bridge.aligned-tech.com" width={1440} height={900} loading="lazy" />
+              <img {...img('/images/work/sla/login.webp', SIZES.hero)} alt="Aligned ERP sign-in at bridge.aligned-tech.com" loading="lazy" />
               <figcaption>bridge.aligned-tech.com. The app sits behind this login, so the screens past it hold client data and are not shown.</figcaption>
             </figure>
           </div>
@@ -143,7 +144,7 @@ export default function SlaBridge({ onClose, standalone = false, related }: { on
 
       {related}
       <footer className="cs__footer os-footer">
-        <img src="/images/footers/sla.webp" alt="" width={1920} height={1072} loading="lazy" />
+        <img {...img('/images/footers/sla.webp', SIZES.footer)} alt={footerAlt['/images/footers/sla.webp']} loading="lazy" />
         <div className="cs__footer-line">
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <nav aria-label="Project footer"><a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a><a href={S.site} target="_blank" rel="noreferrer">bridge.aligned-tech.com</a></nav>

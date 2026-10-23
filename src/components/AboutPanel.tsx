@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { site } from '../content'
 import './AboutPanel.css'
+import { img } from '../img'
 
 const P = site.panel
 
@@ -75,7 +76,7 @@ function MapCard() {
 function Photo() {
   return (
     <article className="bc bc--photo">
-      <img src="/images/site/about-photo.webp" alt={P.photo.alt} width={812} height={1398} loading="lazy" />
+      <img {...img('/images/site/about-photo.webp', '(max-width: 52rem) 90vw, 280px')} alt={P.photo.alt} loading="lazy" />
     </article>
   )
 }

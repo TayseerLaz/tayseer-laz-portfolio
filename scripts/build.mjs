@@ -6,8 +6,20 @@ await build()
 const server = await createServer({ server: { middlewareMode: true, hmr: false, ws: false, watch: null }, appType: 'custom' })
 try {
   const { render, origin, projects, projectSlugs, projectPath, pageMetadata, structuredData } = await server.ssrLoadModule('/src/entry-server.tsx')
-  const template = await readFile('dist/index.html', 'utf8')
+  // Inline the stylesheet so no external CSS blocks the first paint, and preload the main font file
+  // the inlined @font-face points at. The hashed CSS file stays in dist for anything that links it.
+  const built = await readFile('dist/index.html', 'utf8')
+  const cssHref = built.match(/<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/)?.[1]
+  if (!cssHref) throw new Error('Built index.html has no stylesheet link to inline')
+  const css = await readFile(`dist${cssHref}`, 'utf8')
+  const font = css.match(/\/assets\/urbanist-latin-(?!ext-)[\w-]+\.woff2/)?.[0]
+  const template = built.replace(/<link rel="stylesheet" crossorigin href="[^"]+">/, () =>
+    (font ? `<link rel="preload" href="${font}" as="font" type="font/woff2" crossorigin>` : '') + `<style>${css.replace(/<\/style/gi, '<\\/style')}</style>`)
   const escape = (value) => value.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
+  // Keep addresses out of reach of plain-text harvesters: entities in the HTML, @ in JSON-LD.
+  // Browsers decode both, so mailto links, visible text and hydration are unchanged.
+  const emailPattern = /[\w.+-]+@[\w-]+(?:\.[\w-]+)*\.(?:com|net|org|io|ai|app|dev|co)\b/g
+  const hideEmails = (html) => html.replace(emailPattern, (m) => [...m].map((c) => `&#${c.charCodeAt(0)};`).join(''))
   const paths = ['/', ...projectSlugs.map(projectPath)]
   for (const path of paths) {
     const meta = pageMetadata(path)
@@ -18,8 +30,8 @@ try {
       .replace(/(<link rel="canonical" href=")[^"]*("\s*\/?>)/, `$1${meta.url}$2`)
       .replace(/(<meta property="og:url" content=")[^"]*("\s*\/?>)/, `$1${meta.url}$2`)
       .replace(/(<meta property="og:type" content=")[^"]*("\s*\/?>)/, `$1${meta.type}$2`)
-      .replace('<!--structured-data-->', `<script type="application/ld+json">${JSON.stringify(structuredData(path)).replace(/</g, '\\u003c')}</script>`)
-      .replace('<div id="root"></div>', `<div id="root">${render(path)}</div>`)
+      .replace('<!--structured-data-->', () => `<script type="application/ld+json">${JSON.stringify(structuredData(path)).replace(/</g, '\\u003c').replace(emailPattern, (m) => m.replace('@', '\\u0040'))}</script>`)
+      .replace('<div id="root"></div>', () => `<div id="root">${hideEmails(render(path))}</div>`)
     const dir = path === '/' ? 'dist' : `dist${path}`
     await mkdir(dir, { recursive: true })
     await writeFile(`${dir}/index.html`, html)

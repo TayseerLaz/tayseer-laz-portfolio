@@ -1,0 +1,3 @@
+# tayseerlaz.com shows no advertising, so no seller is authorised to sell ads on it.
+# Placeholder record from the IAB Tech Lab ads.txt 1.1 spec for sites with no authorised sellers.
+placeholder.example.com, placeholder, DIRECT, placeholder

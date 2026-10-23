@@ -7,6 +7,7 @@ import './HaderAI.css'
 import './Lancaster.css'
 import './Bsheel.css'
 import './Project.css'
+import { img, SIZES, footerAlt } from '../img'
 
 const PROJECTS = site.projects as Record<string, ProjectData>
 export const hasProject = (slug: string) => slug in PROJECTS
@@ -54,6 +55,11 @@ export default function Project({ slug, onClose, standalone = false, related }: 
   const go = (id: string) => scroller.current?.querySelector(`#pj-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
   if (!P) return null
+  // Wide shots use the pre-cut 16:10 file (same crop the CSS applies); a lone wide shot spans the full row.
+  const gallery = P.gallery
+  const shot = (src: string) => gallery?.kind === 'wide'
+    ? img(src, gallery.shots.length === 1 ? SIZES.wide : SIZES.half, { crop: '16x10' })
+    : img(src, SIZES.phone)
 
   return (
     <div className="cs os hd bs pj" role={standalone ? undefined : "dialog"} aria-modal={standalone ? undefined : true} aria-labelledby="pj-title" ref={scroller}>
@@ -79,7 +85,7 @@ export default function Project({ slug, onClose, standalone = false, related }: 
         <section className="cs-ch os-hero" id="pj-intro">
           <div className="cs-ch__inner os-hero__grid">
             <div className="os-hero__copy">
-              {P.icon && <img className="os-logo hd-logo bs-icon pj-icon" src={P.icon} alt="" width={160} height={160} />}
+              {P.icon && <img className="os-logo hd-logo bs-icon pj-icon" {...img(P.icon, SIZES.logo)} alt={`${P.title} logo`} />}
               <h3 className="cs-ch__title hd-title">{P.headline}</h3>
               <p className="cs-ch__body">{P.subtitle}</p>
               <p className="os-tags">{P.tags.join(' · ')}</p>
@@ -90,12 +96,12 @@ export default function Project({ slug, onClose, standalone = false, related }: 
             {P.hero && (
               P.hero.href ? (
                 <a className="hd-shot bs-site pj-hero" href={P.hero.href} target="_blank" rel="noreferrer">
-                  <img src={P.hero.src} alt={P.hero.cap} width={1440} height={900} />
+                  <img {...img(P.hero.src, SIZES.hero)} alt={P.hero.cap} />
                   <span className="bs-site__cap">{P.hero.cap}</span>
                 </a>
               ) : (
                 <figure className="hd-shot bs-site pj-hero">
-                  <img src={P.hero.src} alt={P.hero.cap} width={1440} height={900} />
+                  <img {...img(P.hero.src, SIZES.hero)} alt={P.hero.cap} />
                   <figcaption className="bs-site__cap">{P.hero.cap}</figcaption>
                 </figure>
               )
@@ -130,7 +136,7 @@ export default function Project({ slug, onClose, standalone = false, related }: 
               <p className="cs-ch__body">{P.gallery.intro}</p>
               <ul className={`bs-grid pj-grid pj-grid--${P.gallery.kind}`}>
                 {P.gallery.shots.map((s) => (
-                  <li key={s.src}><figure><img src={s.src} alt={s.cap} loading="lazy" /><figcaption>{s.cap}</figcaption></figure></li>
+                  <li key={s.src}><figure><img {...shot(s.src)} alt={s.cap} loading="lazy" /><figcaption>{s.cap}</figcaption></figure></li>
                 ))}
               </ul>
             </div>
@@ -169,7 +175,7 @@ export default function Project({ slug, onClose, standalone = false, related }: 
 
       {related}
       <footer className="cs__footer pj-footer">
-        <img src={P.footer} alt="" width={1920} height={1072} loading="lazy" />
+        <img {...img(P.footer, SIZES.footer)} alt={footerAlt[P.footer] ?? ''} loading="lazy" />
         <div className="cs__footer-line">
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <nav aria-label="Project footer">
