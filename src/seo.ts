@@ -4,7 +4,7 @@ export const origin = 'https://tayseerlaz.com'
 export const profile = {
   linkedin: 'https://www.linkedin.com/in/tayseer-laz',
   github: 'https://github.com/TayseerLaz',
-  description: 'Tayseer Laz is a product developer in Beirut, Lebanon, building SaaS platforms, mobile apps and websites through product strategy, UI/UX design and development.',
+  description: 'Tayseer Laz is a product developer in Beirut, Lebanon, building SaaS platforms, mobile apps and websites, from product strategy and UI/UX to code.',
 }
 
 // Existing case-study content is the source for titles and summaries.

@@ -12,7 +12,7 @@ export default function Toolkit() {
           {site.toolkit.map((g) => (
             <li key={g.name} className="tile">
               <Shape name={g.shape as ShapeName} className="tile__shape" />
-              <h3 className="tile__name">{g.name}</h3>
+              <p className="tile__name">{g.name}</p>
               <ul className="tile__items">
                 {g.items.map((it) => <li key={it}>{it}</li>)}
               </ul>

@@ -1,6 +1,7 @@
 import Project from './Project'
 import { featured } from './caseStudies'
-import { projectPath, type ProjectSlug } from '../seo'
+import { origin, projectPath, projects, type ProjectSlug } from '../seo'
+import ShareLinks from './ShareLinks'
 import { site } from '../content'
 import './ProjectPage.css'
 
@@ -15,6 +16,7 @@ export default function ProjectPage({ slug }: { slug: ProjectSlug }) {
       <h2 className="h2">More work by {site.name}</h2>
       <ul>{others.map((p) => <li key={p.caseStudy}><a href={projectPath(p.caseStudy)}>{p.name} →</a></li>)}</ul>
       <a className="btn btn--green" href={`mailto:${site.email}`}>Discuss a project</a>
+      <ShareLinks className="project-page__share" url={origin + projectPath(slug)} title={`${projects[slug].title} by ${site.name}`} />
     </aside>
   )
   return (

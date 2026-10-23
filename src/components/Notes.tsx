@@ -39,7 +39,7 @@ export default function Notes() {
   const [loaded, setLoaded] = useState(false)
   const [q, setQ] = useState('')
   const [editing, setEditing] = useState<string | null>(null)
-  const titleRefs = useRef<Record<string, HTMLHeadingElement | null>>({})
+  const titleRefs = useRef<Record<string, HTMLParagraphElement | null>>({})
 
   useEffect(() => {
     setNotes(load())
@@ -107,7 +107,7 @@ export default function Notes() {
                   <button className={`note__pin ${n.pinned ? 'is-on' : ''}`} onClick={() => togglePin(n.id)} aria-pressed={n.pinned} aria-label={n.pinned ? 'Unpin note' : 'Pin note'}>
                     <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8l-5.4 2.9 1.1-6.1L3.2 9.4l6.1-.8z" fill="currentColor" /></svg>
                   </button>
-                  <h3
+                  <p
                     className="note__text"
                     ref={(el) => { titleRefs.current[n.id] = el }}
                     contentEditable={editing === n.id}
@@ -116,7 +116,7 @@ export default function Notes() {
                     onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); (e.currentTarget as HTMLElement).blur() } if (e.key === 'Escape') { e.currentTarget.textContent = n.title; (e.currentTarget as HTMLElement).blur() } }}
                   >
                     {n.title}
-                  </h3>
+                  </p>
                   {n.href && (
                     <a className="note__src" href={n.href} target="_blank" rel="noreferrer">
                       {n.source} <svg viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>

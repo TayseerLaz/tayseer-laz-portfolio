@@ -1,6 +1,8 @@
 import { site } from '../content'
 import './Footer.css'
 import { img, SIZES, footerAlt } from '../img'
+import { origin } from '../seo'
+import ShareLinks from './ShareLinks'
 
 /** The footer is the pasture photograph; its white sky runs on from the white section above. */
 export default function Footer() {
@@ -13,6 +15,7 @@ export default function Footer() {
           <a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a>
         </nav>
+        <ShareLinks className="ftr__share" url={`${origin}/`} title={`${site.name}, product developer`} />
         <span>© {new Date().getFullYear()} {site.name}</span>
       </div>
     </footer>

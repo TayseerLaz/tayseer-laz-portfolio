@@ -11,6 +11,8 @@
 .ftr__line nav { display: flex; gap: 1.2rem; }
 .ftr__line a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
 .ftr__mail { font-weight: 700; }
+.ftr__share { align-items: center; }
+.ftr__share span { opacity: 0.75; }
 @media (max-width: 52rem) {
   .ftr__img { height: max(46svh, 300px); object-position: 50% 100%; }
   /* the last few pixels melt into the grass colour behind, so the bottom edge never reads as a cut */

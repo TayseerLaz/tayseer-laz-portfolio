@@ -12,18 +12,19 @@ type Tile = { name: string; tag: string; line: string; texture: string; year: st
 function TileLink({ project: p, onOpen }: { project: Tile; onOpen: (e: MouseEvent<HTMLAnchorElement>, p: Tile) => void }) {
   const href = p.caseStudy ? projectPath(p.caseStudy) : p.href ?? '#contact'
   return (
-    <a href={href} className="wt__link" onClick={(e) => onOpen(e, p)}>
+    <div className="wt__link">
       <Scribble kind={p.texture as Texture} className="wt__tex" />
       <span className="wt__cat">{p.tag}</span>
       <div className="wt__body">
-        <h3 className="wt__title">{p.name}</h3>
+        {/* Only the name is link text; its ::after stretches over the tile so the whole card stays clickable. */}
+        <h3 className="wt__title"><a href={href} className="wt__hit" onClick={(e) => onOpen(e, p)}>{p.name}</a></h3>
         <p className="wt__line">{p.line}</p>
         <span className="wt__stats">
           <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8l-5.4 2.9 1.1-6.1L3.2 9.4l6.1-.8z" /></svg>{p.year}</span>
           <span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M8 12.5l2.6 2.6L16 9.6" fill="none" stroke="var(--tile)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>{p.status}</span>
         </span>
       </div>
-    </a>
+    </div>
   )
 }
 

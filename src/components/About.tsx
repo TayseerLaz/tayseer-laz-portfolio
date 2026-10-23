@@ -16,7 +16,7 @@ export default function About() {
           </div>
         </div>
         <ul className="about__stats">
-          {a.stats.map((s) => <li key={s.label}><strong>{s.num}</strong><span>{s.label}</span></li>)}
+          {a.stats.map((s) => <li key={s.label}><span className="about__num">{s.num}</span><span>{s.label}</span></li>)}
         </ul>
       </div>
       <div className="wrap">

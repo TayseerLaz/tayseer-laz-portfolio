@@ -27,6 +27,12 @@
 }
 .hero__avatar { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; }
 .hero__cardbody { display: grid; gap: 0.3rem; }
+/* The H1 wraps name and role; display: contents lets both stay grid items, ordered around the stars. */
+.hero__heading { display: contents; }
+.hero__name { order: 1; }
+.hero__stars { order: 2; }
+.hero__role { order: 3; }
+.hero__text { order: 4; }
 .hero__name { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.015em; }
 .hero__stars { color: #F2B705; font-size: 1.15rem; letter-spacing: 0.08em; line-height: 1; }
 .hero__role { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.01em; color: #0B2F26; margin-top: 0.6rem; }

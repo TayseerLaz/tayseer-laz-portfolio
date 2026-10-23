@@ -9,3 +9,6 @@
 .cs__rail a { flex: 0 0 auto; padding: 0.45rem 0.85rem; border: 1.5px solid transparent; border-radius: 999px; background: transparent; color: rgba(241,233,214,0.8); font: inherit; font-size: 0.8rem; font-weight: 700; }
 .cs__rail a:hover { color: var(--cream); }
 .cs__rail a.is-on { background: var(--cream); color: var(--pine); }
+.project-page__share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.2rem; font-size: 0.9rem; font-weight: 600; }
+.project-page__share span { color: var(--ink-soft); }
+.project-page__share a { text-decoration: underline; text-underline-offset: 4px; }
