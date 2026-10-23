@@ -1,19 +1,9 @@
-import CaseStudy from './CaseStudy'
-import HaderAI from './HaderAI'
-import Lancaster from './Lancaster'
-import SlaBridge from './SlaBridge'
-import Bsheel from './Bsheel'
-import IEvents from './IEvents'
-import OmniSign from './OmniSign'
 import Project from './Project'
+import { featured } from './caseStudies'
 import { projectPath, type ProjectSlug } from '../seo'
 import { site } from '../content'
 import './ProjectPage.css'
 
-const featured = {
-  wms: CaseStudy, hader: HaderAI, lancaster: Lancaster, sla: SlaBridge,
-  bsheel: Bsheel, ievents: IEvents, omnisign: OmniSign,
-}
 const close = () => { window.location.assign('/#work') }
 
 export default function ProjectPage({ slug }: { slug: ProjectSlug }) {

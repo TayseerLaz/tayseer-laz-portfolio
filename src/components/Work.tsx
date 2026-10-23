@@ -1,14 +1,18 @@
+import { useEffect, useState, type MouseEvent } from 'react'
 import { Scribble, type Texture } from '../illustrations/Scribbles'
 import { site } from '../content'
-import { projectPath, projects, projectSlugs } from '../seo'
+import { pageMetadata, projectFromPath, projectPath, projects, projectSlugs, type ProjectSlug } from '../seo'
+import CopyDialog from './CopyDialog'
+import Project from './Project'
+import { featured } from './caseStudies'
 import './Work.css'
 
 type Tile = { name: string; tag: string; line: string; texture: string; year: string; status: string; caseStudy?: string; href?: string }
 
-function TileLink({ project: p }: { project: Tile }) {
+function TileLink({ project: p, onOpen }: { project: Tile; onOpen: (e: MouseEvent<HTMLAnchorElement>, p: Tile) => void }) {
   const href = p.caseStudy ? projectPath(p.caseStudy) : p.href ?? '#contact'
   return (
-    <a href={href} className="wt__link">
+    <a href={href} className="wt__link" onClick={(e) => onOpen(e, p)}>
       <Scribble kind={p.texture as Texture} className="wt__tex" />
       <span className="wt__cat">{p.tag}</span>
       <div className="wt__body">
@@ -23,24 +27,59 @@ function TileLink({ project: p }: { project: Tile }) {
   )
 }
 
+const homeTitle = pageMetadata('/').title
+
+/**
+ * Tiles are real links to the pre-rendered /work/<slug>/ pages, so crawlers and new tabs get the page.
+ * A plain click plays the Copy dialog and opens the same case study as a pop-up, with the URL set to
+ * that page so Back closes it and a refresh lands on the standalone page.
+ */
 export default function Work() {
   const shown = new Set<string>([...site.work.items, ...site.more].flatMap((p) => p.caseStudy ? [p.caseStudy] : []))
   const further = projectSlugs.filter((slug) => !shown.has(slug))
+  const [opening, setOpening] = useState<{ slug: ProjectSlug; name: string } | null>(null)
+  const [study, setStudy] = useState<ProjectSlug | null>(null)
+
+  useEffect(() => {
+    const onPop = () => setStudy(projectFromPath(window.location.pathname) ?? null)
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [])
+  useEffect(() => { document.title = study ? pageMetadata(projectPath(study)).title : homeTitle }, [study])
+
+  const open = (e: MouseEvent<HTMLAnchorElement>, p: Tile) => {
+    const slug = p.caseStudy ? projectFromPath(projectPath(p.caseStudy)) : undefined
+    if (!slug || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+    e.preventDefault()
+    setOpening({ slug, name: p.name })
+  }
+  const show = (slug: ProjectSlug) => {
+    window.history.pushState({ study: slug }, '', projectPath(slug))
+    setStudy(slug)
+  }
+  const close = () => {
+    if (window.history.state?.study) window.history.back()
+    else { window.history.replaceState(null, '', '/#work'); setStudy(null) }
+  }
+  const Study = study && Object.hasOwn(featured, study) ? featured[study as keyof typeof featured] : undefined
+
   return (
     <section className="work screen" id="work">
       <div className="wrap">
         <header className="work__head"><h2 className="h2">{site.work.title}</h2></header>
         <ul className="bento-w">
-          {site.work.items.map((p, i) => <li key={p.name} className={`wt wt--${p.tone} wt--${i === 2 || i === 3 ? 'lg' : 'sm'} wt--pos${i + 1}`}><TileLink project={p} /></li>)}
+          {site.work.items.map((p, i) => <li key={p.name} className={`wt wt--${p.tone} wt--${i === 2 || i === 3 ? 'lg' : 'sm'} wt--pos${i + 1}`}><TileLink project={p} onOpen={open} /></li>)}
         </ul>
         <ul className="work__grid" id="work-more" aria-label="More projects">
-          {site.more.map((p) => <li key={p.name} className={`wt wt--${p.tone} wt--sm`}><TileLink project={p} /></li>)}
+          {site.more.map((p) => <li key={p.name} className={`wt wt--${p.tone} wt--sm`}><TileLink project={p} onOpen={open} /></li>)}
         </ul>
         <nav className="work__index" aria-label="Engineering case studies">
           <h3>More on how I build</h3>
           <ul>{further.map((slug) => <li key={slug}><a href={projectPath(slug)}>{projects[slug].title} →</a></li>)}</ul>
         </nav>
       </div>
+      {opening && <CopyDialog name={opening.name} onDone={() => { show(opening.slug); setOpening(null) }} onStop={() => setOpening(null)} />}
+      {study && (Study ? <Study onClose={close} /> : <Project slug={study} onClose={close} />)}
     </section>
   )
 }
