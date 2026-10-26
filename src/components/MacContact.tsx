@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { site } from '../content'
+import { useHydrated } from '../hydrated'
 import './MacContact.css'
 
 type Item = { label: string; say?: string; action?: 'clear' | 'send' | 'about'; divider?: boolean; disabled?: boolean }
@@ -85,6 +86,8 @@ function MenuBar({ onSay, onAction }: { onSay: (t: string) => void; onAction: (a
 
 /** The same contact form, inside an illustrated classic Macintosh running a System 7 style mail window. */
 export default function MacContact() {
+  // The address only appears once the page is live, so the pre-rendered HTML holds none for harvesters.
+  const live = useHydrated()
   const [name, setName] = useState('')
   const [from, setFrom] = useState('')
   const [msg, setMsg] = useState('')
@@ -128,8 +131,8 @@ export default function MacContact() {
                 </div>
                 <div className="mw__body">
                   <label className="mw__row"><span>From:</span><input value={name} onChange={(e) => setName(e.target.value)} placeholder="Rami Kronbi" autoComplete="name" required /></label>
-                  <label className="mw__row"><span>Email:</span><input type="email" value={from} onChange={(e) => setFrom(e.target.value)} placeholder="rami@company.com" autoComplete="email" required /></label>
-                  <label className="mw__row"><span>To:</span><input value={`${site.name} <${site.email}>`} readOnly /></label>
+                  <label className="mw__row"><span>Email:</span><input type="email" value={from} onChange={(e) => setFrom(e.target.value)} placeholder={live ? 'rami@company.com' : undefined} autoComplete="email" required /></label>
+                  <label className="mw__row"><span>To:</span><input value={live ? `${site.name} <${site.email}>` : site.name} readOnly /></label>
                   <label className="mw__row mw__row--area"><span>Message:</span><textarea value={msg} onChange={(e) => setMsg(e.target.value)} rows={5} placeholder="Type your message…" required /></label>
                   <div className="mw__foot">
                     <span className="mw__hint">⌘S to send</span>

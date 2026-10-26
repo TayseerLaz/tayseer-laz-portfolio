@@ -3,17 +3,20 @@ import './Footer.css'
 import { img, SIZES, footerAlt } from '../img'
 import { origin } from '../seo'
 import ShareLinks from './ShareLinks'
+import Cover from './Cover'
+import { MailLink } from './Email'
 
 /** The footer is the pasture photograph; its white sky runs on from the white section above. */
 export default function Footer() {
   return (
     <footer className="ftr" id="footer">
-      <img className="ftr__img" {...img('/images/footers/field.webp', SIZES.footer)} alt={footerAlt['/images/footers/field.webp']} loading="lazy" />
+      <Cover className="ftr__img" {...img('/images/footers/field.webp', SIZES.footer)} alt={footerAlt['/images/footers/field.webp']} loading="lazy" />
       <div className="ftr__line">
-        <a className="ftr__mail" href={`mailto:${site.email}`}>{site.email}</a>
+        <MailLink className="ftr__mail" />
         <nav aria-label="Footer">
           <a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="/privacy/">Privacy</a>
         </nav>
         <ShareLinks className="ftr__share" url={`${origin}/`} title={`${site.name}, product developer`} />
         <span>© {new Date().getFullYear()} {site.name}</span>

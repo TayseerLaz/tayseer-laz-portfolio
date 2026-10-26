@@ -4,6 +4,7 @@ import { origin, projectPath, projects, type ProjectSlug } from '../seo'
 import ShareLinks from './ShareLinks'
 import { site } from '../content'
 import './ProjectPage.css'
+import { MailLink } from './Email'
 
 const close = () => { window.location.assign('/#work') }
 
@@ -15,7 +16,7 @@ export default function ProjectPage({ slug }: { slug: ProjectSlug }) {
     <aside className="project-page__related wrap" aria-label="More case studies">
       <h2 className="h2">More work by {site.name}</h2>
       <ul>{others.map((p) => <li key={p.caseStudy}><a href={projectPath(p.caseStudy)}>{p.name} →</a></li>)}</ul>
-      <a className="btn btn--green" href={`mailto:${site.email}`}>Discuss a project</a>
+      <MailLink className="btn btn--green">Discuss a project</MailLink>
       <ShareLinks className="project-page__share" url={origin + projectPath(slug)} title={`${projects[slug].title} by ${site.name}`} />
     </aside>
   )

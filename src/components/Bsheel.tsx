@@ -6,6 +6,8 @@ import './HaderAI.css'
 import './Lancaster.css'
 import './Bsheel.css'
 import { img, SIZES, footerAlt } from '../img'
+import Cover from './Cover'
+import { MailLink } from './Email'
 
 const B = site.bsheel
 const CH = [
@@ -179,9 +181,9 @@ export default function Bsheel({ onClose, standalone = false, related }: { onClo
 
       {related}
       <footer className="cs__footer bs-footer">
-        <img {...img('/images/footers/bsheel.webp', SIZES.footer)} alt={footerAlt['/images/footers/bsheel.webp']} loading="lazy" />
+        <Cover className="cs__footer-img" {...img('/images/footers/bsheel.webp', SIZES.footer)} alt={footerAlt['/images/footers/bsheel.webp']} loading="lazy" />
         <div className="cs__footer-line">
-          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <MailLink />
           <nav aria-label="Project footer"><a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a><a href={B.site} target="_blank" rel="noreferrer">bsheel.app</a></nav>
           <span>© {new Date().getFullYear()} {site.name}</span>
         </div>

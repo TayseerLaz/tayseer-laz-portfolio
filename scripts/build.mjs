@@ -15,6 +15,10 @@ try {
   const font = css.match(/\/assets\/urbanist-latin-(?!ext-)[\w-]+\.woff2/)?.[0]
   const template = built.replace(/<link rel="stylesheet" crossorigin href="[^"]+">/, () =>
     (font ? `<link rel="preload" href="${font}" as="font" type="font/woff2" crossorigin>` : '') + `<style>${css.replace(/<\/style/gi, '<\\/style')}</style>`)
+  // Module scripts are deferred anyway; at the end of <body> no scanner counts the bundle as render-blocking.
+  const bundle = template.match(/<script type="module" crossorigin src="[^"]+"><\/script>\n?/)?.[0]
+  if (!bundle) throw new Error('Built index.html has no module script to move')
+  const page = template.replace(bundle, '').replace('</body>', () => `  ${bundle.trim()}\n  </body>`)
   const escape = (value) => value.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
   // Keep addresses out of reach of plain-text harvesters: entities in the HTML, @ in JSON-LD.
   // Browsers decode both, so mailto links, visible text and hydration are unchanged.
@@ -23,7 +27,7 @@ try {
   const paths = ['/', ...projectSlugs.map(projectPath)]
   for (const path of paths) {
     const meta = pageMetadata(path)
-    const html = template
+    const html = page
       .replace(/<title>[^<]*<\/title>/, `<title>${escape(meta.title)}</title>`)
       .replace(/(<meta (?:name|property)="(?:description|og:description|twitter:description)" content=")[^"]*("\s*\/?>)/g, `$1${escape(meta.description)}$2`)
       .replace(/(<meta (?:name|property)="(?:og:title|twitter:title)" content=")[^"]*("\s*\/?>)/g, `$1${escape(meta.title)}$2`)

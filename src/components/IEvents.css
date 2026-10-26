@@ -9,4 +9,4 @@
 .ie-grid img { background: #fff; }
 .ie .os-links { flex-wrap: wrap; justify-content: flex-end; }
 @media (max-width: 52rem) { .ie .os-links { justify-content: flex-start; } }
-.ie-footer img { object-position: 50% 100%; }
+.ie-footer .cs__footer-img { --y: 100%; }

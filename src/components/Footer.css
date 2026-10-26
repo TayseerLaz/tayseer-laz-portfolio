@@ -1,5 +1,5 @@
 .ftr { position: relative; background: #485F3F; min-height: 0; display: block; padding-bottom: env(safe-area-inset-bottom, 0px); }
-.ftr__img { display: block; width: 100%; height: clamp(300px, 46vh, 460px); object-fit: cover; object-position: 50% 62%; }
+.ftr__img { height: clamp(300px, 46vh, 460px); --y: 62%; }
 /* Guarantee the sky still dissolves into the white section above after the crop. */
 .ftr::before { content: ""; position: absolute; inset: 0 0 auto; height: 70px; background: linear-gradient(#FFFFFF, rgba(255,255,255,0)); pointer-events: none; }
 .ftr__line {
@@ -14,7 +14,7 @@
 .ftr__share { align-items: center; }
 .ftr__share span { opacity: 0.75; }
 @media (max-width: 52rem) {
-  .ftr__img { height: max(46svh, 300px); object-position: 50% 100%; }
+  .ftr__img { height: max(46svh, 300px); --y: 100%; }
   /* the last few pixels melt into the grass colour behind, so the bottom edge never reads as a cut */
   .ftr::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: calc(28px + env(safe-area-inset-bottom, 0px)); background: linear-gradient(rgba(72,95,63,0), #485F3F); pointer-events: none; }
   .ftr__line { flex-direction: column; align-items: flex-start; gap: 0.5rem; }

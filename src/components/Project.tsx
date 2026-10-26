@@ -8,6 +8,8 @@ import './Lancaster.css'
 import './Bsheel.css'
 import './Project.css'
 import { img, SIZES, footerAlt } from '../img'
+import Cover from './Cover'
+import { MailLink } from './Email'
 
 const PROJECTS = site.projects as Record<string, ProjectData>
 export const hasProject = (slug: string) => slug in PROJECTS
@@ -175,9 +177,9 @@ export default function Project({ slug, onClose, standalone = false, related }: 
 
       {related}
       <footer className="cs__footer pj-footer">
-        <img {...img(P.footer, SIZES.footer)} alt={footerAlt[P.footer] ?? ''} loading="lazy" />
+        <Cover className="cs__footer-img" {...img(P.footer, SIZES.footer)} alt={footerAlt[P.footer] ?? ''} loading="lazy" />
         <div className="cs__footer-line">
-          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <MailLink />
           <nav aria-label="Project footer">
             <a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a>
             <a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a>

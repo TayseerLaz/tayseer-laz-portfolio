@@ -7,6 +7,8 @@ import './Lancaster.css'
 import './Bsheel.css'
 import './IEvents.css'
 import { img, SIZES, footerAlt } from '../img'
+import Cover from './Cover'
+import { MailLink } from './Email'
 
 const E = site.ievents
 const CH = [
@@ -145,9 +147,9 @@ export default function IEvents({ onClose, standalone = false, related }: { onCl
 
       {related}
       <footer className="cs__footer ie-footer">
-        <img {...img('/images/footers/ievents.webp', SIZES.footer)} alt={footerAlt['/images/footers/ievents.webp']} loading="lazy" />
+        <Cover className="cs__footer-img" {...img('/images/footers/ievents.webp', SIZES.footer)} alt={footerAlt['/images/footers/ievents.webp']} loading="lazy" />
         <div className="cs__footer-line">
-          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <MailLink />
           <nav aria-label="Project footer"><a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a><a href={E.links[0].u} target="_blank" rel="noreferrer">App Store</a></nav>
           <span>© {new Date().getFullYear()} {site.name}</span>
         </div>

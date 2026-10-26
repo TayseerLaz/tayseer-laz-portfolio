@@ -5,6 +5,8 @@ import './OmniSign.css'
 import './HaderAI.css'
 import './Lancaster.css'
 import { img, SIZES, footerAlt } from '../img'
+import Cover from './Cover'
+import { MailLink } from './Email'
 
 const L = site.lancaster
 const CH = [
@@ -215,9 +217,9 @@ export default function Lancaster({ onClose, standalone = false, related }: { on
 
       {related}
       <footer className="cs__footer os-footer">
-        <img {...img('/images/footers/lancaster.webp', SIZES.footer)} alt={footerAlt['/images/footers/lancaster.webp']} loading="lazy" />
+        <Cover className="cs__footer-img" {...img('/images/footers/lancaster.webp', SIZES.footer)} alt={footerAlt['/images/footers/lancaster.webp']} loading="lazy" />
         <div className="cs__footer-line">
-          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <MailLink />
           <nav aria-label="Project footer"><a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a><a href={L.site} target="_blank" rel="noreferrer">lancaster.world</a></nav>
           <span>© {new Date().getFullYear()} {site.name}</span>
         </div>

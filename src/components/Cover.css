@@ -1,0 +1,14 @@
+/* Cropped images (Cover.tsx). The box clips; --x / --y work like object-position (default centre).
+   Box defaults sit in :where() so each component's own size and position rules always win. */
+:where(.cover) { position: relative; overflow: hidden; }
+.cover > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--x, 50%) var(--y, 50%); }
+
+/* With container units the image is sized to cover the box at its natural ratio instead of being cropped by object-fit. */
+@supports (width: 1cqw) {
+  :where(.cover) { container-type: size; }
+  .cover > img {
+    position: absolute; left: var(--x, 50%); top: var(--y, 50%);
+    width: max(100cqw, 100cqh * var(--ar)); height: auto; max-width: none;
+    transform: translate(calc(var(--x, 50%) * -1), calc(var(--y, 50%) * -1));
+  }
+}

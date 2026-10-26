@@ -4,7 +4,8 @@ export const origin = 'https://tayseerlaz.com'
 export const profile = {
   linkedin: 'https://www.linkedin.com/in/tayseer-laz',
   github: 'https://github.com/TayseerLaz',
-  description: 'Tayseer Laz is a product developer in Beirut, Lebanon, building SaaS platforms, mobile apps and websites, from product strategy and UI/UX to code.',
+  wikidata: 'https://www.wikidata.org/wiki/Q138822320',
+  description: 'Tayseer Laz is a product developer in Beirut, Lebanon, building SaaS platforms, mobile apps and websites, from product strategy and UI/UX design to code.',
 }
 
 // Existing case-study content is the source for titles and summaries.
@@ -51,7 +52,8 @@ export function structuredData(pathname: string) {
     url: `${origin}/`, jobTitle: 'Product Developer', description: profile.description,
     image: `${origin}/images/site/about-photo.webp`, email: `mailto:${site.email}`,
     address: { '@type': 'PostalAddress', addressLocality: 'Beirut', addressCountry: 'LB' },
-    sameAs: [profile.linkedin, profile.github],
+    sameAs: [profile.linkedin, profile.github, profile.wikidata],
+    worksFor: { '@type': 'Organization', name: 'Aligned Tech', url: 'https://aligned-tech.com/' },
   }
   const website = {
     '@type': 'WebSite', '@id': `${origin}/#website`, url: `${origin}/`,

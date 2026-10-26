@@ -3,6 +3,8 @@ import { site } from '../content'
 import './CaseStudy.css'
 import './OmniSign.css'
 import { img, SIZES, footerAlt } from '../img'
+import Cover from './Cover'
+import { MailLink } from './Email'
 
 const O = site.omnisign
 const CH = [
@@ -270,9 +272,9 @@ export default function OmniSign({ onClose, standalone = false, related }: { onC
 
       {related}
       <footer className="cs__footer os-footer">
-        <img {...img('/images/footers/omnisign.webp', SIZES.footer)} alt={footerAlt['/images/footers/omnisign.webp']} loading="lazy" />
+        <Cover className="cs__footer-img" {...img('/images/footers/omnisign.webp', SIZES.footer)} alt={footerAlt['/images/footers/omnisign.webp']} loading="lazy" />
         <div className="cs__footer-line">
-          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <MailLink />
           <nav aria-label="Project footer"><a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a></nav>
           <span>© {new Date().getFullYear()} {site.name}</span>
         </div>

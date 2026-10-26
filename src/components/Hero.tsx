@@ -1,12 +1,13 @@
 import { site } from '../content'
 import './Hero.css'
 import { img } from '../img'
+import Cover from './Cover'
 
 /** Hero after the review poster: giant cream letters, rotated hashtag strips, a cream card. */
 export default function Hero() {
   return (
     <section className="hero" id="top">
-      <img className="hero__bg" src="/images/site/hero-bg.webp" alt="Abstract green camouflage pattern" width={1672} height={941} fetchPriority="high" />
+      <Cover className="hero__bg" src="/images/site/hero-bg.webp" alt="Abstract green camouflage pattern" width={1672} height={941} fetchPriority="high" />
       <div className="hero__letters" aria-hidden="true">
         <span className="hero__row hero__row--1">“tay</span>
         <span className="hero__row hero__row--2">seer”</span>

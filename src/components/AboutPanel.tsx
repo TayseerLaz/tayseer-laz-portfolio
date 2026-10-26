@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { site } from '../content'
 import './AboutPanel.css'
 import { img } from '../img'
+import Cover from './Cover'
 
 const P = site.panel
 
@@ -76,7 +77,7 @@ function MapCard() {
 function Photo() {
   return (
     <article className="bc bc--photo">
-      <img {...img('/images/site/about-photo.webp', '(max-width: 52rem) 90vw, 280px')} alt={P.photo.alt} loading="lazy" />
+      <Cover className="bc__photo" {...img('/images/site/about-photo.webp', '(max-width: 52rem) 90vw, 280px')} alt={P.photo.alt} loading="lazy" />
     </article>
   )
 }

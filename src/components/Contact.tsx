@@ -1,10 +1,13 @@
 import { useState, type FormEvent } from 'react'
 import { Shape } from '../illustrations/Shapes'
 import { site } from '../content'
+import { useHydrated } from '../hydrated'
 import './Contact.css'
+import { MailLink } from './Email'
 
 /** Contact as a postcard: message on the left, stamp, postmark and address on the right. */
 export default function Contact() {
+  const live = useHydrated()
   const [name, setName] = useState('')
   const [from, setFrom] = useState('')
   const [msg, setMsg] = useState('')
@@ -42,7 +45,7 @@ export default function Contact() {
             </label>
             <label className="pc-field">
               <span>Your email</span>
-              <input type="email" value={from} onChange={(e) => setFrom(e.target.value)} placeholder="rami@company.com" autoComplete="email" required />
+              <input type="email" value={from} onChange={(e) => setFrom(e.target.value)} placeholder={live ? 'rami@company.com' : undefined} autoComplete="email" required />
             </label>
             <label className="pc-field pc-field--grow">
               <span>Message</span>
@@ -73,7 +76,7 @@ export default function Contact() {
               <strong>{site.name}</strong>
               <span>{site.role}</span>
               <span>{site.location}</span>
-              <a href={`mailto:${site.email}`}>{site.email}</a>
+              <MailLink />
             </address>
 
             <button type="submit" className="btn btn--green postcard__send">Send the postcard</button>

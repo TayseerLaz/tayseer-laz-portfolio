@@ -3,7 +3,7 @@
   background: #0B5A33; color: var(--cream); overflow: hidden; isolation: isolate;
   padding: 5rem var(--gutter);
 }
-.hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: -1; }
+.hero__bg { position: absolute; inset: 0; z-index: -1; }
 
 /* ---------- Giant letters ---------- */
 .hero__letters {

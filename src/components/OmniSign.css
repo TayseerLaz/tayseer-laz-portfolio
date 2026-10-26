@@ -112,7 +112,8 @@ ol.os-how p { font-size: 0.88rem; line-height: 1.45; color: var(--ink-soft); }
 }
 
 /* footer: painted landscape, pixel rendering off since this one is a painting */
-.os-footer img { image-rendering: auto; object-position: 50% 62%; }
+.os-footer .cs__footer-img { --y: 62%; }
+.os-footer .cs__footer-img > img { image-rendering: auto; }
 
 /* dataset */
 .os-data { background: #FFFFFF; }

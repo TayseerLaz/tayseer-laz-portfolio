@@ -7,7 +7,7 @@
 .pj-grid--wide img { aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 0; }
 .pj-grid--phone img { background: #fff; }
 .pj .os-links { flex-wrap: wrap; justify-content: flex-end; }
-.pj-footer img { object-position: 50% 100%; }
+.pj-footer .cs__footer-img { --y: 100%; }
 @media (max-width: 52rem) {
   .pj-me { columns: 1; }
   .pj-grid--wide { grid-template-columns: 1fr; }

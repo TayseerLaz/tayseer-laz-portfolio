@@ -57,7 +57,7 @@
 
 /* photo */
 .bc--photo { padding: 10px; background: var(--pine); border-color: var(--pine); } /* green contour, same as the vinyl card */
-.bc--photo img { position: absolute; inset: 10px; width: calc(100% - 20px); height: calc(100% - 20px); border-radius: 10px; object-fit: cover; object-position: 50% 30%; }
+.bc--photo .bc__photo { position: absolute; inset: 10px; border-radius: 10px; --y: 30%; }
 
 /* how I work */
 .bc--how { grid-template-rows: auto auto 1fr; align-content: start; }

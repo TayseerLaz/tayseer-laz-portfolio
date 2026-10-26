@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { site } from '../content'
 import './Header.css'
+import { MailLink } from './Email'
 
 /** The site header drawn as a Google Chrome window: tab strip, toolbar with omnibox, bookmarks bar. */
 
@@ -107,7 +108,7 @@ export default function Header() {
 
       {/* Bookmarks bar */}
       <nav className="chrome__bookmarks" aria-label="Bookmarks">
-        <a href={`mailto:${site.email}`}><span className="bm__fav bm__fav--green" aria-hidden="true" />Email</a>
+        <MailLink><span className="bm__fav bm__fav--green" aria-hidden="true" />Email</MailLink>
         <a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer"><span className="bm__fav bm__fav--blue" aria-hidden="true" />LinkedIn</a>
         <a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer"><span className="bm__fav bm__fav--dark" aria-hidden="true" />GitHub</a>
       </nav>

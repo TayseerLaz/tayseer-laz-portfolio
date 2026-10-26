@@ -103,7 +103,8 @@
 
 /* ---- footer: the pixel landscape, its white sky runs on from the design chapter ---- */
 .cs__footer { position: relative; background: #FFFFFF; }
-.cs__footer img { display: block; width: 100%; height: clamp(300px, 46vh, 520px); object-fit: cover; object-position: 50% 70%; image-rendering: pixelated; }
+.cs__footer-img { height: clamp(300px, 46vh, 520px); --y: 70%; }
+.cs__footer-img > img { image-rendering: pixelated; }
 .cs__footer::before { content: ""; position: absolute; inset: 0 0 auto; height: 90px; background: linear-gradient(#FFFFFF, rgba(255,255,255,0)); pointer-events: none; }
 .cs__footer-line {
   position: absolute; left: 0; right: 0; bottom: 0;
@@ -113,4 +114,4 @@
 }
 .cs__footer-line nav { display: flex; gap: 1.2rem; }
 .cs__footer-line a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
-@media (max-width: 52rem) { .cs__footer img { height: 40svh; object-position: 50% 80%; } .cs__footer-line { flex-direction: column; align-items: flex-start; gap: 0.5rem; } }
+@media (max-width: 52rem) { .cs__footer-img { height: 40svh; --y: 80%; } .cs__footer-line { flex-direction: column; align-items: flex-start; gap: 0.5rem; } }

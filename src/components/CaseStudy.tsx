@@ -2,6 +2,8 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { site } from '../content'
 import './CaseStudy.css'
 import { img, SIZES, footerAlt } from '../img'
+import Cover from './Cover'
+import { MailLink } from './Email'
 
 type Chapter = (typeof site.caseStudy.chapters)[number]
 
@@ -61,9 +63,9 @@ export default function CaseStudy({ onClose, standalone = false, related }: { on
 
       {related}
       <footer className="cs__footer">
-        <img {...img('/images/footers/wms.webp', SIZES.footer)} alt={footerAlt['/images/footers/wms.webp']} loading="lazy" />
+        <Cover className="cs__footer-img" {...img('/images/footers/wms.webp', SIZES.footer)} alt={footerAlt['/images/footers/wms.webp']} loading="lazy" />
         <div className="cs__footer-line">
-          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <MailLink />
           <nav aria-label="Case study footer">
             <a href="https://www.linkedin.com/in/tayseer-laz" target="_blank" rel="noreferrer">LinkedIn</a>
             <a href="https://github.com/TayseerLaz" target="_blank" rel="noreferrer">GitHub</a>
