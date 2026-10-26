@@ -28,11 +28,26 @@ export const projectFromPath = (pathname: string): ProjectSlug | undefined => {
   return slug && Object.hasOwn(projects, slug) ? slug as ProjectSlug : undefined
 }
 
+type Credits = { site?: string; role?: { title?: string }; team?: { name?: string; role: string }[] }
+const credits = (slug: ProjectSlug) => projects[slug] as unknown as Credits
+
+/** Tayseer's role on a project, as its case study states it: the role chapter, or his line in the team list. */
+export function projectRole(slug: ProjectSlug) {
+  const p = credits(slug)
+  return p.role?.title ?? p.team?.find((t) => t.name === site.name)?.role
+}
+
+/** The other named people credited on a project's team. */
+export function projectTeam(slug: ProjectSlug) {
+  return (credits(slug).team ?? []).filter((t): t is { name: string; role: string } => !!t.name && t.name !== site.name)
+}
+
 export function pageMetadata(pathname: string) {
   const slug = projectFromPath(pathname)
   if (slug) return {
     title: `${projects[slug].title} — Case Study | ${site.name}`,
-    description: projects[slug].subtitle,
+    // Lead with who wrote it and in what role, so search snippets and AI answers attribute the work correctly.
+    description: projectRole(slug) ? `Case study by ${site.name} (${projectRole(slug)}). ${projects[slug].subtitle}` : projects[slug].subtitle,
     url: origin + projectPath(slug),
     type: 'article',
   }
@@ -66,6 +81,7 @@ export function structuredData(pathname: string) {
     isPartOf: { '@id': website['@id'] },
     ...(slug ? {
       author: { '@id': person['@id'] },
+      about: { '@id': `${meta.url}#project` },
       breadcrumb: { '@id': `${meta.url}#breadcrumbs` },
     } : { mainEntity: { '@id': person['@id'] } }),
   }
@@ -76,5 +92,15 @@ export function structuredData(pathname: string) {
       { '@type': 'ListItem', position: 2, name: projects[slug].title, item: meta.url },
     ],
   }] : []
-  return { '@context': 'https://schema.org', '@graph': [person, website, page, ...breadcrumbs] }
+  // The project itself, with Tayseer's role and the rest of the credited team, as each case study states them.
+  const role = slug && projectRole(slug)
+  const project = slug ? [{
+    '@type': 'CreativeWork', '@id': `${meta.url}#project`, name: projects[slug].title, description: projects[slug].subtitle,
+    ...(credits(slug).site ? { url: credits(slug).site } : {}),
+    contributor: [
+      ...(role ? [{ '@type': 'Role', roleName: role, contributor: { '@id': person['@id'] } }] : []),
+      ...projectTeam(slug).map((t) => ({ '@type': 'Role', roleName: t.role, contributor: { '@type': 'Person', name: t.name } })),
+    ],
+  }] : []
+  return { '@context': 'https://schema.org', '@graph': [person, website, page, ...project, ...breadcrumbs] }
 }

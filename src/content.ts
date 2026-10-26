@@ -495,8 +495,8 @@ export const site = {
       { q: 'Who is this for?', a: 'Anyone who wants to communicate across the hearing-deaf divide: healthcare workers, educators, families, and the deaf community itself.' },
     ],
     team: [
+      { in: 'TL', name: 'Tayseer Laz', role: 'Co-founder · Product, Web & PR', d: 'Product direction, website, model integration into the mobile app, data collection, community communications, event coordination' },
       { in: 'LA', name: 'Layth Ayache', role: 'AI & ML Lead', d: 'Computer vision, model training, data pipeline, dataset cleaning and augmentation, community outreach, event planning' },
-      { in: 'TL', name: 'Tayseer Laz', role: 'Web & PR Lead', d: 'Website, model integration into the mobile app, data collection, community communications, event coordination' },
       { in: 'AB', name: 'Abu Baker Hussein El Khatib', role: 'App Developer', d: 'Flutter mobile app, web app, data collection at campus events and community booths' },
       { in: 'NE', name: 'Noor El Hariri', role: 'Project Coordinator', d: 'Flutter app development, academic documentation, project reports, research coordination' },
       { in: 'RK', name: 'Rami Kronbi', role: 'Computer Vision Engineer', d: 'ML engineering, CV pipeline, data collection, next-phase technical lead' },

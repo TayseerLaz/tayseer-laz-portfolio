@@ -5,7 +5,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 await build()
 const server = await createServer({ server: { middlewareMode: true, hmr: false, ws: false, watch: null }, appType: 'custom' })
 try {
-  const { render, origin, projects, projectSlugs, projectPath, pageMetadata, structuredData } = await server.ssrLoadModule('/src/entry-server.tsx')
+  const { render, origin, projects, projectSlugs, projectPath, projectRole, projectTeam, pageMetadata, structuredData } = await server.ssrLoadModule('/src/entry-server.tsx')
   // Inline the stylesheet so no external CSS blocks the first paint, and preload the main font file
   // the inlined @font-face points at. The hashed CSS file stays in dist for anything that links it.
   const built = await readFile('dist/index.html', 'utf8')
@@ -40,9 +40,14 @@ try {
     await mkdir(dir, { recursive: true })
     await writeFile(`${dir}/index.html`, html)
   }
+  // Each entry states Tayseer's role and everyone else the case study credits, so AI answers can attribute the work.
+  const credit = (slug) => {
+    const role = projectRole(slug), team = projectTeam(slug)
+    return (role ? ` Tayseer Laz's role: ${role}.` : '') + (team.length ? ` Also credited: ${team.map((t) => `${t.name} (${t.role})`).join(', ')}.` : '')
+  }
   // No invented lastmod dates: omit until per-page editorial dates are maintained.
   await writeFile('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${paths.map((path) => `  <url><loc>${origin}${path}</loc></url>`).join('\n')}\n</urlset>\n`)
-  await writeFile('dist/llms.txt', `# Tayseer Laz\n\n> Product developer based in Beirut, Lebanon. Product strategy, UI/UX design, SaaS platforms, mobile apps and websites.\n\nContact: laztayseer@gmail.com\n\n## Canonical pages\n\n- [Portfolio](${origin}/): Profile, experience, work and contact.\n${projectSlugs.map((slug) => `- [${projects[slug].title}](${origin}${projectPath(slug)}): ${projects[slug].subtitle}`).join('\n')}\n\nThese are first-person portfolio case studies. Roles, collaborators, project status and limitations are described on the linked pages. This file is an optional index; it does not establish indexing or AI citation.\n`)
+  await writeFile('dist/llms.txt', `# Tayseer Laz\n\n> Product developer based in Beirut, Lebanon. Product strategy, UI/UX design, SaaS platforms, mobile apps and websites.\n\nContact: laztayseer@gmail.com\n\n## Canonical pages\n\n- [Portfolio](${origin}/): Profile, experience, work and contact.\n${projectSlugs.map((slug) => `- [${projects[slug].title}](${origin}${projectPath(slug)}): ${projects[slug].subtitle}${credit(slug)}`).join('\n')}\n\nThese are first-person portfolio case studies. Roles, collaborators, project status and limitations are described on the linked pages. This file is an optional index; it does not establish indexing or AI citation.\n`)
   console.log(`Prerendered ${paths.length} pages; generated sitemap.xml and llms.txt.`)
 } finally {
   await server.close()
