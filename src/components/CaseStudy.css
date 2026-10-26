@@ -105,7 +105,7 @@
 .cs__footer { position: relative; background: #FFFFFF; }
 .cs__footer-img { height: clamp(300px, 46vh, 520px); --y: 70%; }
 .cs__footer-img > img { image-rendering: pixelated; }
-.cs__footer::before { content: ""; position: absolute; inset: 0 0 auto; height: 90px; background: linear-gradient(#FFFFFF, rgba(255,255,255,0)); pointer-events: none; }
+.cs__footer::before { content: ""; position: absolute; inset: 0 0 auto; z-index: 1; height: 90px; background: linear-gradient(#FFFFFF, rgba(255,255,255,0)); pointer-events: none; }
 .cs__footer-line {
   position: absolute; left: 0; right: 0; bottom: 0;
   display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
